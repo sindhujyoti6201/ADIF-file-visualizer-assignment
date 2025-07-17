@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 interface PatientData {
   id: string;
@@ -39,6 +41,7 @@ const HealthcareDashboard: React.FC = () => {
     readmissionRate: 0,
     averageLengthOfStay: 0
   });
+  const [focusedCard, setFocusedCard] = useState<number | null>(null);
 
   // Load data from localStorage
   useEffect(() => {
@@ -382,123 +385,234 @@ const HealthcareDashboard: React.FC = () => {
   }
 
   return (
-    <div style={{
-      padding: '2rem',
-      backgroundColor: '#f8fafc',
-      minHeight: '100vh',
-      fontFamily: 'Inter, system-ui, sans-serif'
-    }}>
+    <div style={{ minHeight: '100vh', width: '100vw', position: 'relative', overflow: 'hidden' }}>
+      {/* <Navbar /> */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          objectFit: 'cover',
+          zIndex: 0,
+          filter: 'brightness(0.7) blur(1px)'
+        }}
+      >
+        <source src="https://catalyzer-fe-public-assets.s3.us-east-1.amazonaws.com/mixkit-glucose-molecule-3768-hd-ready.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div style={{
-        maxWidth: '1400px',
-        margin: '0 auto'
+        position: 'relative',
+        zIndex: 1,
+        width: '100vw',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        paddingTop: '2.5rem',
+        paddingBottom: '7rem',
+        background: 'transparent',
       }}>
         <h1 style={{
-          fontSize: '2.5rem',
+          fontSize: '3.8rem',
           fontWeight: 'bold',
-          color: '#1e293b',
-          marginBottom: '2rem',
-          textAlign: 'center'
+          color: '#111827',
+          marginBottom: '1.5rem',
+          textAlign: 'center',
+          letterSpacing: '0.02em',
+          fontFamily: 'monospace',
+          whiteSpace: 'pre',
+          wordBreak: 'break-word',
         }}>
           Healthcare Analytics Dashboard
         </h1>
-
-        {/* Key Metrics */}
+        <div style={{ height: '1.5rem' }} />
+        {/* Key Metrics and Charts Grid remain unchanged */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '1.5rem',
-          marginBottom: '2rem'
+          maxWidth: '1400px',
+          width: '100%',
         }}>
+          {/* Key Metrics */}
           <div style={{
-            backgroundColor: '#fff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-            borderLeft: '4px solid #3b82f6'
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '1.5rem',
+            marginBottom: '2rem',
+            position: 'relative',
           }}>
-            <h3 style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '0.5rem' }}>Total Patients</h3>
-            <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1e293b', margin: 0 }}>{metrics.totalPatients}</p>
+            {[{
+              title: 'Total Patients',
+              value: metrics.totalPatients,
+              suffix: '',
+            }, {
+              title: 'Average Age',
+              value: metrics.averageAge,
+              suffix: ' years',
+            }, {
+              title: 'Readmission Rate',
+              value: metrics.readmissionRate,
+              suffix: '%',
+            }, {
+              title: 'Avg Length of Stay',
+              value: metrics.averageLengthOfStay,
+              suffix: ' days',
+            }].map((card, idx) => (
+              <div
+                key={card.title}
+                style={{
+                  background: '#f3f4f6',
+                  padding: focusedCard === idx ? '3.5rem 2.5rem' : '2.2rem 1.7rem',
+                  borderRadius: '22px',
+                  boxShadow: focusedCard === idx
+                    ? '0 16px 64px 0 rgba(30,41,59,0.28), 0 4px 32px 0 rgba(30,41,59,0.18)'
+                    : '0 8px 32px 0 rgba(30,41,59,0.18), 0 1.5px 8px 0 rgba(30,41,59,0.10)',
+                  color: '#1e293b',
+                  transition: 'all 0.25s cubic-bezier(.4,2,.6,1)',
+                  cursor: focusedCard === idx ? 'zoom-out' : 'pointer',
+                  border: 'none',
+                  fontFamily: 'Inter, system-ui, sans-serif',
+                  fontWeight: 500,
+                  zIndex: focusedCard === idx ? 10 : 1,
+                  opacity: focusedCard === null || focusedCard === idx ? 1 : 0.25,
+                  filter: focusedCard === null || focusedCard === idx ? 'none' : 'blur(1.5px)',
+                  position: focusedCard === idx ? 'absolute' : 'relative',
+                  left: focusedCard === idx ? '50%' : undefined,
+                  top: focusedCard === idx ? '50%' : undefined,
+                  transform: focusedCard === idx
+                    ? 'translate(-50%, -50%) scale(1.15)'
+                    : 'none',
+                  width: focusedCard === idx ? 'min(600px, 50vw)' : undefined,
+                  minWidth: focusedCard === idx ? '320px' : undefined,
+                  maxWidth: focusedCard === idx ? '600px' : undefined,
+                  height: focusedCard === idx ? 'auto' : undefined,
+                  pointerEvents: focusedCard === null || focusedCard === idx ? 'auto' : 'none',
+                  display: focusedCard === idx ? 'flex' : 'block',
+                  flexDirection: focusedCard === idx ? 'column' : undefined,
+                  alignItems: focusedCard === idx ? 'center' : undefined,
+                  justifyContent: focusedCard === idx ? 'center' : undefined,
+                  textAlign: focusedCard === idx ? 'center' : undefined,
+                }}
+                onClick={e => {
+                  e.stopPropagation();
+                  setFocusedCard(focusedCard === idx ? null : idx);
+                }}
+              >
+                <h3 style={{ color: '#2563eb', fontSize: focusedCard === idx ? '1.5rem' : '1.08rem', marginBottom: '0.5rem', fontWeight: 700 }}>{card.title}</h3>
+                <p style={{ fontSize: focusedCard === idx ? '3.5rem' : '2.3rem', fontWeight: 800, color: '#1e293b', margin: 0 }}>{card.value}{card.suffix}</p>
+              </div>
+            ))}
+            {/* Overlay for click-away to unfocus */}
+            {focusedCard !== null && (
+              <div
+                onClick={() => setFocusedCard(null)}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  zIndex: 5,
+                  background: 'transparent',
+                  cursor: 'pointer',
+                }}
+              />
+            )}
           </div>
+          {/* Charts Grid */}
           <div style={{
-            backgroundColor: '#fff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-            borderLeft: '4px solid #10b981'
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+            gap: '2rem',
+            position: 'relative',
           }}>
-            <h3 style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '0.5rem' }}>Average Age</h3>
-            <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1e293b', margin: 0 }}>{metrics.averageAge} years</p>
-          </div>
-          <div style={{
-            backgroundColor: '#fff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-            borderLeft: '4px solid #f59e0b'
-          }}>
-            <h3 style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '0.5rem' }}>Readmission Rate</h3>
-            <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1e293b', margin: 0 }}>{metrics.readmissionRate}%</p>
-          </div>
-          <div style={{
-            backgroundColor: '#fff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-            borderLeft: '4px solid #ef4444'
-          }}>
-            <h3 style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '0.5rem' }}>Avg Length of Stay</h3>
-            <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1e293b', margin: 0 }}>{metrics.averageLengthOfStay} days</p>
-          </div>
-        </div>
-
-        {/* Charts Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-          gap: '2rem'
-        }}>
-          <div style={{
-            backgroundColor: '#fff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-          }}>
-            <svg ref={svgRef} width="400" height="250"></svg>
-          </div>
-          <div style={{
-            backgroundColor: '#fff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-          }}>
-            <svg ref={barChartRef} width="400" height="250"></svg>
-          </div>
-          <div style={{
-            backgroundColor: '#fff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-          }}>
-            <svg ref={lineChartRef} width="400" height="250"></svg>
-          </div>
-          <div style={{
-            backgroundColor: '#fff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-          }}>
-            <svg ref={pieChartRef} width="300" height="250"></svg>
-          </div>
-          <div style={{
-            backgroundColor: '#fff',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-          }}>
-            <svg ref={scatterPlotRef} width="400" height="250"></svg>
+            {[svgRef, barChartRef, lineChartRef, pieChartRef, scatterPlotRef].map((ref, idx) => (
+              <div
+                key={idx}
+                style={{
+                  background: '#f3f4f6',
+                  padding: focusedCard === idx + 4 ? '3.5rem 2.5rem' : '1.7rem',
+                  borderRadius: '22px',
+                  boxShadow: focusedCard === idx + 4
+                    ? '0 16px 64px 0 rgba(30,41,59,0.28), 0 4px 32px 0 rgba(30,41,59,0.18)'
+                    : '0 8px 32px 0 rgba(30,41,59,0.18), 0 1.5px 8px 0 rgba(30,41,59,0.10)',
+                  color: '#1e293b',
+                  transition: 'all 0.25s cubic-bezier(.4,2,.6,1)',
+                  cursor: focusedCard === idx + 4 ? 'zoom-out' : 'pointer',
+                  border: 'none',
+                  fontFamily: 'Inter, system-ui, sans-serif',
+                  fontWeight: 500,
+                  zIndex: focusedCard === idx + 4 ? 10 : 1,
+                  opacity: focusedCard === null || focusedCard === idx + 4 ? 1 : 0.25,
+                  filter: focusedCard === null || focusedCard === idx + 4 ? 'none' : 'blur(1.5px)',
+                  position: focusedCard === idx + 4 ? 'absolute' : 'relative',
+                  left: focusedCard === idx + 4 ? '50%' : undefined,
+                  top: focusedCard === idx + 4 ? '50%' : undefined,
+                  transform: focusedCard === idx + 4
+                    ? 'translate(-50%, -50%) scale(1.15)'
+                    : 'none',
+                  width: focusedCard === idx + 4 ? 'min(700px, 50vw)' : undefined,
+                  minWidth: focusedCard === idx + 4 ? '340px' : undefined,
+                  maxWidth: focusedCard === idx + 4 ? '700px' : undefined,
+                  height: focusedCard === idx + 4 ? 'min(500px, 60vh)' : undefined,
+                  maxHeight: focusedCard === idx + 4 ? '500px' : undefined,
+                  pointerEvents: focusedCard === null || focusedCard === idx + 4 ? 'auto' : 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: focusedCard === idx + 4 ? 'center' : undefined,
+                }}
+                onClick={e => {
+                  e.stopPropagation();
+                  setFocusedCard(focusedCard === idx + 4 ? null : idx + 4);
+                }}
+              >
+                <div style={{
+                  width: focusedCard === idx + 4 ? '90%' : '100%',
+                  height: focusedCard === idx + 4 ? '80%' : '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto',
+                  transition: 'width 0.25s cubic-bezier(.4,2,.6,1), height 0.25s cubic-bezier(.4,2,.6,1)',
+                }}>
+                  <svg
+                    ref={ref}
+                    width={focusedCard === idx + 4 ? '100%' : 400}
+                    height={focusedCard === idx + 4 ? '100%' : 250}
+                    style={{
+                      transition: 'width 0.25s cubic-bezier(.4,2,.6,1), height 0.25s cubic-bezier(.4,2,.6,1)',
+                      display: 'block',
+                      margin: '0 auto',
+                    }}
+                  ></svg>
+                </div>
+              </div>
+            ))}
+            {focusedCard !== null && (
+              <div
+                onClick={() => setFocusedCard(null)}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  zIndex: 5,
+                  background: 'transparent',
+                  cursor: 'pointer',
+                }}
+              />
+            )}
           </div>
         </div>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 };
