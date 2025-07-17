@@ -95,10 +95,17 @@ If you do **not** have Docker, you can run the backend directly:
 
 **Environment Variables:**
 - The frontend expects the backend to be running at `http://localhost:8000` by default.
-- To change the backend API URL, set the `NEXT_PUBLIC_API_URL` environment variable in a `.env.local` file in the `frontend` directory:
+- **If your backend server is running on a different port or host** (for example, on a remote server or a different port), you must set the `NEXT_PUBLIC_API_URL` environment variable.
+- To do this, create a file named `.env.local` in the `frontend` directory (at the same level as `package.json`).
+- Add the following line to `.env.local` (replace the URL with your backend's actual address):
   ```env
-  NEXT_PUBLIC_API_URL=http://localhost:8000
+  NEXT_PUBLIC_API_URL=http://your-backend-host:your-port
   ```
+  For example, if your backend is running on port 9000:
+  ```env
+  NEXT_PUBLIC_API_URL=http://localhost:9000
+  ```
+- After changing this, restart the frontend dev server (`npm run dev`).
 
 **Troubleshooting:**
 - If you see errors about missing modules, ensure you ran `npm install`.
