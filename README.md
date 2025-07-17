@@ -32,7 +32,7 @@ This product demonstrates:
 
 ### 1. Clone the Repository
 ```bash
-git clone <repo-url>
+git clone git@github.com:sindhujyoti6201/ADIF-file-visualizer-assignment.git
 cd ADIF-file-visualizer-assignment
 ```
 
