@@ -1,0 +1,1434 @@
+{
+    "filename": "healthcare-analytics-data.json",
+    "processing_ms": 2500,
+    "patients": [
+      {
+        "id": "P01",
+        "age": 45,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 8,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 72,
+          "bloodPressure": 140,
+          "temperature": 37.2,
+          "oxygenSaturation": 95
+        }
+      },
+      {
+        "id": "P02",
+        "age": 62,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 5,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 68,
+          "bloodPressure": 135,
+          "temperature": 36.8,
+          "oxygenSaturation": 97
+        }
+      },
+      {
+        "id": "P03",
+        "age": 38,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 12,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 85,
+          "bloodPressure": 125,
+          "temperature": 38.5,
+          "oxygenSaturation": 92
+        }
+      },
+      {
+        "id": "P04",
+        "age": 71,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 3,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 75,
+          "bloodPressure": 160,
+          "temperature": 36.9,
+          "oxygenSaturation": 96
+        }
+      },
+      {
+        "id": "P05",
+        "age": 29,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 15,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 90,
+          "bloodPressure": 130,
+          "temperature": 39.2,
+          "oxygenSaturation": 88
+        }
+      },
+      {
+        "id": "P06",
+        "age": 55,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 10,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 95,
+          "bloodPressure": 145,
+          "temperature": 37.1,
+          "oxygenSaturation": 91
+        }
+      },
+      {
+        "id": "P07",
+        "age": 42,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 14,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 78,
+          "bloodPressure": 150,
+          "temperature": 37,
+          "oxygenSaturation": 94
+        }
+      },
+      {
+        "id": "P08",
+        "age": 68,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 6,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 70,
+          "bloodPressure": 128,
+          "temperature": 36.7,
+          "oxygenSaturation": 98
+        }
+      },
+      {
+        "id": "P09",
+        "age": 33,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 7,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 82,
+          "bloodPressure": 138,
+          "temperature": 37.3,
+          "oxygenSaturation": 93
+        }
+      },
+      {
+        "id": "P10",
+        "age": 59,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 4,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 74,
+          "bloodPressure": 142,
+          "temperature": 36.6,
+          "oxygenSaturation": 95
+        }
+      },
+      {
+        "id": "P11",
+        "age": 47,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 9,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 88,
+          "bloodPressure": 132,
+          "temperature": 38.1,
+          "oxygenSaturation": 90
+        }
+      },
+      {
+        "id": "P12",
+        "age": 76,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 2,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 72,
+          "bloodPressure": 165,
+          "temperature": 36.8,
+          "oxygenSaturation": 97
+        }
+      },
+      {
+        "id": "P13",
+        "age": 31,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 13,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 92,
+          "bloodPressure": 128,
+          "temperature": 39,
+          "oxygenSaturation": 89
+        }
+      },
+      {
+        "id": "P14",
+        "age": 64,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 11,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 98,
+          "bloodPressure": 148,
+          "temperature": 37.2,
+          "oxygenSaturation": 90
+        }
+      },
+      {
+        "id": "P15",
+        "age": 39,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 16,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 76,
+          "bloodPressure": 155,
+          "temperature": 36.9,
+          "oxygenSaturation": 93
+        }
+      },
+      {
+        "id": "P16",
+        "age": 73,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 5,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 68,
+          "bloodPressure": 125,
+          "temperature": 36.5,
+          "oxygenSaturation": 99
+        }
+      },
+      {
+        "id": "P17",
+        "age": 28,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 6,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 80,
+          "bloodPressure": 135,
+          "temperature": 37.1,
+          "oxygenSaturation": 94
+        }
+      },
+      {
+        "id": "P18",
+        "age": 61,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 3,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 71,
+          "bloodPressure": 140,
+          "temperature": 36.7,
+          "oxygenSaturation": 96
+        }
+      },
+      {
+        "id": "P19",
+        "age": 44,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 8,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 86,
+          "bloodPressure": 130,
+          "temperature": 38.3,
+          "oxygenSaturation": 91
+        }
+      },
+      {
+        "id": "P20",
+        "age": 69,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 1,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 73,
+          "bloodPressure": 170,
+          "temperature": 36.9,
+          "oxygenSaturation": 98
+        }
+      },
+      {
+        "id": "P21",
+        "age": 35,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 12,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 89,
+          "bloodPressure": 133,
+          "temperature": 38.8,
+          "oxygenSaturation": 87
+        }
+      },
+      {
+        "id": "P22",
+        "age": 58,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 9,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 93,
+          "bloodPressure": 146,
+          "temperature": 37.4,
+          "oxygenSaturation": 89
+        }
+      },
+      {
+        "id": "P23",
+        "age": 41,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 15,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 77,
+          "bloodPressure": 152,
+          "temperature": 37.1,
+          "oxygenSaturation": 92
+        }
+      },
+      {
+        "id": "P24",
+        "age": 67,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 7,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 69,
+          "bloodPressure": 127,
+          "temperature": 36.6,
+          "oxygenSaturation": 97
+        }
+      },
+      {
+        "id": "P25",
+        "age": 30,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 5,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 81,
+          "bloodPressure": 136,
+          "temperature": 37,
+          "oxygenSaturation": 95
+        }
+      },
+      {
+        "id": "P26",
+        "age": 56,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 6,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 73,
+          "bloodPressure": 141,
+          "temperature": 36.5,
+          "oxygenSaturation": 94
+        }
+      },
+      {
+        "id": "P27",
+        "age": 48,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 10,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 87,
+          "bloodPressure": 131,
+          "temperature": 38.2,
+          "oxygenSaturation": 89
+        }
+      },
+      {
+        "id": "P28",
+        "age": 74,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 4,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 74,
+          "bloodPressure": 168,
+          "temperature": 36.7,
+          "oxygenSaturation": 96
+        }
+      },
+      {
+        "id": "P29",
+        "age": 32,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 14,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 91,
+          "bloodPressure": 129,
+          "temperature": 39.1,
+          "oxygenSaturation": 86
+        }
+      },
+      {
+        "id": "P30",
+        "age": 65,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 8,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 96,
+          "bloodPressure": 147,
+          "temperature": 37.3,
+          "oxygenSaturation": 88
+        }
+      },
+      {
+        "id": "P31",
+        "age": 37,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 17,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 75,
+          "bloodPressure": 153,
+          "temperature": 37.2,
+          "oxygenSaturation": 91
+        }
+      },
+      {
+        "id": "P32",
+        "age": 70,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 4,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 67,
+          "bloodPressure": 124,
+          "temperature": 36.4,
+          "oxygenSaturation": 98
+        }
+      },
+      {
+        "id": "P33",
+        "age": 26,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 7,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 83,
+          "bloodPressure": 137,
+          "temperature": 37.4,
+          "oxygenSaturation": 93
+        }
+      },
+      {
+        "id": "P34",
+        "age": 63,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 5,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 72,
+          "bloodPressure": 143,
+          "temperature": 36.8,
+          "oxygenSaturation": 95
+        }
+      },
+      {
+        "id": "P35",
+        "age": 46,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 11,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 84,
+          "bloodPressure": 134,
+          "temperature": 38.4,
+          "oxygenSaturation": 90
+        }
+      },
+      {
+        "id": "P36",
+        "age": 75,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 3,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 71,
+          "bloodPressure": 166,
+          "temperature": 36.9,
+          "oxygenSaturation": 97
+        }
+      },
+      {
+        "id": "P37",
+        "age": 34,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 13,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 94,
+          "bloodPressure": 127,
+          "temperature": 38.9,
+          "oxygenSaturation": 88
+        }
+      },
+      {
+        "id": "P38",
+        "age": 66,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 12,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 97,
+          "bloodPressure": 149,
+          "temperature": 37.5,
+          "oxygenSaturation": 87
+        }
+      },
+      {
+        "id": "P39",
+        "age": 40,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 18,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 79,
+          "bloodPressure": 154,
+          "temperature": 37,
+          "oxygenSaturation": 92
+        }
+      },
+      {
+        "id": "P40",
+        "age": 72,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 6,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 66,
+          "bloodPressure": 123,
+          "temperature": 36.3,
+          "oxygenSaturation": 99
+        }
+      },
+      {
+        "id": "P41",
+        "age": 27,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 8,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 85,
+          "bloodPressure": 139,
+          "temperature": 37.5,
+          "oxygenSaturation": 94
+        }
+      },
+      {
+        "id": "P42",
+        "age": 60,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 4,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 70,
+          "bloodPressure": 144,
+          "temperature": 36.9,
+          "oxygenSaturation": 96
+        }
+      },
+      {
+        "id": "P43",
+        "age": 49,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 9,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 88,
+          "bloodPressure": 133,
+          "temperature": 38,
+          "oxygenSaturation": 91
+        }
+      },
+      {
+        "id": "P44",
+        "age": 77,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 2,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 73,
+          "bloodPressure": 169,
+          "temperature": 36.8,
+          "oxygenSaturation": 98
+        }
+      },
+      {
+        "id": "P45",
+        "age": 36,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 16,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 93,
+          "bloodPressure": 126,
+          "temperature": 39.3,
+          "oxygenSaturation": 85
+        }
+      },
+      {
+        "id": "P46",
+        "age": 68,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 10,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 99,
+          "bloodPressure": 150,
+          "temperature": 37.6,
+          "oxygenSaturation": 86
+        }
+      },
+      {
+        "id": "P47",
+        "age": 43,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 19,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 78,
+          "bloodPressure": 156,
+          "temperature": 37.1,
+          "oxygenSaturation": 93
+        }
+      },
+      {
+        "id": "P48",
+        "age": 71,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 5,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 65,
+          "bloodPressure": 122,
+          "temperature": 36.2,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P49",
+        "age": 25,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 6,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 86,
+          "bloodPressure": 140,
+          "temperature": 37.6,
+          "oxygenSaturation": 95
+        }
+      },
+      {
+        "id": "P50",
+        "age": 57,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 7,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 69,
+          "bloodPressure": 145,
+          "temperature": 37,
+          "oxygenSaturation": 97
+        }
+      },
+      {
+        "id": "P51",
+        "age": 50,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 12,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 90,
+          "bloodPressure": 135,
+          "temperature": 38.5,
+          "oxygenSaturation": 88
+        }
+      },
+      {
+        "id": "P52",
+        "age": 78,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 1,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 75,
+          "bloodPressure": 172,
+          "temperature": 36.7,
+          "oxygenSaturation": 99
+        }
+      },
+      {
+        "id": "P53",
+        "age": 38,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 15,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 95,
+          "bloodPressure": 125,
+          "temperature": 39.4,
+          "oxygenSaturation": 84
+        }
+      },
+      {
+        "id": "P54",
+        "age": 69,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 11,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 100,
+          "bloodPressure": 151,
+          "temperature": 37.7,
+          "oxygenSaturation": 85
+        }
+      },
+      {
+        "id": "P55",
+        "age": 45,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 20,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 77,
+          "bloodPressure": 157,
+          "temperature": 37.2,
+          "oxygenSaturation": 94
+        }
+      },
+      {
+        "id": "P56",
+        "age": 73,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 4,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 64,
+          "bloodPressure": 121,
+          "temperature": 36.1,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P57",
+        "age": 24,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 5,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 87,
+          "bloodPressure": 141,
+          "temperature": 37.7,
+          "oxygenSaturation": 96
+        }
+      },
+      {
+        "id": "P58",
+        "age": 61,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 6,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 68,
+          "bloodPressure": 146,
+          "temperature": 37.1,
+          "oxygenSaturation": 98
+        }
+      },
+      {
+        "id": "P59",
+        "age": 52,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 13,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 89,
+          "bloodPressure": 136,
+          "temperature": 38.6,
+          "oxygenSaturation": 87
+        }
+      },
+      {
+        "id": "P60",
+        "age": 79,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 3,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 76,
+          "bloodPressure": 173,
+          "temperature": 36.8,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P61",
+        "age": 39,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 14,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 96,
+          "bloodPressure": 124,
+          "temperature": 39.5,
+          "oxygenSaturation": 83
+        }
+      },
+      {
+        "id": "P62",
+        "age": 70,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 12,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 101,
+          "bloodPressure": 152,
+          "temperature": 37.8,
+          "oxygenSaturation": 84
+        }
+      },
+      {
+        "id": "P63",
+        "age": 47,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 21,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 80,
+          "bloodPressure": 158,
+          "temperature": 37.3,
+          "oxygenSaturation": 95
+        }
+      },
+      {
+        "id": "P64",
+        "age": 74,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 5,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 63,
+          "bloodPressure": 120,
+          "temperature": 36,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P65",
+        "age": 23,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 7,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 88,
+          "bloodPressure": 142,
+          "temperature": 37.8,
+          "oxygenSaturation": 97
+        }
+      },
+      {
+        "id": "P66",
+        "age": 62,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 5,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 67,
+          "bloodPressure": 147,
+          "temperature": 37.2,
+          "oxygenSaturation": 99
+        }
+      },
+      {
+        "id": "P67",
+        "age": 54,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 11,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 91,
+          "bloodPressure": 137,
+          "temperature": 38.7,
+          "oxygenSaturation": 86
+        }
+      },
+      {
+        "id": "P68",
+        "age": 80,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 2,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 77,
+          "bloodPressure": 174,
+          "temperature": 36.9,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P69",
+        "age": 41,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 17,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 97,
+          "bloodPressure": 123,
+          "temperature": 39.6,
+          "oxygenSaturation": 82
+        }
+      },
+      {
+        "id": "P70",
+        "age": 71,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 13,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 102,
+          "bloodPressure": 153,
+          "temperature": 37.9,
+          "oxygenSaturation": 83
+        }
+      },
+      {
+        "id": "P71",
+        "age": 49,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 22,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 81,
+          "bloodPressure": 159,
+          "temperature": 37.4,
+          "oxygenSaturation": 96
+        }
+      },
+      {
+        "id": "P72",
+        "age": 75,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 6,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 62,
+          "bloodPressure": 119,
+          "temperature": 35.9,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P73",
+        "age": 22,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 8,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 89,
+          "bloodPressure": 143,
+          "temperature": 37.9,
+          "oxygenSaturation": 98
+        }
+      },
+      {
+        "id": "P74",
+        "age": 63,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 4,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 66,
+          "bloodPressure": 148,
+          "temperature": 37.3,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P75",
+        "age": 56,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 12,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 92,
+          "bloodPressure": 138,
+          "temperature": 38.8,
+          "oxygenSaturation": 85
+        }
+      },
+      {
+        "id": "P76",
+        "age": 81,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 1,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 78,
+          "bloodPressure": 175,
+          "temperature": 37,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P77",
+        "age": 43,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 18,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 98,
+          "bloodPressure": 122,
+          "temperature": 39.7,
+          "oxygenSaturation": 81
+        }
+      },
+      {
+        "id": "P78",
+        "age": 72,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 14,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 103,
+          "bloodPressure": 154,
+          "temperature": 38,
+          "oxygenSaturation": 82
+        }
+      },
+      {
+        "id": "P79",
+        "age": 51,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 23,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 82,
+          "bloodPressure": 160,
+          "temperature": 37.5,
+          "oxygenSaturation": 97
+        }
+      },
+      {
+        "id": "P80",
+        "age": 76,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 7,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 61,
+          "bloodPressure": 118,
+          "temperature": 35.8,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P81",
+        "age": 21,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 9,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 90,
+          "bloodPressure": 144,
+          "temperature": 38,
+          "oxygenSaturation": 99
+        }
+      },
+      {
+        "id": "P82",
+        "age": 64,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 5,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 65,
+          "bloodPressure": 149,
+          "temperature": 37.4,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P83",
+        "age": 58,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 13,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 93,
+          "bloodPressure": 139,
+          "temperature": 38.9,
+          "oxygenSaturation": 84
+        }
+      },
+      {
+        "id": "P84",
+        "age": 82,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 2,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 79,
+          "bloodPressure": 176,
+          "temperature": 37.1,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P85",
+        "age": 45,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 19,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 99,
+          "bloodPressure": 121,
+          "temperature": 39.8,
+          "oxygenSaturation": 80
+        }
+      },
+      {
+        "id": "P86",
+        "age": 73,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 15,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 104,
+          "bloodPressure": 155,
+          "temperature": 38.1,
+          "oxygenSaturation": 81
+        }
+      },
+      {
+        "id": "P87",
+        "age": 53,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 24,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 83,
+          "bloodPressure": 161,
+          "temperature": 37.6,
+          "oxygenSaturation": 98
+        }
+      },
+      {
+        "id": "P88",
+        "age": 77,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 8,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 60,
+          "bloodPressure": 117,
+          "temperature": 35.7,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P89",
+        "age": 20,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 10,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 91,
+          "bloodPressure": 145,
+          "temperature": 38.1,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P90",
+        "age": 65,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 6,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 64,
+          "bloodPressure": 150,
+          "temperature": 37.5,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P91",
+        "age": 60,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 14,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 94,
+          "bloodPressure": 140,
+          "temperature": 39,
+          "oxygenSaturation": 83
+        }
+      },
+      {
+        "id": "P92",
+        "age": 83,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 3,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 80,
+          "bloodPressure": 177,
+          "temperature": 37.2,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P93",
+        "age": 47,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 20,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 100,
+          "bloodPressure": 120,
+          "temperature": 39.9,
+          "oxygenSaturation": 79
+        }
+      },
+      {
+        "id": "P94",
+        "age": 74,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 16,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 105,
+          "bloodPressure": 156,
+          "temperature": 38.2,
+          "oxygenSaturation": 80
+        }
+      },
+      {
+        "id": "P95",
+        "age": 55,
+        "gender": "Male",
+        "diagnosis": "Stroke",
+        "lengthOfStay": 25,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 84,
+          "bloodPressure": 162,
+          "temperature": 37.7,
+          "oxygenSaturation": 99
+        }
+      },
+      {
+        "id": "P96",
+        "age": 78,
+        "gender": "Female",
+        "diagnosis": "Cancer",
+        "lengthOfStay": 9,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 59,
+          "bloodPressure": 116,
+          "temperature": 35.6,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P97",
+        "age": 19,
+        "gender": "Male",
+        "diagnosis": "Cardiovascular Disease",
+        "lengthOfStay": 11,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 92,
+          "bloodPressure": 146,
+          "temperature": 38.2,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P98",
+        "age": 66,
+        "gender": "Female",
+        "diagnosis": "Diabetes",
+        "lengthOfStay": 7,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 63,
+          "bloodPressure": 151,
+          "temperature": 37.6,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P99",
+        "age": 62,
+        "gender": "Male",
+        "diagnosis": "Respiratory Infection",
+        "lengthOfStay": 15,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 95,
+          "bloodPressure": 141,
+          "temperature": 39.1,
+          "oxygenSaturation": 82
+        }
+      },
+      {
+        "id": "P100",
+        "age": 84,
+        "gender": "Female",
+        "diagnosis": "Hypertension",
+        "lengthOfStay": 4,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 81,
+          "bloodPressure": 178,
+          "temperature": 37.3,
+          "oxygenSaturation": 10
+        }
+      },
+      {
+        "id": "P101",
+        "age": 49,
+        "gender": "Male",
+        "diagnosis": "Pneumonia",
+        "lengthOfStay": 21,
+        "readmission": false,
+        "vitalSigns": {
+          "heartRate": 101,
+          "bloodPressure": 119,
+          "temperature": 40,
+          "oxygenSaturation": 78
+        }
+      },
+      {
+        "id": "P102",
+        "age": 75,
+        "gender": "Female",
+        "diagnosis": "Heart Failure",
+        "lengthOfStay": 17,
+        "readmission": true,
+        "vitalSigns": {
+          "heartRate": 106,
+          "bloodPressure": 157,
+          "temperature": 38.3,
+          "oxygenSaturation": 79
+        }
+      }
+    ]
+  }
