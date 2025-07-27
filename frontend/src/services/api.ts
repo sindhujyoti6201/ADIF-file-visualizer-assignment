@@ -11,7 +11,7 @@ export interface UploadResponse {
   features: Feature[];
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://0u1zc3y2jb.execute-api.us-east-1.amazonaws.com/prod';
 
 export async function uploadFile(file: File): Promise<UploadResponse> {
   const formData = new FormData();
