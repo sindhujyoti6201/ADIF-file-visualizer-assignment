@@ -21,3 +21,8 @@ async def upload(file: UploadFile = File(...)):
     with open(json_path, "r") as f:
         response = json.load(f)
     return response
+
+@app.get("/health")
+def health():
+    print("HEALTH CHECK: I AM ALIVE")
+    return {"status": "ok"}
