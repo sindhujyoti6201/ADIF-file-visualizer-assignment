@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import ThreeDVisualization from './ThreeDVisualization';
+import { Toaster, toast } from 'react-hot-toast';
 
 interface PatientData {
   id: string;
@@ -51,10 +53,20 @@ const HealthcareDashboard: React.FC = () => {
         const parsedData = JSON.parse(storedData);
         if (parsedData.patients && Array.isArray(parsedData.patients)) {
           setData(parsedData.patients);
+          toast.success(`Loaded ${parsedData.patients.length} patient records`, {
+            duration: 3000,
+          });
         }
       } catch (error) {
         console.error('Error parsing healthcare data:', error);
+        toast.error('Error loading healthcare data', {
+          duration: 4000,
+        });
       }
+    } else {
+      toast.error('No healthcare data found. Please upload a file first.', {
+        duration: 4000,
+      });
     }
   }, []);
 
@@ -386,6 +398,30 @@ const HealthcareDashboard: React.FC = () => {
 
   return (
     <div style={{ minHeight: '100vh', width: '100vw', position: 'relative', overflow: 'hidden' }}>
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+          success: {
+            duration: 3000,
+            iconTheme: {
+              primary: '#10b981',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            duration: 4000,
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
       {/* <Navbar /> */}
       <video
         autoPlay
@@ -524,6 +560,35 @@ const HealthcareDashboard: React.FC = () => {
               />
             )}
           </div>
+          
+          {/* 3D Visualization */}
+          <div style={{
+            background: '#f3f4f6',
+            padding: '1.7rem',
+            borderRadius: '22px',
+            boxShadow: '0 8px 32px 0 rgba(30,41,59,0.18), 0 1.5px 8px 0 rgba(30,41,59,0.10)',
+            marginBottom: '2rem',
+          }}>
+            <h3 style={{ 
+              color: '#2563eb', 
+              fontSize: '1.2rem', 
+              marginBottom: '1rem', 
+              fontWeight: 700,
+              textAlign: 'center'
+            }}>
+              3D Patient Data Visualization
+            </h3>
+            <p style={{ 
+              color: '#6b7280', 
+              fontSize: '0.9rem', 
+              marginBottom: '1rem',
+              textAlign: 'center'
+            }}>
+              Interactive 3D view showing patient distribution by age (X), heart rate (Y), and length of stay (Z)
+            </p>
+            <ThreeDVisualization data={data} />
+          </div>
+          
           {/* Charts Grid */}
           <div style={{
             display: 'grid',

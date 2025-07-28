@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { uploadFile, Feature } from '../services/api';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Toaster, toast } from 'react-hot-toast';
 
 const TYPING_TEXT = 'ADIF Patient Insights Dashboard';
 
@@ -53,10 +54,21 @@ export default function Home() {
     setFilename(null);
     setError(null);
     
+    // Show initial toast
+    const loadingToast = toast.loading('Uploading file...', {
+      duration: Infinity,
+    });
+    
     try {
       console.log('Starting upload, calling /upload API...');
       const response = await uploadFile(file);
       console.log('API response received:', response);
+      
+      // Update toast to show processing
+      toast.dismiss(loadingToast);
+      const processingToast = toast.loading('Processing healthcare data...', {
+        duration: Infinity,
+      });
       
       // Store the healthcare data in localStorage
       localStorage.setItem('healthcareData', JSON.stringify(response));
@@ -71,6 +83,13 @@ export default function Home() {
       setTimeout(() => {
         console.log('Setting loading to false and redirecting to healthcare');
         setLoading(false);
+        
+        // Show success toast
+        toast.dismiss(processingToast);
+        toast.success('Data processed successfully! Redirecting to dashboard...', {
+          duration: 2000,
+        });
+        
         // Redirect to healthcare dashboard after 3.5 seconds
         router.push('/healthcare');
       }, 3500); // 3.5 seconds delay
@@ -79,11 +98,48 @@ export default function Home() {
       console.error('Upload failed:', err);
       setError('Failed to upload file. Please try again.');
       setLoading(false);
+      
+      // Show error toast
+      toast.dismiss(loadingToast);
+      toast.error('Upload failed. Please try again.', {
+        duration: 4000,
+      });
     }
+  };
+
+  const handleViewDoctors = () => {
+    toast.success('Loading doctors information...', {
+      duration: 2000,
+    });
+    router.push('/doctors');
   };
 
   return (
     <div style={{ minHeight: '100vh', width: '100vw', position: 'relative', overflow: 'hidden' }}>
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+          success: {
+            duration: 3000,
+            iconTheme: {
+              primary: '#10b981',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            duration: 4000,
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
       <Navbar />
       <video
         autoPlay
@@ -195,7 +251,7 @@ export default function Home() {
               .adif-title { font-size: 1.2rem !important; }
             }`}</style>
           </h1>
-          <div style={{ marginBottom: '2.2rem', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', width: '100%' }}>
+          <div style={{ marginBottom: '2.2rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center', width: '100%', gap: '1rem' }}>
             <label
               htmlFor="file-upload"
               style={isHover ? {
@@ -239,13 +295,46 @@ export default function Home() {
                 style={{ display: 'none' }}
                 onChange={e => {
                   const file = e.target.files?.[0];
-                  if (file) handleUpload(file);
+                  if (file) {
+                    toast.success(`File selected: ${file.name}`, {
+                      duration: 2000,
+                    });
+                    handleUpload(file);
+                  }
                 }}
                 disabled={loading}
               />
             </label>
+            
+            <button
+              onClick={handleViewDoctors}
+              style={{
+                display: 'inline-block',
+                padding: '0.95rem 2.5rem',
+                fontSize: '1.25rem',
+                fontWeight: 700,
+                color: '#fff',
+                background: 'transparent',
+                border: '2px solid #fff',
+                borderRadius: '1.5rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                marginBottom: '0',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#fff';
+                e.currentTarget.style.color = '#1e293b';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = '#fff';
+              }}
+            >
+              View Doctors Information
+            </button>
+            
             {filename && (
-              <span style={{ color: '#fff', marginLeft: '1.2rem', fontSize: '1.1rem' }}>{filename}</span>
+              <span style={{ color: '#fff', marginTop: '0.5rem', fontSize: '1.1rem' }}>{filename}</span>
             )}
           </div>
           {error && (
@@ -253,7 +342,7 @@ export default function Home() {
           )}
           {!loading && (
             <div style={{ color: '#e0e7ef', fontSize: '1.08rem', textAlign: 'right', marginTop: '0.5rem', width: '100%' }}>
-              Upload any file to view healthcare analytics dashboard
+              Upload any file to view healthcare analytics dashboard or view doctors information
             </div>
           )}
         </div>

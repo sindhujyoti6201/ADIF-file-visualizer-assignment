@@ -1,0 +1,212 @@
+{
+  "doctors": [
+    {
+      "id": "DOC001",
+      "name": "Dr. Sarah Johnson",
+      "specialization": "Cardiology",
+      "experience": 15,
+      "department": "Cardiology",
+      "patientsCount": 127,
+      "successRate": 94.2,
+      "rating": 4.8,
+      "availability": "Mon-Fri",
+      "location": "Main Hospital",
+      "education": "Harvard Medical School",
+      "certifications": ["Board Certified Cardiologist", "ACLS", "BLS"],
+      "languages": ["English", "Spanish"],
+      "contact": {
+        "email": "sarah.johnson@hospital.com",
+        "phone": "+1-555-0101"
+      },
+      "stats": {
+        "surgeriesPerformed": 45,
+        "patientsRecovered": 119,
+        "researchPapers": 12,
+        "awards": 3
+      }
+    },
+    {
+      "id": "DOC002",
+      "name": "Dr. Michael Chen",
+      "specialization": "Neurology",
+      "experience": 12,
+      "department": "Neurology",
+      "patientsCount": 89,
+      "successRate": 91.5,
+      "rating": 4.7,
+      "availability": "Mon-Sat",
+      "location": "Neurology Center",
+      "education": "Stanford Medical School",
+      "certifications": ["Board Certified Neurologist", "Neurocritical Care"],
+      "languages": ["English", "Mandarin"],
+      "contact": {
+        "email": "michael.chen@hospital.com",
+        "phone": "+1-555-0102"
+      },
+      "stats": {
+        "surgeriesPerformed": 32,
+        "patientsRecovered": 81,
+        "researchPapers": 8,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC003",
+      "name": "Dr. Emily Rodriguez",
+      "specialization": "Pediatrics",
+      "experience": 8,
+      "department": "Pediatrics",
+      "patientsCount": 156,
+      "successRate": 96.8,
+      "rating": 4.9,
+      "availability": "Mon-Fri",
+      "location": "Children's Wing",
+      "education": "Johns Hopkins Medical School",
+      "certifications": ["Board Certified Pediatrician", "PALS"],
+      "languages": ["English", "Spanish", "Portuguese"],
+      "contact": {
+        "email": "emily.rodriguez@hospital.com",
+        "phone": "+1-555-0103"
+      },
+      "stats": {
+        "surgeriesPerformed": 18,
+        "patientsRecovered": 151,
+        "researchPapers": 6,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC004",
+      "name": "Dr. James Wilson",
+      "specialization": "Orthopedics",
+      "experience": 20,
+      "department": "Orthopedics",
+      "patientsCount": 203,
+      "successRate": 93.1,
+      "rating": 4.6,
+      "availability": "Mon-Sat",
+      "location": "Orthopedic Center",
+      "education": "Mayo Clinic Medical School",
+      "certifications": ["Board Certified Orthopedic Surgeon", "Sports Medicine"],
+      "languages": ["English"],
+      "contact": {
+        "email": "james.wilson@hospital.com",
+        "phone": "+1-555-0104"
+      },
+      "stats": {
+        "surgeriesPerformed": 78,
+        "patientsRecovered": 189,
+        "researchPapers": 15,
+        "awards": 4
+      }
+    },
+    {
+      "id": "DOC005",
+      "name": "Dr. Lisa Thompson",
+      "specialization": "Oncology",
+      "experience": 18,
+      "department": "Oncology",
+      "patientsCount": 94,
+      "successRate": 89.4,
+      "rating": 4.8,
+      "availability": "Mon-Fri",
+      "location": "Cancer Center",
+      "education": "MD Anderson Cancer Center",
+      "certifications": ["Board Certified Oncologist", "Hematology"],
+      "languages": ["English", "French"],
+      "contact": {
+        "email": "lisa.thompson@hospital.com",
+        "phone": "+1-555-0105"
+      },
+      "stats": {
+        "surgeriesPerformed": 23,
+        "patientsRecovered": 84,
+        "researchPapers": 20,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC006",
+      "name": "Dr. Robert Kim",
+      "specialization": "Emergency Medicine",
+      "experience": 10,
+      "department": "Emergency",
+      "patientsCount": 312,
+      "successRate": 97.2,
+      "rating": 4.5,
+      "availability": "24/7",
+      "location": "Emergency Department",
+      "education": "UCLA Medical School",
+      "certifications": ["Board Certified Emergency Physician", "ATLS", "ACLS"],
+      "languages": ["English", "Korean"],
+      "contact": {
+        "email": "robert.kim@hospital.com",
+        "phone": "+1-555-0106"
+      },
+      "stats": {
+        "surgeriesPerformed": 156,
+        "patientsRecovered": 303,
+        "researchPapers": 4,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC007",
+      "name": "Dr. Maria Garcia",
+      "specialization": "Psychiatry",
+      "experience": 14,
+      "department": "Psychiatry",
+      "patientsCount": 67,
+      "successRate": 88.9,
+      "rating": 4.7,
+      "availability": "Mon-Fri",
+      "location": "Mental Health Center",
+      "education": "Yale Medical School",
+      "certifications": ["Board Certified Psychiatrist", "Child Psychiatry"],
+      "languages": ["English", "Spanish"],
+      "contact": {
+        "email": "maria.garcia@hospital.com",
+        "phone": "+1-555-0107"
+      },
+      "stats": {
+        "surgeriesPerformed": 0,
+        "patientsRecovered": 60,
+        "researchPapers": 9,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC008",
+      "name": "Dr. David Lee",
+      "specialization": "Dermatology",
+      "experience": 11,
+      "department": "Dermatology",
+      "patientsCount": 178,
+      "successRate": 95.5,
+      "rating": 4.6,
+      "availability": "Mon-Sat",
+      "location": "Dermatology Clinic",
+      "education": "Duke Medical School",
+      "certifications": ["Board Certified Dermatologist", "Mohs Surgery"],
+      "languages": ["English", "Mandarin"],
+      "contact": {
+        "email": "david.lee@hospital.com",
+        "phone": "+1-555-0108"
+      },
+      "stats": {
+        "surgeriesPerformed": 89,
+        "patientsRecovered": 170,
+        "researchPapers": 7,
+        "awards": 2
+      }
+    }
+  ],
+  "summary": {
+    "totalDoctors": 8,
+    "averageExperience": 13.5,
+    "averageRating": 4.7,
+    "averageSuccessRate": 93.3,
+    "totalPatients": 1226,
+    "departments": ["Cardiology", "Neurology", "Pediatrics", "Orthopedics", "Oncology", "Emergency", "Psychiatry", "Dermatology"]
+  }
+} 
