@@ -1,12 +1,12 @@
 # ADIF File Visualizer
 
-A modern web application for visualizing ADIF (Amateur Data Interchange Format) files with advanced healthcare data visualization capabilities, including **3D visualization** and **real-time user feedback**.
+A modern web application for visualizing ADIF (Amateur Data Interchange Format) files with advanced healthcare data visualization capabilities and **real-time user feedback**.
 
 ## ✨ Features
 
 - **📁 File Upload**: Upload any file to trigger healthcare data simulation
 - **📊 Interactive 2D Charts**: Age distribution, diagnosis breakdown, vital signs trends
-- **🎯 3D Data Visualization**: Interactive 3D scatter plot showing patient data in 3D space
+
 - **🔔 Toast Notifications**: Real-time user feedback during processing
 - **📱 Responsive Design**: Modern UI with smooth animations
 - **🏥 Healthcare Analytics**: Comprehensive patient data analysis
@@ -43,16 +43,7 @@ A modern web application for visualizing ADIF (Amateur Data Interchange Format) 
    - Frontend: http://localhost:3000
    - Backend API: http://localhost:8080
 
-## 🎯 3D Visualization Features
 
-The application now includes an interactive **3D visualization** that displays patient data in three-dimensional space:
-
-- **X-Axis**: Patient Age (0-100 years)
-- **Y-Axis**: Heart Rate (0-200 bpm)
-- **Z-Axis**: Length of Stay (0-30 days)
-- **Color Coding**: Red spheres for readmitted patients, green for non-readmitted
-- **Interactive Rotation**: Automatic slow rotation for better data exploration
-- **Real-time Rendering**: Smooth 60fps 3D graphics using Three.js
 
 ## 🔔 Toast Notification System
 
@@ -80,16 +71,12 @@ Enhanced user experience with real-time feedback:
 - **Gender Distribution**: Pie chart of patient gender
 - **Age vs Length of Stay**: Scatter plot with readmission indicators
 
-### 3D Visualization
-- **Interactive 3D Scatter Plot**: Patient data in 3D space
-- **Automatic Rotation**: Continuous rotation for data exploration
-- **Color-coded Points**: Visual distinction between patient types
-- **Responsive Design**: Adapts to different screen sizes
+
 
 ## 🛠️ Technology Stack
 
 - **Frontend**: Next.js, React, TypeScript
-- **3D Graphics**: Three.js
+
 - **Charts**: D3.js
 - **Styling**: Tailwind CSS
 - **Notifications**: React Hot Toast
@@ -109,7 +96,7 @@ ADIF-file-visualizer-assignment/
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── HealthcareDashboard.tsx
-│   │   │   ├── ThreeDVisualization.tsx  # NEW: 3D component
+
 │   │   │   ├── Navbar.tsx
 │   │   │   └── Footer.tsx
 │   │   ├── pages/
@@ -197,7 +184,7 @@ This project is licensed under the MIT License.
 ---
 
 **🎉 New Features Added:**
-- ✅ **3D Data Visualization** with Three.js
+
 - ✅ **Toast Notification System** with React Hot Toast
 - ✅ **Enhanced User Experience** with real-time feedback
 - ✅ **Improved Error Handling** with clear user messages

@@ -1,12 +1,11 @@
-version: '3.8'
+
 services:
   backend:
     build: ./backend
     container_name: adif-backend
     ports:
       - "8080:8080"
-    volumes:
-      - backend_data:/app/data
+    
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
       interval: 30s
@@ -16,5 +15,3 @@ services:
 
   
 
-volumes:
-  backend_data:
