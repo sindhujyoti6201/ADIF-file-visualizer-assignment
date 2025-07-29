@@ -1,0 +1,98 @@
+{
+  "patient": {
+    "name": "Michelle",
+    "age": 34,
+    "gender": "Female",
+    "bloodType": "O+",
+    "height": "5'6\"",
+    "weight": "145 lbs",
+    "allergies": ["Penicillin", "Shellfish", "Dust"],
+    "currentMedications": ["Metformin", "Vitamin D", "Omega-3"],
+    "disorders": [
+      {
+        "name": "Type 2 Diabetes",
+        "severity": "Medium",
+        "description": "A chronic condition affecting how your body metabolizes glucose.",
+        "symptoms": ["Increased thirst", "Frequent urination", "Fatigue"],
+        "treatment": "Lifestyle changes, medication, regular monitoring",
+        "progress": 75
+      },
+      {
+        "name": "Hypertension",
+        "severity": "Low",
+        "description": "High blood pressure requiring monitoring and management.",
+        "symptoms": ["Headaches", "Shortness of breath", "Chest pain"],
+        "treatment": "Medication, diet changes, exercise",
+        "progress": 90
+      }
+    ],
+    "recommendedDoctors": [
+      {
+        "id": "1",
+        "name": "Dr. Michael Chen",
+        "specialization": "Endocrinologist",
+        "hospital": "City General Hospital",
+        "rating": 4.8,
+        "experience": "15 years",
+        "availability": ["Mon", "Wed", "Fri"],
+        "contact": "+1 (555) 123-4567",
+        "image": "👨‍⚕️"
+      },
+      {
+        "id": "2",
+        "name": "Dr. Emily Rodriguez",
+        "specialization": "Cardiologist",
+        "hospital": "Heart Care Center",
+        "rating": 4.9,
+        "experience": "12 years",
+        "availability": ["Tue", "Thu", "Sat"],
+        "contact": "+1 (555) 234-5678",
+        "image": "👩‍⚕️"
+      },
+      {
+        "id": "3",
+        "name": "Dr. James Wilson",
+        "specialization": "Primary Care Physician",
+        "hospital": "Family Medical Group",
+        "rating": 4.7,
+        "experience": "18 years",
+        "availability": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+        "contact": "+1 (555) 345-6789",
+        "image": "👨‍⚕️"
+      }
+    ],
+    "recentTests": [
+      {
+        "name": "Blood Glucose Test",
+        "date": "2024-01-15",
+        "result": "140 mg/dL",
+        "status": "Abnormal"
+      },
+      {
+        "name": "Blood Pressure",
+        "date": "2024-01-15",
+        "result": "135/85 mmHg",
+        "status": "Normal"
+      },
+      {
+        "name": "HbA1c Test",
+        "date": "2024-01-10",
+        "result": "7.2%",
+        "status": "Abnormal"
+      }
+    ],
+    "riskFactors": ["Family history of diabetes", "Sedentary lifestyle", "Obesity"]
+  },
+  "analysis": {
+    "overallHealthScore": 72,
+    "riskLevel": "Medium",
+    "recommendations": [
+      "Continue monitoring blood glucose levels",
+      "Maintain regular exercise routine",
+      "Follow up with endocrinologist in 3 months",
+      "Consider dietary consultation"
+    ],
+    "nextAppointment": "2024-02-15",
+    "emergencyContact": "+1 (555) 999-8888"
+  }
+} 

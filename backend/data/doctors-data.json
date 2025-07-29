@@ -1,0 +1,1761 @@
+{
+  "doctors": [
+    {
+      "id": "DOC001",
+      "name": "Dr. Jennifer Anderson",
+      "specialization": "Emergency",
+      "experience": 25,
+      "department": "Emergency",
+      "patientsCount": 353,
+      "successRate": 89.6,
+      "rating": 4.1,
+      "availability": "Mon-Sat",
+      "location": "Emergency Department",
+      "education": "Yale Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "contact": {
+        "email": "doctor1@hospital.com",
+        "phone": "+1-555-0001"
+      },
+      "stats": {
+        "surgeriesPerformed": 61,
+        "patientsRecovered": 317,
+        "researchPapers": 16,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC002",
+      "name": "Dr. Amanda Chen",
+      "specialization": "Emergency",
+      "experience": 12,
+      "department": "Emergency",
+      "patientsCount": 262,
+      "successRate": 85.7,
+      "rating": 4.3,
+      "availability": "Mon-Sat",
+      "location": "Emergency Department",
+      "education": "Duke Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor2@hospital.com",
+        "phone": "+1-555-0002"
+      },
+      "stats": {
+        "surgeriesPerformed": 39,
+        "patientsRecovered": 235,
+        "researchPapers": 4,
+        "awards": 4
+      }
+    },
+    {
+      "id": "DOC003",
+      "name": "Dr. Jessica White",
+      "specialization": "Emergency",
+      "experience": 11,
+      "department": "Emergency",
+      "patientsCount": 90,
+      "successRate": 93.0,
+      "rating": 4.4,
+      "availability": "Mon-Sat",
+      "location": "Emergency Department",
+      "education": "Stanford Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor3@hospital.com",
+        "phone": "+1-555-0003"
+      },
+      "stats": {
+        "surgeriesPerformed": 40,
+        "patientsRecovered": 81,
+        "researchPapers": 25,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC004",
+      "name": "Dr. Michelle White",
+      "specialization": "Emergency",
+      "experience": 18,
+      "department": "Emergency",
+      "patientsCount": 187,
+      "successRate": 88.6,
+      "rating": 4.1,
+      "availability": "Mon-Sat",
+      "location": "Emergency Department",
+      "education": "Mayo Clinic Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English"
+      ],
+      "contact": {
+        "email": "doctor4@hospital.com",
+        "phone": "+1-555-0004"
+      },
+      "stats": {
+        "surgeriesPerformed": 28,
+        "patientsRecovered": 168,
+        "researchPapers": 19,
+        "awards": 4
+      }
+    },
+    {
+      "id": "DOC005",
+      "name": "Dr. Rachel Martinez",
+      "specialization": "Emergency",
+      "experience": 19,
+      "department": "Emergency",
+      "patientsCount": 175,
+      "successRate": 91.4,
+      "rating": 4.4,
+      "availability": "24/7",
+      "location": "Emergency Department",
+      "education": "Columbia Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
+      "contact": {
+        "email": "doctor5@hospital.com",
+        "phone": "+1-555-0005"
+      },
+      "stats": {
+        "surgeriesPerformed": 141,
+        "patientsRecovered": 157,
+        "researchPapers": 5,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC006",
+      "name": "Dr. Kevin Garcia",
+      "specialization": "Emergency",
+      "experience": 23,
+      "department": "Emergency",
+      "patientsCount": 222,
+      "successRate": 92.4,
+      "rating": 4.6,
+      "availability": "Mon-Sat",
+      "location": "Emergency Department",
+      "education": "Mayo Clinic Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor6@hospital.com",
+        "phone": "+1-555-0006"
+      },
+      "stats": {
+        "surgeriesPerformed": 160,
+        "patientsRecovered": 199,
+        "researchPapers": 9,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC007",
+      "name": "Dr. Kevin Anderson",
+      "specialization": "Emergency",
+      "experience": 10,
+      "department": "Emergency",
+      "patientsCount": 216,
+      "successRate": 96.7,
+      "rating": 4.7,
+      "availability": "Mon-Sat",
+      "location": "Emergency Department",
+      "education": "Columbia Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor7@hospital.com",
+        "phone": "+1-555-0007"
+      },
+      "stats": {
+        "surgeriesPerformed": 184,
+        "patientsRecovered": 194,
+        "researchPapers": 27,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC008",
+      "name": "Dr. Rachel Thompson",
+      "specialization": "Emergency",
+      "experience": 14,
+      "department": "Emergency",
+      "patientsCount": 378,
+      "successRate": 94.7,
+      "rating": 5.0,
+      "availability": "Mon-Fri",
+      "location": "Emergency Department",
+      "education": "Harvard Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor8@hospital.com",
+        "phone": "+1-555-0008"
+      },
+      "stats": {
+        "surgeriesPerformed": 163,
+        "patientsRecovered": 340,
+        "researchPapers": 27,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC009",
+      "name": "Dr. David Kim",
+      "specialization": "Emergency",
+      "experience": 8,
+      "department": "Emergency",
+      "patientsCount": 98,
+      "successRate": 94.1,
+      "rating": 4.4,
+      "availability": "Mon-Sat",
+      "location": "Emergency Department",
+      "education": "Harvard Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "contact": {
+        "email": "doctor9@hospital.com",
+        "phone": "+1-555-0009"
+      },
+      "stats": {
+        "surgeriesPerformed": 165,
+        "patientsRecovered": 88,
+        "researchPapers": 19,
+        "awards": 6
+      }
+    },
+    {
+      "id": "DOC010",
+      "name": "Dr. Daniel Kim",
+      "specialization": "Emergency",
+      "experience": 21,
+      "department": "Emergency",
+      "patientsCount": 296,
+      "successRate": 86.4,
+      "rating": 4.2,
+      "availability": "24/7",
+      "location": "Emergency Department",
+      "education": "Harvard Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor10@hospital.com",
+        "phone": "+1-555-0010"
+      },
+      "stats": {
+        "surgeriesPerformed": 57,
+        "patientsRecovered": 266,
+        "researchPapers": 25,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC011",
+      "name": "Dr. Robert Wilson",
+      "specialization": "Emergency",
+      "experience": 14,
+      "department": "Emergency",
+      "patientsCount": 299,
+      "successRate": 87.2,
+      "rating": 4.4,
+      "availability": "Mon-Sat",
+      "location": "Emergency Department",
+      "education": "Johns Hopkins Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English"
+      ],
+      "contact": {
+        "email": "doctor11@hospital.com",
+        "phone": "+1-555-0011"
+      },
+      "stats": {
+        "surgeriesPerformed": 9,
+        "patientsRecovered": 269,
+        "researchPapers": 10,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC012",
+      "name": "Dr. Lisa Williams",
+      "specialization": "Emergency",
+      "experience": 11,
+      "department": "Emergency",
+      "patientsCount": 369,
+      "successRate": 90.6,
+      "rating": 4.0,
+      "availability": "Mon-Sat",
+      "location": "Emergency Department",
+      "education": "Mayo Clinic Medical School",
+      "certifications": [
+        "Board Certified Emergency Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor12@hospital.com",
+        "phone": "+1-555-0012"
+      },
+      "stats": {
+        "surgeriesPerformed": 115,
+        "patientsRecovered": 332,
+        "researchPapers": 28,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC013",
+      "name": "Dr. Emily Garcia",
+      "specialization": "Orthopedics",
+      "experience": 13,
+      "department": "Orthopedics",
+      "patientsCount": 228,
+      "successRate": 86.1,
+      "rating": 4.5,
+      "availability": "Mon-Fri",
+      "location": "Orthopedics Center",
+      "education": "Johns Hopkins Medical School",
+      "certifications": [
+        "Board Certified Orthopedics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "Portuguese"
+      ],
+      "contact": {
+        "email": "doctor13@hospital.com",
+        "phone": "+1-555-0013"
+      },
+      "stats": {
+        "surgeriesPerformed": 75,
+        "patientsRecovered": 205,
+        "researchPapers": 2,
+        "awards": 6
+      }
+    },
+    {
+      "id": "DOC014",
+      "name": "Dr. Thomas Wilson",
+      "specialization": "Orthopedics",
+      "experience": 16,
+      "department": "Orthopedics",
+      "patientsCount": 141,
+      "successRate": 96.7,
+      "rating": 4.2,
+      "availability": "Mon-Sat",
+      "location": "Orthopedics Center",
+      "education": "Mayo Clinic Medical School",
+      "certifications": [
+        "Board Certified Orthopedics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor14@hospital.com",
+        "phone": "+1-555-0014"
+      },
+      "stats": {
+        "surgeriesPerformed": 85,
+        "patientsRecovered": 126,
+        "researchPapers": 2,
+        "awards": 6
+      }
+    },
+    {
+      "id": "DOC015",
+      "name": "Dr. Nicole Garcia",
+      "specialization": "Orthopedics",
+      "experience": 14,
+      "department": "Orthopedics",
+      "patientsCount": 60,
+      "successRate": 94.3,
+      "rating": 4.0,
+      "availability": "Mon-Sat",
+      "location": "Orthopedics Center",
+      "education": "Columbia Medical School",
+      "certifications": [
+        "Board Certified Orthopedics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor15@hospital.com",
+        "phone": "+1-555-0015"
+      },
+      "stats": {
+        "surgeriesPerformed": 132,
+        "patientsRecovered": 54,
+        "researchPapers": 16,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC016",
+      "name": "Dr. Sophia Anderson",
+      "specialization": "Orthopedics",
+      "experience": 14,
+      "department": "Orthopedics",
+      "patientsCount": 159,
+      "successRate": 91.7,
+      "rating": 4.0,
+      "availability": "Mon-Fri",
+      "location": "Orthopedics Center",
+      "education": "Yale Medical School",
+      "certifications": [
+        "Board Certified Orthopedics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor16@hospital.com",
+        "phone": "+1-555-0016"
+      },
+      "stats": {
+        "surgeriesPerformed": 7,
+        "patientsRecovered": 143,
+        "researchPapers": 25,
+        "awards": 6
+      }
+    },
+    {
+      "id": "DOC017",
+      "name": "Dr. Daniel Taylor",
+      "specialization": "Orthopedics",
+      "experience": 19,
+      "department": "Orthopedics",
+      "patientsCount": 254,
+      "successRate": 92.0,
+      "rating": 4.3,
+      "availability": "Mon-Sat",
+      "location": "Orthopedics Center",
+      "education": "Duke Medical School",
+      "certifications": [
+        "Board Certified Orthopedics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor17@hospital.com",
+        "phone": "+1-555-0017"
+      },
+      "stats": {
+        "surgeriesPerformed": 101,
+        "patientsRecovered": 228,
+        "researchPapers": 19,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC018",
+      "name": "Dr. James Wilson",
+      "specialization": "Orthopedics",
+      "experience": 15,
+      "department": "Orthopedics",
+      "patientsCount": 154,
+      "successRate": 90.7,
+      "rating": 5.0,
+      "availability": "Mon-Sat",
+      "location": "Orthopedics Center",
+      "education": "Columbia Medical School",
+      "certifications": [
+        "Board Certified Orthopedics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "Portuguese"
+      ],
+      "contact": {
+        "email": "doctor18@hospital.com",
+        "phone": "+1-555-0018"
+      },
+      "stats": {
+        "surgeriesPerformed": 168,
+        "patientsRecovered": 138,
+        "researchPapers": 16,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC019",
+      "name": "Dr. Lisa Lee",
+      "specialization": "Orthopedics",
+      "experience": 14,
+      "department": "Orthopedics",
+      "patientsCount": 302,
+      "successRate": 90.2,
+      "rating": 4.8,
+      "availability": "24/7",
+      "location": "Orthopedics Center",
+      "education": "Duke Medical School",
+      "certifications": [
+        "Board Certified Orthopedics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor19@hospital.com",
+        "phone": "+1-555-0019"
+      },
+      "stats": {
+        "surgeriesPerformed": 172,
+        "patientsRecovered": 271,
+        "researchPapers": 8,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC020",
+      "name": "Dr. Daniel Garcia",
+      "specialization": "Orthopedics",
+      "experience": 7,
+      "department": "Orthopedics",
+      "patientsCount": 55,
+      "successRate": 92.6,
+      "rating": 5.0,
+      "availability": "Mon-Sat",
+      "location": "Orthopedics Center",
+      "education": "Duke Medical School",
+      "certifications": [
+        "Board Certified Orthopedics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor20@hospital.com",
+        "phone": "+1-555-0020"
+      },
+      "stats": {
+        "surgeriesPerformed": 108,
+        "patientsRecovered": 49,
+        "researchPapers": 22,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC021",
+      "name": "Dr. Sophia Wilson",
+      "specialization": "Orthopedics",
+      "experience": 20,
+      "department": "Orthopedics",
+      "patientsCount": 159,
+      "successRate": 89.8,
+      "rating": 4.7,
+      "availability": "24/7",
+      "location": "Orthopedics Center",
+      "education": "Stanford Medical School",
+      "certifications": [
+        "Board Certified Orthopedics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "Portuguese"
+      ],
+      "contact": {
+        "email": "doctor21@hospital.com",
+        "phone": "+1-555-0021"
+      },
+      "stats": {
+        "surgeriesPerformed": 94,
+        "patientsRecovered": 143,
+        "researchPapers": 22,
+        "awards": 4
+      }
+    },
+    {
+      "id": "DOC022",
+      "name": "Dr. Rachel Martinez",
+      "specialization": "Orthopedics",
+      "experience": 16,
+      "department": "Orthopedics",
+      "patientsCount": 339,
+      "successRate": 95.4,
+      "rating": 4.5,
+      "availability": "24/7",
+      "location": "Orthopedics Center",
+      "education": "Mayo Clinic Medical School",
+      "certifications": [
+        "Board Certified Orthopedics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor22@hospital.com",
+        "phone": "+1-555-0022"
+      },
+      "stats": {
+        "surgeriesPerformed": 129,
+        "patientsRecovered": 305,
+        "researchPapers": 9,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC023",
+      "name": "Dr. Thomas Taylor",
+      "specialization": "Cardiology",
+      "experience": 22,
+      "department": "Cardiology",
+      "patientsCount": 295,
+      "successRate": 94.4,
+      "rating": 4.4,
+      "availability": "Mon-Fri",
+      "location": "Cardiology Center",
+      "education": "Harvard Medical School",
+      "certifications": [
+        "Board Certified Cardiology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor23@hospital.com",
+        "phone": "+1-555-0023"
+      },
+      "stats": {
+        "surgeriesPerformed": 104,
+        "patientsRecovered": 265,
+        "researchPapers": 11,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC024",
+      "name": "Dr. Lisa Anderson",
+      "specialization": "Cardiology",
+      "experience": 8,
+      "department": "Cardiology",
+      "patientsCount": 295,
+      "successRate": 92.3,
+      "rating": 4.7,
+      "availability": "Mon-Fri",
+      "location": "Cardiology Center",
+      "education": "Columbia Medical School",
+      "certifications": [
+        "Board Certified Cardiology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
+      "contact": {
+        "email": "doctor24@hospital.com",
+        "phone": "+1-555-0024"
+      },
+      "stats": {
+        "surgeriesPerformed": 10,
+        "patientsRecovered": 265,
+        "researchPapers": 21,
+        "awards": 6
+      }
+    },
+    {
+      "id": "DOC025",
+      "name": "Dr. Robert Chen",
+      "specialization": "Cardiology",
+      "experience": 19,
+      "department": "Cardiology",
+      "patientsCount": 268,
+      "successRate": 88.6,
+      "rating": 4.1,
+      "availability": "24/7",
+      "location": "Cardiology Center",
+      "education": "Harvard Medical School",
+      "certifications": [
+        "Board Certified Cardiology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "Portuguese"
+      ],
+      "contact": {
+        "email": "doctor25@hospital.com",
+        "phone": "+1-555-0025"
+      },
+      "stats": {
+        "surgeriesPerformed": 76,
+        "patientsRecovered": 241,
+        "researchPapers": 30,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC026",
+      "name": "Dr. Rachel Thompson",
+      "specialization": "Cardiology",
+      "experience": 14,
+      "department": "Cardiology",
+      "patientsCount": 257,
+      "successRate": 86.0,
+      "rating": 4.3,
+      "availability": "24/7",
+      "location": "Cardiology Center",
+      "education": "UCLA Medical School",
+      "certifications": [
+        "Board Certified Cardiology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
+      "contact": {
+        "email": "doctor26@hospital.com",
+        "phone": "+1-555-0026"
+      },
+      "stats": {
+        "surgeriesPerformed": 177,
+        "patientsRecovered": 231,
+        "researchPapers": 17,
+        "awards": 3
+      }
+    },
+    {
+      "id": "DOC027",
+      "name": "Dr. Jennifer Johnson",
+      "specialization": "Cardiology",
+      "experience": 24,
+      "department": "Cardiology",
+      "patientsCount": 202,
+      "successRate": 90.3,
+      "rating": 4.6,
+      "availability": "24/7",
+      "location": "Cardiology Center",
+      "education": "Duke Medical School",
+      "certifications": [
+        "Board Certified Cardiology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor27@hospital.com",
+        "phone": "+1-555-0027"
+      },
+      "stats": {
+        "surgeriesPerformed": 147,
+        "patientsRecovered": 181,
+        "researchPapers": 21,
+        "awards": 6
+      }
+    },
+    {
+      "id": "DOC028",
+      "name": "Dr. Christopher Johnson",
+      "specialization": "Cardiology",
+      "experience": 25,
+      "department": "Cardiology",
+      "patientsCount": 124,
+      "successRate": 95.3,
+      "rating": 4.6,
+      "availability": "Mon-Sat",
+      "location": "Cardiology Center",
+      "education": "UCLA Medical School",
+      "certifications": [
+        "Board Certified Cardiology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor28@hospital.com",
+        "phone": "+1-555-0028"
+      },
+      "stats": {
+        "surgeriesPerformed": 101,
+        "patientsRecovered": 111,
+        "researchPapers": 28,
+        "awards": 6
+      }
+    },
+    {
+      "id": "DOC029",
+      "name": "Dr. Michelle Johnson",
+      "specialization": "Cardiology",
+      "experience": 17,
+      "department": "Cardiology",
+      "patientsCount": 93,
+      "successRate": 89.6,
+      "rating": 4.1,
+      "availability": "Mon-Fri",
+      "location": "Cardiology Center",
+      "education": "Stanford Medical School",
+      "certifications": [
+        "Board Certified Cardiology Specialist"
+      ],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "contact": {
+        "email": "doctor29@hospital.com",
+        "phone": "+1-555-0029"
+      },
+      "stats": {
+        "surgeriesPerformed": 107,
+        "patientsRecovered": 83,
+        "researchPapers": 15,
+        "awards": 6
+      }
+    },
+    {
+      "id": "DOC030",
+      "name": "Dr. Jennifer Kim",
+      "specialization": "Cardiology",
+      "experience": 22,
+      "department": "Cardiology",
+      "patientsCount": 311,
+      "successRate": 86.0,
+      "rating": 4.3,
+      "availability": "Mon-Fri",
+      "location": "Cardiology Center",
+      "education": "UCLA Medical School",
+      "certifications": [
+        "Board Certified Cardiology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor30@hospital.com",
+        "phone": "+1-555-0030"
+      },
+      "stats": {
+        "surgeriesPerformed": 44,
+        "patientsRecovered": 279,
+        "researchPapers": 5,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC031",
+      "name": "Dr. Nicole Garcia",
+      "specialization": "Pediatrics",
+      "experience": 9,
+      "department": "Pediatrics",
+      "patientsCount": 140,
+      "successRate": 93.2,
+      "rating": 4.6,
+      "availability": "Mon-Sat",
+      "location": "Pediatrics Center",
+      "education": "Columbia Medical School",
+      "certifications": [
+        "Board Certified Pediatrics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "Portuguese"
+      ],
+      "contact": {
+        "email": "doctor31@hospital.com",
+        "phone": "+1-555-0031"
+      },
+      "stats": {
+        "surgeriesPerformed": 117,
+        "patientsRecovered": 126,
+        "researchPapers": 2,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC032",
+      "name": "Dr. Daniel Johnson",
+      "specialization": "Pediatrics",
+      "experience": 15,
+      "department": "Pediatrics",
+      "patientsCount": 83,
+      "successRate": 86.7,
+      "rating": 4.1,
+      "availability": "Mon-Sat",
+      "location": "Pediatrics Center",
+      "education": "Johns Hopkins Medical School",
+      "certifications": [
+        "Board Certified Pediatrics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
+      "contact": {
+        "email": "doctor32@hospital.com",
+        "phone": "+1-555-0032"
+      },
+      "stats": {
+        "surgeriesPerformed": 177,
+        "patientsRecovered": 74,
+        "researchPapers": 2,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC033",
+      "name": "Dr. Jessica Lee",
+      "specialization": "Pediatrics",
+      "experience": 14,
+      "department": "Pediatrics",
+      "patientsCount": 285,
+      "successRate": 92.7,
+      "rating": 4.6,
+      "availability": "Mon-Sat",
+      "location": "Pediatrics Center",
+      "education": "Stanford Medical School",
+      "certifications": [
+        "Board Certified Pediatrics Specialist"
+      ],
+      "languages": [
+        "English"
+      ],
+      "contact": {
+        "email": "doctor33@hospital.com",
+        "phone": "+1-555-0033"
+      },
+      "stats": {
+        "surgeriesPerformed": 130,
+        "patientsRecovered": 256,
+        "researchPapers": 23,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC034",
+      "name": "Dr. Alexander Johnson",
+      "specialization": "Pediatrics",
+      "experience": 25,
+      "department": "Pediatrics",
+      "patientsCount": 151,
+      "successRate": 87.2,
+      "rating": 4.7,
+      "availability": "Mon-Sat",
+      "location": "Pediatrics Center",
+      "education": "Duke Medical School",
+      "certifications": [
+        "Board Certified Pediatrics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor34@hospital.com",
+        "phone": "+1-555-0034"
+      },
+      "stats": {
+        "surgeriesPerformed": 25,
+        "patientsRecovered": 135,
+        "researchPapers": 12,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC035",
+      "name": "Dr. Rachel Williams",
+      "specialization": "Pediatrics",
+      "experience": 10,
+      "department": "Pediatrics",
+      "patientsCount": 115,
+      "successRate": 87.8,
+      "rating": 4.6,
+      "availability": "Mon-Fri",
+      "location": "Pediatrics Center",
+      "education": "Yale Medical School",
+      "certifications": [
+        "Board Certified Pediatrics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "Portuguese"
+      ],
+      "contact": {
+        "email": "doctor35@hospital.com",
+        "phone": "+1-555-0035"
+      },
+      "stats": {
+        "surgeriesPerformed": 28,
+        "patientsRecovered": 103,
+        "researchPapers": 20,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC036",
+      "name": "Dr. Jennifer Williams",
+      "specialization": "Pediatrics",
+      "experience": 6,
+      "department": "Pediatrics",
+      "patientsCount": 248,
+      "successRate": 91.9,
+      "rating": 5.0,
+      "availability": "Mon-Fri",
+      "location": "Pediatrics Center",
+      "education": "Duke Medical School",
+      "certifications": [
+        "Board Certified Pediatrics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor36@hospital.com",
+        "phone": "+1-555-0036"
+      },
+      "stats": {
+        "surgeriesPerformed": 152,
+        "patientsRecovered": 223,
+        "researchPapers": 13,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC037",
+      "name": "Dr. Sophia Brown",
+      "specialization": "Pediatrics",
+      "experience": 11,
+      "department": "Pediatrics",
+      "patientsCount": 359,
+      "successRate": 94.6,
+      "rating": 5.0,
+      "availability": "24/7",
+      "location": "Pediatrics Center",
+      "education": "Johns Hopkins Medical School",
+      "certifications": [
+        "Board Certified Pediatrics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor37@hospital.com",
+        "phone": "+1-555-0037"
+      },
+      "stats": {
+        "surgeriesPerformed": 24,
+        "patientsRecovered": 323,
+        "researchPapers": 4,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC038",
+      "name": "Dr. Jennifer Anderson",
+      "specialization": "Pediatrics",
+      "experience": 25,
+      "department": "Pediatrics",
+      "patientsCount": 290,
+      "successRate": 95.8,
+      "rating": 4.2,
+      "availability": "Mon-Fri",
+      "location": "Pediatrics Center",
+      "education": "Johns Hopkins Medical School",
+      "certifications": [
+        "Board Certified Pediatrics Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor38@hospital.com",
+        "phone": "+1-555-0038"
+      },
+      "stats": {
+        "surgeriesPerformed": 112,
+        "patientsRecovered": 261,
+        "researchPapers": 11,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC039",
+      "name": "Dr. David Chen",
+      "specialization": "Neurology",
+      "experience": 15,
+      "department": "Neurology",
+      "patientsCount": 367,
+      "successRate": 95.2,
+      "rating": 4.2,
+      "availability": "Mon-Sat",
+      "location": "Neurology Center",
+      "education": "UCLA Medical School",
+      "certifications": [
+        "Board Certified Neurology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
+      "contact": {
+        "email": "doctor39@hospital.com",
+        "phone": "+1-555-0039"
+      },
+      "stats": {
+        "surgeriesPerformed": 122,
+        "patientsRecovered": 330,
+        "researchPapers": 14,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC040",
+      "name": "Dr. Amanda Rodriguez",
+      "specialization": "Neurology",
+      "experience": 10,
+      "department": "Neurology",
+      "patientsCount": 129,
+      "successRate": 92.2,
+      "rating": 4.6,
+      "availability": "Mon-Sat",
+      "location": "Neurology Center",
+      "education": "Duke Medical School",
+      "certifications": [
+        "Board Certified Neurology Specialist"
+      ],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "contact": {
+        "email": "doctor40@hospital.com",
+        "phone": "+1-555-0040"
+      },
+      "stats": {
+        "surgeriesPerformed": 130,
+        "patientsRecovered": 116,
+        "researchPapers": 10,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC041",
+      "name": "Dr. David Garcia",
+      "specialization": "Neurology",
+      "experience": 9,
+      "department": "Neurology",
+      "patientsCount": 131,
+      "successRate": 91.5,
+      "rating": 4.3,
+      "availability": "24/7",
+      "location": "Neurology Center",
+      "education": "Duke Medical School",
+      "certifications": [
+        "Board Certified Neurology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor41@hospital.com",
+        "phone": "+1-555-0041"
+      },
+      "stats": {
+        "surgeriesPerformed": 35,
+        "patientsRecovered": 117,
+        "researchPapers": 22,
+        "awards": 4
+      }
+    },
+    {
+      "id": "DOC042",
+      "name": "Dr. James Martinez",
+      "specialization": "Neurology",
+      "experience": 7,
+      "department": "Neurology",
+      "patientsCount": 205,
+      "successRate": 87.6,
+      "rating": 4.9,
+      "availability": "Mon-Fri",
+      "location": "Neurology Center",
+      "education": "Stanford Medical School",
+      "certifications": [
+        "Board Certified Neurology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor42@hospital.com",
+        "phone": "+1-555-0042"
+      },
+      "stats": {
+        "surgeriesPerformed": 47,
+        "patientsRecovered": 184,
+        "researchPapers": 23,
+        "awards": 3
+      }
+    },
+    {
+      "id": "DOC043",
+      "name": "Dr. Amanda Anderson",
+      "specialization": "Neurology",
+      "experience": 20,
+      "department": "Neurology",
+      "patientsCount": 145,
+      "successRate": 86.6,
+      "rating": 4.3,
+      "availability": "Mon-Fri",
+      "location": "Neurology Center",
+      "education": "Johns Hopkins Medical School",
+      "certifications": [
+        "Board Certified Neurology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
+      "contact": {
+        "email": "doctor43@hospital.com",
+        "phone": "+1-555-0043"
+      },
+      "stats": {
+        "surgeriesPerformed": 110,
+        "patientsRecovered": 130,
+        "researchPapers": 14,
+        "awards": 3
+      }
+    },
+    {
+      "id": "DOC044",
+      "name": "Dr. Nicole Taylor",
+      "specialization": "Neurology",
+      "experience": 25,
+      "department": "Neurology",
+      "patientsCount": 310,
+      "successRate": 97.6,
+      "rating": 4.2,
+      "availability": "Mon-Sat",
+      "location": "Neurology Center",
+      "education": "Harvard Medical School",
+      "certifications": [
+        "Board Certified Neurology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor44@hospital.com",
+        "phone": "+1-555-0044"
+      },
+      "stats": {
+        "surgeriesPerformed": 128,
+        "patientsRecovered": 279,
+        "researchPapers": 18,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC045",
+      "name": "Dr. Thomas Chen",
+      "specialization": "Dermatology",
+      "experience": 12,
+      "department": "Dermatology",
+      "patientsCount": 340,
+      "successRate": 94.4,
+      "rating": 4.6,
+      "availability": "24/7",
+      "location": "Dermatology Center",
+      "education": "Mayo Clinic Medical School",
+      "certifications": [
+        "Board Certified Dermatology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor45@hospital.com",
+        "phone": "+1-555-0045"
+      },
+      "stats": {
+        "surgeriesPerformed": 136,
+        "patientsRecovered": 306,
+        "researchPapers": 8,
+        "awards": 4
+      }
+    },
+    {
+      "id": "DOC046",
+      "name": "Dr. James Davis",
+      "specialization": "Dermatology",
+      "experience": 25,
+      "department": "Dermatology",
+      "patientsCount": 109,
+      "successRate": 92.2,
+      "rating": 4.5,
+      "availability": "24/7",
+      "location": "Dermatology Center",
+      "education": "Mayo Clinic Medical School",
+      "certifications": [
+        "Board Certified Dermatology Specialist"
+      ],
+      "languages": [
+        "English"
+      ],
+      "contact": {
+        "email": "doctor46@hospital.com",
+        "phone": "+1-555-0046"
+      },
+      "stats": {
+        "surgeriesPerformed": 174,
+        "patientsRecovered": 98,
+        "researchPapers": 10,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC047",
+      "name": "Dr. David Chen",
+      "specialization": "Dermatology",
+      "experience": 23,
+      "department": "Dermatology",
+      "patientsCount": 95,
+      "successRate": 89.4,
+      "rating": 5.0,
+      "availability": "24/7",
+      "location": "Dermatology Center",
+      "education": "Columbia Medical School",
+      "certifications": [
+        "Board Certified Dermatology Specialist"
+      ],
+      "languages": [
+        "English"
+      ],
+      "contact": {
+        "email": "doctor47@hospital.com",
+        "phone": "+1-555-0047"
+      },
+      "stats": {
+        "surgeriesPerformed": 6,
+        "patientsRecovered": 85,
+        "researchPapers": 22,
+        "awards": 4
+      }
+    },
+    {
+      "id": "DOC048",
+      "name": "Dr. Michelle Williams",
+      "specialization": "Dermatology",
+      "experience": 24,
+      "department": "Dermatology",
+      "patientsCount": 236,
+      "successRate": 88.4,
+      "rating": 4.6,
+      "availability": "Mon-Fri",
+      "location": "Dermatology Center",
+      "education": "UCLA Medical School",
+      "certifications": [
+        "Board Certified Dermatology Specialist"
+      ],
+      "languages": [
+        "English"
+      ],
+      "contact": {
+        "email": "doctor48@hospital.com",
+        "phone": "+1-555-0048"
+      },
+      "stats": {
+        "surgeriesPerformed": 135,
+        "patientsRecovered": 212,
+        "researchPapers": 24,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC049",
+      "name": "Dr. Michael Kim",
+      "specialization": "Dermatology",
+      "experience": 17,
+      "department": "Dermatology",
+      "patientsCount": 386,
+      "successRate": 93.9,
+      "rating": 4.8,
+      "availability": "Mon-Fri",
+      "location": "Dermatology Center",
+      "education": "Harvard Medical School",
+      "certifications": [
+        "Board Certified Dermatology Specialist"
+      ],
+      "languages": [
+        "English"
+      ],
+      "contact": {
+        "email": "doctor49@hospital.com",
+        "phone": "+1-555-0049"
+      },
+      "stats": {
+        "surgeriesPerformed": 190,
+        "patientsRecovered": 347,
+        "researchPapers": 3,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC050",
+      "name": "Dr. Emily Kim",
+      "specialization": "Oncology",
+      "experience": 23,
+      "department": "Oncology",
+      "patientsCount": 229,
+      "successRate": 90.8,
+      "rating": 4.5,
+      "availability": "24/7",
+      "location": "Oncology Center",
+      "education": "Harvard Medical School",
+      "certifications": [
+        "Board Certified Oncology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor50@hospital.com",
+        "phone": "+1-555-0050"
+      },
+      "stats": {
+        "surgeriesPerformed": 74,
+        "patientsRecovered": 206,
+        "researchPapers": 24,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC051",
+      "name": "Dr. Emily Chen",
+      "specialization": "Oncology",
+      "experience": 21,
+      "department": "Oncology",
+      "patientsCount": 291,
+      "successRate": 85.3,
+      "rating": 4.2,
+      "availability": "24/7",
+      "location": "Oncology Center",
+      "education": "Yale Medical School",
+      "certifications": [
+        "Board Certified Oncology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "Portuguese"
+      ],
+      "contact": {
+        "email": "doctor51@hospital.com",
+        "phone": "+1-555-0051"
+      },
+      "stats": {
+        "surgeriesPerformed": 66,
+        "patientsRecovered": 261,
+        "researchPapers": 11,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC052",
+      "name": "Dr. Lisa Chen",
+      "specialization": "Oncology",
+      "experience": 22,
+      "department": "Oncology",
+      "patientsCount": 94,
+      "successRate": 88.1,
+      "rating": 4.8,
+      "availability": "Mon-Sat",
+      "location": "Oncology Center",
+      "education": "Stanford Medical School",
+      "certifications": [
+        "Board Certified Oncology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "contact": {
+        "email": "doctor52@hospital.com",
+        "phone": "+1-555-0052"
+      },
+      "stats": {
+        "surgeriesPerformed": 25,
+        "patientsRecovered": 84,
+        "researchPapers": 9,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC053",
+      "name": "Dr. Kevin Lee",
+      "specialization": "Oncology",
+      "experience": 22,
+      "department": "Oncology",
+      "patientsCount": 388,
+      "successRate": 97.3,
+      "rating": 4.9,
+      "availability": "Mon-Fri",
+      "location": "Oncology Center",
+      "education": "Columbia Medical School",
+      "certifications": [
+        "Board Certified Oncology Specialist"
+      ],
+      "languages": [
+        "English"
+      ],
+      "contact": {
+        "email": "doctor53@hospital.com",
+        "phone": "+1-555-0053"
+      },
+      "stats": {
+        "surgeriesPerformed": 56,
+        "patientsRecovered": 349,
+        "researchPapers": 6,
+        "awards": 1
+      }
+    },
+    {
+      "id": "DOC054",
+      "name": "Dr. Rachel Taylor",
+      "specialization": "Psychiatry",
+      "experience": 20,
+      "department": "Psychiatry",
+      "patientsCount": 102,
+      "successRate": 93.8,
+      "rating": 4.6,
+      "availability": "24/7",
+      "location": "Psychiatry Center",
+      "education": "Columbia Medical School",
+      "certifications": [
+        "Board Certified Psychiatry Specialist"
+      ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
+      "contact": {
+        "email": "doctor54@hospital.com",
+        "phone": "+1-555-0054"
+      },
+      "stats": {
+        "surgeriesPerformed": 22,
+        "patientsRecovered": 91,
+        "researchPapers": 19,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC055",
+      "name": "Dr. Alexander Wilson",
+      "specialization": "Psychiatry",
+      "experience": 23,
+      "department": "Psychiatry",
+      "patientsCount": 250,
+      "successRate": 93.4,
+      "rating": 4.7,
+      "availability": "24/7",
+      "location": "Psychiatry Center",
+      "education": "Mayo Clinic Medical School",
+      "certifications": [
+        "Board Certified Psychiatry Specialist"
+      ],
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "contact": {
+        "email": "doctor55@hospital.com",
+        "phone": "+1-555-0055"
+      },
+      "stats": {
+        "surgeriesPerformed": 169,
+        "patientsRecovered": 225,
+        "researchPapers": 27,
+        "awards": 5
+      }
+    },
+    {
+      "id": "DOC056",
+      "name": "Dr. Alexander White",
+      "specialization": "Psychiatry",
+      "experience": 12,
+      "department": "Psychiatry",
+      "patientsCount": 346,
+      "successRate": 94.5,
+      "rating": 4.1,
+      "availability": "24/7",
+      "location": "Psychiatry Center",
+      "education": "Columbia Medical School",
+      "certifications": [
+        "Board Certified Psychiatry Specialist"
+      ],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "contact": {
+        "email": "doctor56@hospital.com",
+        "phone": "+1-555-0056"
+      },
+      "stats": {
+        "surgeriesPerformed": 121,
+        "patientsRecovered": 311,
+        "researchPapers": 18,
+        "awards": 6
+      }
+    },
+    {
+      "id": "DOC057",
+      "name": "Dr. Alexander Wilson",
+      "specialization": "Radiology",
+      "experience": 12,
+      "department": "Radiology",
+      "patientsCount": 139,
+      "successRate": 86.2,
+      "rating": 4.2,
+      "availability": "24/7",
+      "location": "Radiology Center",
+      "education": "Duke Medical School",
+      "certifications": [
+        "Board Certified Radiology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
+      "contact": {
+        "email": "doctor57@hospital.com",
+        "phone": "+1-555-0057"
+      },
+      "stats": {
+        "surgeriesPerformed": 137,
+        "patientsRecovered": 125,
+        "researchPapers": 18,
+        "awards": 2
+      }
+    },
+    {
+      "id": "DOC058",
+      "name": "Dr. Maria Rodriguez",
+      "specialization": "Radiology",
+      "experience": 18,
+      "department": "Radiology",
+      "patientsCount": 399,
+      "successRate": 97.6,
+      "rating": 5.0,
+      "availability": "Mon-Fri",
+      "location": "Radiology Center",
+      "education": "Johns Hopkins Medical School",
+      "certifications": [
+        "Board Certified Radiology Specialist"
+      ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
+      "contact": {
+        "email": "doctor58@hospital.com",
+        "phone": "+1-555-0058"
+      },
+      "stats": {
+        "surgeriesPerformed": 18,
+        "patientsRecovered": 359,
+        "researchPapers": 24,
+        "awards": 5
+      }
+    }
+  ],
+  "summary": {
+    "totalDoctors": 58,
+    "averageExperience": 16.6,
+    "averageRating": 4.5,
+    "averageSuccessRate": 91.4,
+    "totalPatients": 13003,
+    "departments": [
+      "Emergency",
+      "Orthopedics",
+      "Cardiology",
+      "Pediatrics",
+      "Neurology",
+      "Dermatology",
+      "Oncology",
+      "Psychiatry",
+      "Radiology"
+    ]
+  }
+}

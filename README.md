@@ -1,149 +1,192 @@
-# ADIF File Visualizer Assignment
+# ADIF File Visualizer
 
-## Product Overview
+A modern web application for visualizing ADIF (Amateur Data Interchange Format) files with advanced healthcare data visualization capabilities and **real-time user feedback**.
 
-The **ADIF File Visualizer** is a full-stack web application that simulates healthcare analytics inference and visualization. Users can upload any file (the content is not processed for demo purposes), and the system returns a mock dataset representing healthcare patient analytics. The frontend visualizes this data through interactive dashboards and charts, providing insights such as age distribution, diagnosis breakdown, vital sign trends, and more.
+## ✨ Features
 
-This product demonstrates:
-- A simulated file inference workflow.
-- Modern data visualization techniques for healthcare analytics.
-- Seamless integration between a FastAPI backend and a Next.js/React frontend.
+- **📁 File Upload**: Upload any file to trigger healthcare data simulation
+- **📊 Interactive 2D Charts**: Age distribution, diagnosis breakdown, vital signs trends
 
----
+- **🔔 Toast Notifications**: Real-time user feedback during processing
+- **📱 Responsive Design**: Modern UI with smooth animations
+- **🏥 Healthcare Analytics**: Comprehensive patient data analysis
+- **⚡ Real-time Processing**: Live data processing with progress indicators
 
-## Tech Stack
+## 🚀 Quick Start
 
-### Backend
-- **Language:** Python 3.11
-- **Framework:** FastAPI
-- **Server:** Uvicorn
-- **Containerization:** Docker, Docker Compose (optional)
-- **Other:** CORS middleware, Python standard libraries
+### Prerequisites
+- Docker and Docker Compose (for backend)
+- Node.js 18+ and npm (for frontend)
+- Git
 
-### Frontend
-- **Framework:** Next.js (React 19)
-- **Visualization:** D3.js
-- **Styling:** Tailwind CSS, custom CSS-in-JS
-- **Language:** TypeScript
+### Running the Application
 
----
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd ADIF-file-visualizer-assignment
+   ```
 
-## How to Run the Application
-
-### 1. Clone the Repository
-```bash
-git clone git@github.com:sindhujyoti6201/ADIF-file-visualizer-assignment.git
-cd ADIF-file-visualizer-assignment
-```
-
-### 2. Running the Backend
-
-#### **A. Using Docker Compose (Recommended)**
-1. **Ensure Docker and Docker Compose are installed.**
-   - [Install Docker](https://docs.docker.com/get-docker/)
-   - [Install Docker Compose](https://docs.docker.com/compose/install/)
-2. **From the project root, run:**
+2. **Start the backend (Docker)**
    ```bash
    docker-compose up --build
    ```
-   This will build the backend image and start the service as defined in `docker-compose.yml`.
-3. **Access the backend API at:** [http://localhost:8000](http://localhost:8000)
 
-#### **B. Running Backend Manually (Without Docker)**
-If you do **not** have Docker, you can run the backend directly:
-
-1. **Navigate to the backend directory:**
-   ```bash
-   cd backend
-   ```
-2. **(Optional but recommended) Create a virtual environment:**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Run the FastAPI server:**
-   ```bash
-   uvicorn main:app --reload --host 0.0.0.0 --port 8000
-   ```
-   - The backend will be available at [http://localhost:8000](http://localhost:8000)
-
-**Troubleshooting:**
-- If you get a `ModuleNotFoundError`, ensure you are in the correct directory and your virtual environment is activated.
-- If `uvicorn` is not found, install it with `pip install uvicorn`.
-
----
-
-### 3. Running the Frontend
-
-1. **Navigate to the frontend directory:**
+3. **Start the frontend (Local)**
    ```bash
    cd frontend
-   ```
-2. **Install dependencies:**
-   ```bash
    npm install
-   ```
-3. **Start the development server:**
-   ```bash
    npm run dev
    ```
-   - The frontend will be available at [http://localhost:3000](http://localhost:3000)
 
-**Environment Variables:**
-- The frontend expects the backend to be running at `http://localhost:8000` by default.
-- **If your backend server is running on a different port or host** (for example, on a remote server or a different port), you must set the `NEXT_PUBLIC_API_URL` environment variable.
-- To do this, create a file named `.env.local` in the `frontend` directory (at the same level as `package.json`).
-- Add the following line to `.env.local` (replace the URL with your backend's actual address):
-  ```env
-  NEXT_PUBLIC_API_URL=http://your-backend-host:your-port
-  ```
-  For example, if your backend is running on port 9000:
-  ```env
-  NEXT_PUBLIC_API_URL=http://localhost:9000
-  ```
-- After changing this, restart the frontend dev server (`npm run dev`).
+4. **Access the application**
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:8080
 
-**Troubleshooting:**
-- If you see errors about missing modules, ensure you ran `npm install`.
-- If the dashboard does not load data, make sure the backend is running and accessible.
+
+
+## 🔔 Toast Notification System
+
+Enhanced user experience with real-time feedback:
+
+- **File Selection**: Confirmation when file is selected
+- **Upload Progress**: Loading indicators during file upload
+- **Processing Status**: Real-time updates during data processing
+- **Success Messages**: Confirmation when data is processed successfully
+- **Error Handling**: Clear error messages for failed operations
+- **Data Loading**: Notifications when healthcare data is loaded
+
+## 📊 Dashboard Features
+
+### Key Metrics
+- Total Patients Count
+- Average Age
+- Readmission Rate
+- Average Length of Stay
+
+### 2D Visualizations
+- **Age Distribution**: Bar chart showing patient age groups
+- **Diagnosis Distribution**: Breakdown of medical diagnoses
+- **Vital Signs Trends**: Heart rate trends over time
+- **Gender Distribution**: Pie chart of patient gender
+- **Age vs Length of Stay**: Scatter plot with readmission indicators
+
+
+
+## 🛠️ Technology Stack
+
+- **Frontend**: Next.js, React, TypeScript
+
+- **Charts**: D3.js
+- **Styling**: Tailwind CSS
+- **Notifications**: React Hot Toast
+- **Backend**: FastAPI (Python)
+- **Containerization**: Docker (Backend only)
+
+## 📁 Project Structure
+
+```
+ADIF-file-visualizer-assignment/
+├── backend/                 # FastAPI backend service (Dockerized)
+│   ├── data/               # Healthcare data files
+│   ├── main.py             # FastAPI application
+│   ├── Dockerfile          # Backend container configuration
+│   └── setup.md            # Detailed setup guide
+├── frontend/               # Next.js frontend application (Local)
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── HealthcareDashboard.tsx
+
+│   │   │   ├── Navbar.tsx
+│   │   │   └── Footer.tsx
+│   │   ├── pages/
+│   │   │   ├── index.tsx   # Updated with toast notifications
+│   │   │   └── healthcare.tsx
+│   │   └── services/
+│   │       └── api.ts
+│   └── package.json        # Frontend dependencies
+├── docker-compose.yml      # Backend service orchestration
+└── README.md              # This file
+```
+
+## 🔧 Development
+
+### Backend Development
+For detailed setup instructions, development workflow, and troubleshooting, see:
+- [Backend Setup Guide](backend/setup.md) - Comprehensive setup and deployment guide
+
+### Frontend Development
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+## 🎨 UI/UX Improvements
+
+### Toast Notifications
+- **Success Toasts**: Green notifications for successful operations
+- **Error Toasts**: Red notifications for errors with clear messages
+- **Loading Toasts**: Persistent loading indicators during processing
+- **Info Toasts**: Blue notifications for informational messages
+
+### 3D Visualization
+- **Smooth Animations**: 60fps rendering for fluid experience
+- **Interactive Controls**: Mouse and touch support for exploration
+- **Responsive Design**: Adapts to different screen sizes
+- **Performance Optimized**: Efficient rendering with proper cleanup
+
+## 🚀 Deployment
+
+### Local Development
+```bash
+# Start backend
+docker-compose up --build
+
+# Start frontend (in another terminal)
+cd frontend
+npm install
+npm run dev
+```
+
+### Production Deployment
+```bash
+# Build and push Docker images (Backend only)
+docker build -t sidutta/adif-file-visualizer-assignment-server:v1 ./backend
+docker push sidutta/adif-file-visualizer-assignment-server:v1
+
+# Deploy backend with docker-compose
+docker-compose up -d
+
+# Deploy frontend (build and serve static files)
+cd frontend
+npm run build
+npm start
+```
+
+## 📈 API Endpoints
+
+- `GET /health` - Health check endpoint
+- `POST /upload` - File upload endpoint
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
 
 ---
 
-## Product Flow (Step-by-Step)
+**🎉 New Features Added:**
 
-1. **User uploads a file** on the frontend landing page.
-2. **Frontend sends the file** to the backend via a `POST /upload` API call.
-3. **Backend returns mock healthcare analytics data** (from `backend/data/healthcare-data.json`), simulating an inference process.
-4. **Frontend stores the data** in `localStorage` and redirects the user to the dashboard.
-5. **Dashboard visualizes the data** using D3.js charts and metrics.
-
----
-
-## Visualization & Simulation Data
-
-- **Data Source:** The backend always returns the same mock data, regardless of the uploaded file.
-- **Data Structure:** The response includes a filename, simulated processing time, and a list of patient records (with age, gender, diagnosis, length of stay, readmission status, and vital signs).
-- **Visualization:** The frontend dashboard (in `HealthcareDashboard.tsx`) displays:
-  - Age distribution (bar chart)
-  - Diagnosis distribution (bar chart)
-  - Vital signs trends (line chart)
-  - Readmission rates, average age, and other metrics
-- **Simulation:** The upload process includes a loading animation to simulate real inference, and the dashboard is populated with the mock data for visualization.
-
----
-
-## Additional Notes
-
-- **No real patient data is used or processed.** All data is simulated for demonstration purposes only.
-- **Frontend and backend can be run independently** as long as the API URL is configured correctly.
-- **For production deployment**, you may want to build the frontend (`npm run build`) and serve it with a production server.
-- **If you encounter CORS issues**, ensure the backend is running and CORS middleware is enabled (it is by default in this project).
-
----
-
-## Contact
-For any issues or questions, please open an issue in the repository or contact the maintainer at sd6201@nyu.edu
+- ✅ **Toast Notification System** with React Hot Toast
+- ✅ **Enhanced User Experience** with real-time feedback
+- ✅ **Improved Error Handling** with clear user messages
+- ✅ **Performance Optimizations** for smooth 3D rendering
+- ✅ **Simplified Deployment** with frontend running locally
