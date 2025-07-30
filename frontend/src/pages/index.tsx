@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { uploadFile, Feature, getDoctors, DoctorsResponse, getPatients, getPatientInfo } from '../services/api';
+import { uploadAndProcessFile, Feature, getDoctors, DoctorsResponse } from '../services/api';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import { Toaster, toast } from 'react-hot-toast';
@@ -37,7 +37,6 @@ export default function Dashboard() {
   const loadDashboardData = async () => {
     try {
       const doctorsData = await getDoctors();
-      const patientsData = await getPatients();
       setDashboardStats({
         totalDoctors: doctorsData.summary.totalDoctors,
         totalPatients: 102,
@@ -60,34 +59,22 @@ export default function Dashboard() {
     });
     
     try {
-      console.log('Starting upload, calling /upload API...');
-      const uploadResponse = await uploadFile(file);
-      console.log('Upload API response received:', uploadResponse);
+      console.log('Starting upload and processing, calling /patient-info API...');
+      const patientInfo = await uploadAndProcessFile(file);
+      console.log('Patient info processed:', patientInfo);
       
       toast.dismiss(loadingToast);
       const processingToast = toast.loading('Processing healthcare data...', {
         duration: Infinity,
       });
       
-      // Fetch patients data and patient info
-      const [patientsData, patientInfo] = await Promise.all([
-        getPatients(),
-        getPatientInfo()
-      ]);
-      
-      console.log('Patients data:', patientsData);
       console.log('Patient info:', patientInfo);
       
-      // Combine the data
-      const combinedData = {
-        ...patientsData,
-        patientInfo: patientInfo
-      };
+      // Store the patient info
+      localStorage.setItem('patientInfo', JSON.stringify(patientInfo));
+      localStorage.setItem('filename', file.name);
       
-      localStorage.setItem('healthcareData', JSON.stringify(combinedData));
-      localStorage.setItem('filename', uploadResponse.filename || file.name);
-      
-      setFilename(uploadResponse.filename || file.name);
+      setFilename(file.name);
       
       // Add to recent activity
       setRecentActivity(prev => [{

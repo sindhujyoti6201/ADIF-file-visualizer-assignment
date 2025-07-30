@@ -1,50 +1,43 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { uploadFile, Feature } from '../services/api';
+import { uploadAndProcessFile, Feature, bookAppointment } from '../services/api';
 import Navbar from '../components/Navbar';
 import { Toaster, toast } from 'react-hot-toast';
 
-export default function UploadPage() {
+export default function BookDoctorsAppointment() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [selectedPatient, setSelectedPatient] = useState<string>('');
   const [selectedDoctor, setSelectedDoctor] = useState<string>('');
+  const [patientName, setPatientName] = useState<string>('');
+  const [patientPhone, setPatientPhone] = useState<string>('');
+  const [appointmentDate, setAppointmentDate] = useState<string>('');
+  const [appointmentTime, setAppointmentTime] = useState<string>('');
   const [notes, setNotes] = useState<string>('');
   const [loading, setLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
 
   const router = useRouter();
 
-  // Mock data for dropdowns
-  const patients = [
-    { id: 'PAT001', name: 'John Smith' },
-    { id: 'PAT002', name: 'Maria Garcia' },
-    { id: 'PAT003', name: 'Robert Chen' },
-    { id: 'PAT004', name: 'Lisa Thompson' },
-    { id: 'PAT005', name: 'David Lee' },
-  ];
-
   const doctors = [
-    { id: 'DOC001', name: 'Dr. Sarah Johnson' },
-    { id: 'DOC002', name: 'Dr. Michael Chen' },
-    { id: 'DOC003', name: 'Dr. Emily Rodriguez' },
-    { id: 'DOC004', name: 'Dr. James Wilson' },
-    { id: 'DOC005', name: 'Dr. Lisa Thompson' },
+    { id: 'DOC001', name: 'Dr. Sarah Johnson', specialization: 'Cardiology' },
+    { id: 'DOC002', name: 'Dr. Michael Chen', specialization: 'Neurology' },
+    { id: 'DOC003', name: 'Dr. Emily Rodriguez', specialization: 'Pediatrics' },
+    { id: 'DOC004', name: 'Dr. James Wilson', specialization: 'Orthopedics' },
+    { id: 'DOC005', name: 'Dr. Lisa Thompson', specialization: 'Dermatology' },
   ];
 
   const fileTypes = [
-    'PDF',
-    'Image (JPG, PNG, GIF)',
-    'DICOM',
-    'Text Document',
-    'Spreadsheet',
-    'Other'
+    'Prescription',
+    'Diagnosis Report',
+    'Lab Results',
+    'Medical Certificate',
+    'Other Medical Document'
   ];
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setSelectedFile(file);
-      toast.success(`File selected: ${file.name}`, {
+      toast.success(`Document selected: ${file.name}`, {
         duration: 2000,
       });
     }
@@ -54,7 +47,21 @@ export default function UploadPage() {
     event.preventDefault();
     
     if (!selectedFile) {
-      toast.error('Please select a file to upload', {
+      toast.error('Please upload prescription or diagnosis details', {
+        duration: 4000,
+      });
+      return;
+    }
+
+    if (!selectedDoctor) {
+      toast.error('Please select a doctor', {
+        duration: 4000,
+      });
+      return;
+    }
+
+    if (!patientName || !patientPhone || !appointmentDate || !appointmentTime) {
+      toast.error('Please fill in all required fields', {
         duration: 4000,
       });
       return;
@@ -75,35 +82,43 @@ export default function UploadPage() {
     }, 200);
 
     try {
-      const response = await uploadFile(selectedFile);
-      
-      // Store additional metadata
-      const uploadData = {
-        ...response,
-        patientId: selectedPatient,
-        doctorId: selectedDoctor,
-        notes: notes,
-        uploadDate: new Date().toISOString(),
-        originalFilename: selectedFile.name,
+      // Create appointment data
+      const appointmentData = {
+        patientName,
+        patientPhone,
+        selectedDoctor,
+        appointmentDate,
+        appointmentTime,
+        notes,
+        documentName: selectedFile.name,
+        documentSize: selectedFile.size,
+        bookingDate: new Date().toISOString(),
       };
 
-      localStorage.setItem('uploadData', JSON.stringify(uploadData));
-      
+      // Call the book appointment API
+      const response = await bookAppointment(appointmentData);
+
       setUploadProgress(100);
       clearInterval(progressInterval);
 
-      toast.success('File uploaded successfully!', {
-        duration: 3000,
+      toast.success('Doctor\'s Appointment booked successfully!', {
+        duration: 4000,
       });
 
-      // Redirect to healthcare dashboard after a short delay
-      setTimeout(() => {
-        router.push('/healthcare');
-      }, 2000);
+      // Reset form
+      setSelectedFile(null);
+      setSelectedDoctor('');
+      setPatientName('');
+      setPatientPhone('');
+      setAppointmentDate('');
+      setAppointmentTime('');
+      setNotes('');
+
+      // Stay on the current page after successful booking
 
     } catch (error) {
-      console.error('Upload failed:', error);
-      toast.error('Upload failed. Please try again.', {
+      console.error('Booking failed:', error);
+      toast.error('Failed to book appointment. Please try again.', {
         duration: 4000,
       });
       setUploadProgress(0);
@@ -121,7 +136,7 @@ export default function UploadPage() {
     const file = event.dataTransfer.files[0];
     if (file) {
       setSelectedFile(file);
-      toast.success(`File dropped: ${file.name}`, {
+      toast.success(`Document dropped: ${file.name}`, {
         duration: 2000,
       });
     }
@@ -138,7 +153,7 @@ export default function UploadPage() {
             color: '#fff',
           },
           success: {
-            duration: 3000,
+            duration: 4000,
             iconTheme: {
               primary: '#10b981',
               secondary: '#fff',
@@ -185,8 +200,8 @@ export default function UploadPage() {
         justifyContent: 'flex-start',
         paddingTop: '8rem',
         paddingBottom: '7rem',
-        paddingLeft: '2rem',
-        paddingRight: '2rem',
+        paddingLeft: '1rem',
+        paddingRight: '1rem',
         boxSizing: 'border-box',
       }}>
         <h1 style={{
@@ -197,25 +212,25 @@ export default function UploadPage() {
           textAlign: 'center',
           textShadow: '0 2px 16px rgba(0,0,0,0.25)',
         }}>
-          File Upload
+          Book Doctor's Appointment
         </h1>
 
         <div style={{
           width: '100%',
-          maxWidth: '800px',
+          maxWidth: '900px',
         }}>
           <div style={{
             background: 'rgba(30, 41, 59, 0.8)',
-            padding: '3rem',
+            padding: '2rem',
             borderRadius: '16px',
             backdropFilter: 'blur(10px)',
             border: '1px solid rgba(255, 255, 255, 0.1)',
           }}>
             <form onSubmit={handleSubmit}>
-              {/* File Upload Section */}
+              {/* Upload Prescription/Diagnosis Section */}
               <div style={{ marginBottom: '2rem' }}>
                 <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff', marginBottom: '1rem' }}>
-                  Upload File
+                  Upload Prescription or Diagnosis Details
                 </h2>
                 
                 <div
@@ -239,12 +254,12 @@ export default function UploadPage() {
                     e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
                   }}
                 >
-                  <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📁</div>
+                  <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📋</div>
                   <p style={{ color: '#cbd5e1', marginBottom: '1rem', fontSize: '1.1rem' }}>
-                    Drag and drop your file here, or click to browse
+                    Drag and drop your medical documents here, or click to browse
                   </p>
                   <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-                    Supported formats: PDF, Images, DICOM, Documents
+                    Upload prescription, diagnosis reports, lab results, etc.
                   </p>
                   
                   <label
@@ -268,7 +283,7 @@ export default function UploadPage() {
                       e.currentTarget.style.background = '#fff';
                     }}
                   >
-                    Choose File
+                    Choose Document
                     <input
                       id="file-upload"
                       type="file"
@@ -312,13 +327,13 @@ export default function UploadPage() {
                       }} />
                     </div>
                     <p style={{ color: '#cbd5e1', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-                      Uploading... {uploadProgress}%
+                      Processing... {uploadProgress}%
                     </p>
                   </div>
                 )}
               </div>
 
-              {/* Patient Selection */}
+              {/* Patient Information */}
               <div style={{ marginBottom: '2rem' }}>
                 <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff', marginBottom: '1rem' }}>
                   Patient Information
@@ -326,59 +341,140 @@ export default function UploadPage() {
                 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                  gap: '1rem',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                  gap: '2rem',
                 }}>
                   <div>
                     <label style={{ display: 'block', color: '#fff', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
-                      Select Patient (Optional)
+                      Patient Name *
                     </label>
-                    <select
-                      value={selectedPatient}
-                      onChange={(e) => setSelectedPatient(e.target.value)}
+                    <input
+                      type="text"
+                      value={patientName}
+                      onChange={(e) => setPatientName(e.target.value)}
+                      placeholder="Enter patient name"
                       style={{
                         width: '100%',
-                        padding: '0.75rem',
+                        padding: '0.875rem',
                         borderRadius: '8px',
                         border: '1px solid rgba(255, 255, 255, 0.2)',
                         background: 'rgba(255, 255, 255, 0.1)',
                         color: '#fff',
                         fontSize: '0.9rem',
+                        boxSizing: 'border-box',
                       }}
-                    >
-                      <option value="">-- Select Patient --</option>
-                      {patients.map((patient) => (
-                        <option key={patient.id} value={patient.id}>
-                          {patient.name}
-                        </option>
-                      ))}
-                    </select>
+                    />
                   </div>
 
                   <div>
                     <label style={{ display: 'block', color: '#fff', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
-                      Assign Doctor (Optional)
+                      Phone Number *
                     </label>
-                    <select
-                      value={selectedDoctor}
-                      onChange={(e) => setSelectedDoctor(e.target.value)}
+                    <input
+                      type="tel"
+                      value={patientPhone}
+                      onChange={(e) => setPatientPhone(e.target.value)}
+                      placeholder="Enter phone number"
                       style={{
                         width: '100%',
-                        padding: '0.75rem',
+                        padding: '0.875rem',
                         borderRadius: '8px',
                         border: '1px solid rgba(255, 255, 255, 0.2)',
                         background: 'rgba(255, 255, 255, 0.1)',
                         color: '#fff',
                         fontSize: '0.9rem',
+                        boxSizing: 'border-box',
                       }}
-                    >
-                      <option value="">-- Select Doctor --</option>
-                      {doctors.map((doctor) => (
-                        <option key={doctor.id} value={doctor.id}>
-                          {doctor.name}
-                        </option>
-                      ))}
-                    </select>
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Doctor Selection */}
+              <div style={{ marginBottom: '2rem' }}>
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff', marginBottom: '1rem' }}>
+                  Select Doctor
+                </h2>
+                
+                <div>
+                  <label style={{ display: 'block', color: '#fff', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
+                    Choose Doctor *
+                  </label>
+                  <select
+                    value={selectedDoctor}
+                    onChange={(e) => setSelectedDoctor(e.target.value)}
+                    style={{
+                      width: '100%',
+                      padding: '0.875rem',
+                      borderRadius: '8px',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      color: '#fff',
+                      fontSize: '0.9rem',
+                      boxSizing: 'border-box',
+                    }}
+                  >
+                    <option value="">-- Select Doctor --</option>
+                    {doctors.map((doctor) => (
+                      <option key={doctor.id} value={doctor.id}>
+                        {doctor.name} - {doctor.specialization}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Appointment Details */}
+              <div style={{ marginBottom: '2rem' }}>
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff', marginBottom: '1rem' }}>
+                  Appointment Details
+                </h2>
+                
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                  gap: '2rem',
+                }}>
+                  <div>
+                    <label style={{ display: 'block', color: '#fff', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
+                      Appointment Date *
+                    </label>
+                    <input
+                      type="date"
+                      value={appointmentDate}
+                      onChange={(e) => setAppointmentDate(e.target.value)}
+                      style={{
+                        width: '100%',
+                        padding: '0.875rem',
+                        borderRadius: '8px',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        background: 'rgba(255, 255, 255, 0.1)',
+                        color: '#fff',
+                        fontSize: '0.9rem',
+                        boxSizing: 'border-box',
+                      }}
+                    />
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', color: '#fff', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
+                      Appointment Time *
+                    </label>
+                    <input
+                      type="time"
+                      value={appointmentTime}
+                      onChange={(e) => setAppointmentTime(e.target.value)}
+                      style={{
+                        width: '100%',
+                        padding: '0.875rem',
+                        borderRadius: '8px',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        background: 'rgba(255, 255, 255, 0.1)',
+                        color: '#fff',
+                        fontSize: '0.9rem',
+                        boxSizing: 'border-box',
+                      }}
+                    />
                   </div>
                 </div>
               </div>
@@ -392,7 +488,7 @@ export default function UploadPage() {
                 <textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Add any additional notes about this file upload..."
+                  placeholder="Add any additional notes about the appointment..."
                   style={{
                     width: '100%',
                     minHeight: '120px',
@@ -404,67 +500,40 @@ export default function UploadPage() {
                     fontSize: '0.9rem',
                     resize: 'vertical',
                     fontFamily: 'inherit',
+                    boxSizing: 'border-box',
                   }}
                 />
-              </div>
-
-              {/* File Type Information */}
-              <div style={{ marginBottom: '2rem' }}>
-                <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff', marginBottom: '1rem' }}>
-                  Supported File Types
-                </h2>
-                
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                  gap: '1rem',
-                }}>
-                  {fileTypes.map((type) => (
-                    <div
-                      key={type}
-                      style={{
-                        padding: '1rem',
-                        background: 'rgba(255, 255, 255, 0.05)',
-                        borderRadius: '8px',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        textAlign: 'center',
-                      }}
-                    >
-                      <p style={{ color: '#cbd5e1', fontSize: '0.9rem' }}>{type}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
 
               {/* Submit Button */}
               <div style={{ textAlign: 'center' }}>
                 <button
                   type="submit"
-                  disabled={loading || !selectedFile}
+                  disabled={loading || !selectedFile || !selectedDoctor || !patientName || !patientPhone || !appointmentDate || !appointmentTime}
                   style={{
                     padding: '1rem 3rem',
                     fontSize: '1.1rem',
                     fontWeight: '600',
                     color: '#fff',
-                    background: loading || !selectedFile ? 'rgba(255, 255, 255, 0.2)' : '#3b82f6',
+                    background: loading || !selectedFile || !selectedDoctor || !patientName || !patientPhone || !appointmentDate || !appointmentTime ? 'rgba(255, 255, 255, 0.2)' : '#3b82f6',
                     border: 'none',
                     borderRadius: '8px',
-                    cursor: loading || !selectedFile ? 'not-allowed' : 'pointer',
+                    cursor: loading || !selectedFile || !selectedDoctor || !patientName || !patientPhone || !appointmentDate || !appointmentTime ? 'not-allowed' : 'pointer',
                     transition: 'all 0.2s ease',
-                    opacity: loading || !selectedFile ? 0.6 : 1,
+                    opacity: loading || !selectedFile || !selectedDoctor || !patientName || !patientPhone || !appointmentDate || !appointmentTime ? 0.6 : 1,
                   }}
                   onMouseEnter={(e) => {
-                    if (!loading && selectedFile) {
+                    if (!loading && selectedFile && selectedDoctor && patientName && patientPhone && appointmentDate && appointmentTime) {
                       e.currentTarget.style.background = '#2563eb';
                     }
                   }}
                   onMouseLeave={(e) => {
-                    if (!loading && selectedFile) {
+                    if (!loading && selectedFile && selectedDoctor && patientName && patientPhone && appointmentDate && appointmentTime) {
                       e.currentTarget.style.background = '#3b82f6';
                     }
                   }}
                 >
-                  {loading ? 'Uploading...' : 'Upload File'}
+                  {loading ? 'Booking Appointment...' : 'Book Appointment'}
                 </button>
               </div>
             </form>

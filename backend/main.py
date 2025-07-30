@@ -15,27 +15,19 @@ app.add_middleware(
 @app.get("/health")
 async def health_check():
     """Health check endpoint for monitoring."""
+    print("----------------------------------------")
+    print("HEALTH_CHECK : Checking if the backend service is running and healthy")
+    print("----------------------------------------")
     return {"status": "healthy", "service": "ADIF Backend API"}
-
-@app.post("/upload")
-async def upload(file: UploadFile = File(...)):
-    print("I AM INSIDE THE BACKEND SERVER")
-    """Process uploaded file and return basic response."""
-    # For now, just return a success response
-    # The actual file processing logic can be added here later
-    response = {
-        "status": "success",
-        "message": "File uploaded successfully",
-        "filename": file.filename
-    }
-    return response
 
 @app.get("/patients")
 async def get_patients():
     """Fetch patients information from the data folder."""
-    print("Fetching patients information...")
+    print("----------------------------------------")
+    print("GET_PATIENTS : Reading patients data from the file : patients-data.json")
+    print("----------------------------------------")
     data_dir = os.path.join(os.path.dirname(__file__), "data")
-    json_path = os.path.join(data_dir, "healthcare-data.json")
+    json_path = os.path.join(data_dir, "patients-data.json")
     try:
         with open(json_path, "r") as f:
             response = json.load(f)
@@ -44,15 +36,11 @@ async def get_patients():
         return {"error": "Patients data not found", "patients": []}
 
 @app.get("/doctors")
-async def get_doctors(
-    search: str = None,
-    department: str = None,
-    specialization: str = None,
-    page: int = 1,
-    limit: int = 60
-):
-    """Fetch doctors information with filtering and pagination."""
-    print("Fetching doctors information...")
+async def get_doctors():
+    """Fetch all doctors information."""
+    print("----------------------------------------")
+    print("GET_DOCTORS : Reading doctors data from the file : doctors-data.json")
+    print("----------------------------------------")
     data_dir = os.path.join(os.path.dirname(__file__), "data")
     json_path = os.path.join(data_dir, "doctors-data.json")
     
@@ -60,51 +48,8 @@ async def get_doctors(
         with open(json_path, "r") as f:
             data = json.load(f)
         
-        doctors = data.get("doctors", [])
-        
-        # Apply filters
-        filtered_doctors = doctors
-        
-        if search:
-            search_lower = search.lower()
-            filtered_doctors = [
-                doctor for doctor in filtered_doctors
-                if (search_lower in doctor["name"].lower() or
-                    search_lower in doctor["specialization"].lower() or
-                    search_lower in doctor["department"].lower())
-            ]
-        
-        if department and department != "all":
-            filtered_doctors = [
-                doctor for doctor in filtered_doctors
-                if doctor["department"] == department
-            ]
-        
-        if specialization and specialization != "all":
-            filtered_doctors = [
-                doctor for doctor in filtered_doctors
-                if doctor["specialization"] == specialization
-            ]
-        
-        # Calculate pagination
-        total_records = len(filtered_doctors)
-        total_pages = (total_records + limit - 1) // limit
-        start_index = (page - 1) * limit
-        end_index = start_index + limit
-        
-        # Apply pagination
-        paginated_doctors = filtered_doctors[start_index:end_index]
-        
         return {
-            "doctors": paginated_doctors,
-            "pagination": {
-                "current_page": page,
-                "total_pages": total_pages,
-                "total_records": total_records,
-                "has_next": page < total_pages,
-                "has_prev": page > 1,
-                "limit": limit
-            },
+            "doctors": data.get("doctors", []),
             "summary": data.get("summary", {})
         }
         
@@ -112,20 +57,15 @@ async def get_doctors(
         return {
             "error": "Doctors data not found", 
             "doctors": [],
-            "pagination": {
-                "current_page": 1,
-                "total_pages": 0,
-                "total_records": 0,
-                "has_next": False,
-                "has_prev": False,
-                "limit": limit
-            }
+            "summary": {}
         }
 
 @app.get("/doctors/analytics")
 async def get_doctors_analytics():
     """Return pre-calculated analytics for doctors charts."""
-    print("Fetching doctors analytics...")
+    print("----------------------------------------")
+    print("GET_DOCTORS_ANALYTICS : Calculating analytics and charts data from doctors-data.json")
+    print("----------------------------------------")
     data_dir = os.path.join(os.path.dirname(__file__), "data")
     json_path = os.path.join(data_dir, "doctors-data.json")
     
@@ -198,7 +138,9 @@ async def get_doctors_analytics():
 @app.get("/doctors/summary")
 async def get_doctors_summary():
     """Return summary statistics for doctors."""
-    print("Fetching doctors summary...")
+    print("----------------------------------------")
+    print("GET_DOCTORS_SUMMARY : Calculating summary statistics from doctors-data.json")
+    print("----------------------------------------")
     data_dir = os.path.join(os.path.dirname(__file__), "data")
     json_path = os.path.join(data_dir, "doctors-data.json")
     
@@ -244,15 +186,86 @@ async def get_doctors_summary():
             }
         }
 
-@app.get("/patient-info")
-async def get_patient_info():
-    """Fetch patient information from the data folder."""
-    print("Fetching patient information...")
+@app.post("/patient-info")
+async def process_patient_file(file: UploadFile = File(...)):
+    """Process uploaded file and return patient information."""
+    print("----------------------------------------")
+    print(f"PROCESS_PATIENT_FILE : Processing uploaded file and returning patient info from : {file.filename}")
+    print("----------------------------------------")
+    
+    # For now, return mock patient info
+    # In a real implementation, you would parse the uploaded file here
     data_dir = os.path.join(os.path.dirname(__file__), "data")
     json_path = os.path.join(data_dir, "patient-info.json")
+    
     try:
         with open(json_path, "r") as f:
-            response = json.load(f)
+            patient_info = json.load(f)
+        
+        # Add file processing info
+        response = {
+            **patient_info,
+            "processed_file": file.filename,
+            "processing_time": random.randint(100, 500),
+            "status": "success"
+        }
         return response
     except FileNotFoundError:
-        return {"error": "Patient info data not found", "patient": {}}
+        return {
+            "error": "Patient info template not found",
+            "processed_file": file.filename,
+            "status": "error"
+        }
+
+@app.post("/book-appointment")
+async def book_appointment(appointment_data: dict):
+    """Book a doctor's appointment and save to file."""
+    print("----------------------------------------")
+    print("BOOK_APPOINTMENT : Booking doctor appointment and saving to file : doctors-appointments.json")
+    print("----------------------------------------")
+    
+    try:
+        # Create data directory if it doesn't exist
+        data_dir = os.path.join(os.path.dirname(__file__), "data")
+        os.makedirs(data_dir, exist_ok=True)
+        
+        # File path for appointments
+        appointments_file = os.path.join(data_dir, "doctors-appointments.json")
+        
+        # Load existing appointments or create new list
+        existing_appointments = []
+        if os.path.exists(appointments_file):
+            with open(appointments_file, "r") as f:
+                existing_appointments = json.load(f)
+        
+        # Add new appointment
+        appointment_id = f"APT{len(existing_appointments) + 1:04d}"
+        new_appointment = {
+            "id": appointment_id,
+            **appointment_data,
+            "status": "confirmed",
+            "created_at": time.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+        }
+        
+        existing_appointments.append(new_appointment)
+        
+        # Save to file
+        with open(appointments_file, "w") as f:
+            json.dump(existing_appointments, f, indent=2)
+        
+        print(f"Appointment booked successfully: {appointment_id}")
+        
+        return {
+            "status": "success",
+            "message": "Appointment booked successfully",
+            "appointment_id": appointment_id,
+            "appointment": new_appointment
+        }
+        
+    except Exception as e:
+        print(f"Error booking appointment: {e}")
+        return {
+            "status": "error",
+            "message": "Failed to book appointment",
+            "error": str(e)
+        }
