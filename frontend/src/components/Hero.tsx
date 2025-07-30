@@ -109,15 +109,15 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
         padding: '0 4rem',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: '3rem',
+        justifyContent: 'center',
+        gap: '4rem',
       }}>
         {/* Left Side - Title and Description */}
         <div style={{
           flex: 1,
           color: '#fff',
           textAlign: 'left',
-          maxWidth: '45%',
+          maxWidth: '50%',
         }}>
           <h1 style={{
             fontSize: '3.5rem',
@@ -179,10 +179,8 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
           backdropFilter: 'blur(15px)',
           border: '1px solid rgba(255, 255, 255, 0.2)',
           boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)',
-          minWidth: '400px',
-          maxWidth: '500px',
-          marginLeft: '-2rem',
-          marginRight: '0',
+          width: '450px',
+          flexShrink: 0,
         }}>
           <h2 style={{
             fontSize: '1.8rem',
@@ -208,7 +206,7 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
               htmlFor="file-upload"
               style={{
                 display: 'block',
-                width: '100%',
+                width: '90%',
                 padding: '1rem 1.5rem',
                 fontSize: '1rem',
                 fontWeight: '600',

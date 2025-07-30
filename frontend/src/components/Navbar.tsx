@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
       background: 'rgba(30, 41, 59, 0.95)',
       backdropFilter: 'blur(10px)',
       borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-      padding: '1rem 2rem',
+      padding: '1rem 0',
     }}>
       <div style={{
         display: 'flex',
@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
           fontWeight: 'bold',
         }}>
           <span style={{ marginRight: '0.5rem' }}>🏥</span>
-          ADIF Healthcare
+          <span>ADIF Healthcare</span>
         </Link>
 
         {/* Desktop Navigation - Individual Buttons */}
@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           gap: '1rem',
-          marginLeft: '35%',
+          marginLeft: '25%',
         }}>
           {mainNavItems.map((item) => (
             <Link
@@ -122,7 +122,7 @@ const Navbar: React.FC = () => {
             cursor: 'pointer',
             position: 'relative',
             overflow: 'hidden',
-            marginRight: '2%',
+            marginRight: '5%',
           }}
           onMouseEnter={(e) => {
             if (!isActive('/profile')) {

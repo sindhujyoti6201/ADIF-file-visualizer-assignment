@@ -1,37 +1,34 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
+import { OrbitControls, useGLTF, Environment, PerspectiveCamera } from '@react-three/drei';
 import Navbar from '../components/Navbar';
 
-// Individual model components
+// Individual model components with proper scaling and positioning
 function BrainModel() {
   const { scene } = useGLTF('/models/human-body/brain.glb');
-  return <primitive object={scene} />;
+  return <primitive object={scene} scale={[0.08, 0.08, 0.08]} position={[0, 0, 0]} />;
 }
 
 function HeartModel() {
   const { scene } = useGLTF('/models/human-body/heart.glb');
-  return <primitive object={scene} />;
+  return <primitive object={scene} scale={[5, 5, 5]} position={[0, -0.3, 0]} />;
 }
 
 function LungsModel() {
   const { scene } = useGLTF('/models/human-body/lungs.glb');
-  return <primitive object={scene} />;
+  return <primitive object={scene} scale={[5, 5, 5]} position={[0, -0.3, 0]} />;
 }
 
 function SpineModel() {
   const { scene } = useGLTF('/models/human-body/spine.glb');
-  return <primitive object={scene} />;
+  return <primitive object={scene} scale={[1.5, 1.5, 1.5]} position={[0, -0.3, 0]} />;
 }
 
-function EyeModel() {
-  const { scene } = useGLTF('/models/human-body/eye.glb');
-  return <primitive object={scene} />;
-}
+
 
 function DigestiveSystemModel() {
   const { scene } = useGLTF('/models/human-body/digestivesystem.glb');
-  return <primitive object={scene} />;
+  return <primitive object={scene} scale={[1.5, 1.5, 1.5]} position={[0, -0.3, 0]} />;
 }
 
 // Preload all models
@@ -39,238 +36,214 @@ useGLTF.preload('/models/human-body/brain.glb');
 useGLTF.preload('/models/human-body/heart.glb');
 useGLTF.preload('/models/human-body/lungs.glb');
 useGLTF.preload('/models/human-body/spine.glb');
-useGLTF.preload('/models/human-body/eye.glb');
 useGLTF.preload('/models/human-body/digestivesystem.glb');
 
 interface ModelSection {
   name: string;
-  icon: string;
   description: string;
   component: React.ComponentType;
-  color: string;
+  cameraPosition: [number, number, number];
 }
 
 export default function Visualization() {
+  const [activeModel, setActiveModel] = useState('Brain');
+
   const sections: ModelSection[] = [
     {
       name: 'Brain',
-      icon: '🧠',
-      description: 'Interactive 3D model of the human brain',
+      description: 'The command center of the human nervous system, responsible for processing information, controlling movement, and regulating vital functions.',
       component: BrainModel,
-      color: '#8b5cf6'
+      cameraPosition: [0, 0, 3.5]
     },
     {
       name: 'Heart',
-      icon: '❤️',
-      description: 'Detailed 3D visualization of the heart',
+      description: 'The muscular organ that pumps blood throughout the circulatory system, delivering oxygen and nutrients to all parts of the body.',
       component: HeartModel,
-      color: '#ef4444'
+      cameraPosition: [0, 0, 2]
     },
     {
       name: 'Lungs',
-      icon: '🫁',
-      description: '3D model of the respiratory system',
+      description: 'The primary organs of respiration, responsible for oxygenating blood and removing carbon dioxide from the body.',
       component: LungsModel,
-      color: '#06b6d4'
+      cameraPosition: [0, 0, 3.5]
     },
     {
       name: 'Spine',
-      icon: '🦴',
-      description: 'Interactive spine and vertebral column',
+      description: 'The flexible column of bones that provides structural support and protects the spinal cord, enabling movement and stability.',
       component: SpineModel,
-      color: '#f59e0b'
+      cameraPosition: [0, 0, 4]
     },
-    {
-      name: 'Eye',
-      icon: '👁️',
-      description: '3D visualization of the human eye',
-      component: EyeModel,
-      color: '#10b981'
-    },
+    
     {
       name: 'Digestive System',
-      icon: '🫀',
-      description: 'Complete digestive system model',
+      description: 'The complex network of organs responsible for breaking down food, absorbing nutrients, and eliminating waste.',
       component: DigestiveSystemModel,
-      color: '#f97316'
+      cameraPosition: [0, 0, 3]
     }
   ];
 
+  const currentSection = sections.find(section => section.name === activeModel) || sections[0];
+  const Component = currentSection.component;
+
   return (
-    <>
-      <style jsx global>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-        body {
-          margin: 0;
-          padding: 0;
-          overflow-x: hidden;
-        }
-        html {
-          margin: 0;
-          padding: 0;
-        }
-      `}</style>
+    <div>
+      <Navbar />
       
-      <div style={{ 
-        minHeight: '100vh', 
-        width: '100%', 
+      <div style={{
+        minHeight: 'calc(100vh - 80px)',
+        width: '100%',
         position: 'relative',
-        margin: 0,
-        padding: 0,
-        overflow: 'hidden'
+        background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
+        paddingTop: '80px', // Add padding to account for fixed navbar
       }}>
-        <Navbar />
-        
+        {/* Title */}
         <div style={{
-          minHeight: 'calc(100vh - 80px)',
-          width: '100%',
-          position: 'relative',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          textAlign: 'center',
+          padding: '1rem',
+          background: '#3b82f6',
         }}>
-          {/* Header Section */}
-          <div style={{
-            padding: '3rem 2rem',
-            color: 'white',
-            textAlign: 'center',
-            zIndex: 10,
+          <h1 style={{
+            fontSize: '2.5rem',
+            fontWeight: '700',
+            color: '#ffffff',
+            margin: 0,
           }}>
-            <h1 style={{ 
-              fontSize: '3rem', 
-              fontWeight: 'bold', 
-              marginBottom: '1rem',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+            3D Visualization of Human Body Parts
+          </h1>
+        </div>
+        
+        {/* Model Selection Buttons */}
+        <div style={{
+          padding: '1rem',
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '1rem',
+          flexWrap: 'wrap',
+          background: '#3b82f6',
+          borderBottom: '1px solid #dee2e6',
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
+        }}>
+          {sections.map((section) => (
+            <button
+              key={section.name}
+              onClick={() => setActiveModel(section.name)}
+              style={{
+                padding: '1rem 2rem',
+                background: activeModel === section.name ? '#1e40af' : '#ffffff',
+                color: activeModel === section.name ? '#ffffff' : '#3b82f6',
+                border: `2px solid ${activeModel === section.name ? '#1e40af' : '#3b82f6'}`,
+                borderRadius: '12px',
+                fontSize: '1rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                boxShadow: activeModel === section.name ? '0 4px 12px rgba(0, 0, 0, 0.15)' : '0 2px 4px rgba(0, 0, 0, 0.05)',
+              }}
+              onMouseEnter={(e) => {
+                if (activeModel !== section.name) {
+                  e.currentTarget.style.background = '#dbeafe';
+                  e.currentTarget.style.borderColor = '#3b82f6';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeModel !== section.name) {
+                  e.currentTarget.style.background = '#ffffff';
+                  e.currentTarget.style.borderColor = '#3b82f6';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }
+              }}
+            >
+              {section.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Main Content Area */}
+        <div style={{
+          padding: '3rem 2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          minHeight: 'calc(100vh - 200px)',
+        }}>
+          {/* Section Header */}
+          <div style={{
+            textAlign: 'center',
+            color: '#2c3e50',
+            marginBottom: '3rem',
+            maxWidth: '800px',
+          }}>
+            <h2 style={{ 
+              fontSize: '3.5rem', 
+              fontWeight: '700',
+              marginBottom: '1.5rem',
+              color: '#1a1a2e',
+              letterSpacing: '-0.02em',
             }}>
-              Human Body Visualization
-            </h1>
+              {currentSection.name}
+            </h2>
             <p style={{ 
-              fontSize: '1.2rem',
-              opacity: 0.9,
-              textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+              fontSize: '1.3rem',
+              opacity: 0.8,
+              lineHeight: '1.7',
+              fontWeight: '400',
+              color: '#495057',
             }}>
-              Interactive 3D Models - Scroll to explore
+              {currentSection.description}
             </p>
           </div>
-
-          {/* Model Sections */}
-          {sections.map((section, index) => {
-            const Component = section.component;
-            return (
-              <div
-                key={section.name}
-                style={{
-                  minHeight: '100vh',
-                  width: '100%',
-                  padding: '2rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  position: 'relative',
-                }}
-              >
-                {/* Section Header */}
-                <div style={{
-                  textAlign: 'center',
-                  color: 'white',
-                  marginBottom: '2rem',
-                  zIndex: 10,
-                }}>
-                  <div style={{
-                    fontSize: '4rem',
-                    marginBottom: '1rem',
-                  }}>
-                    {section.icon}
-                  </div>
-                  <h2 style={{ 
-                    fontSize: '2.5rem', 
-                    fontWeight: 'bold',
-                    marginBottom: '1rem',
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
-                  }}>
-                    {section.name}
-                  </h2>
-                  <p style={{ 
-                    fontSize: '1.2rem',
-                    opacity: 0.9,
-                    textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
-                    maxWidth: '600px',
-                    margin: '0 auto'
-                  }}>
-                    {section.description}
-                  </p>
-                </div>
-                
-                {/* 3D Canvas */}
-                <div style={{
-                  width: '100%',
-                  maxWidth: '800px',
-                  height: '60vh',
-                  position: 'relative',
-                  borderRadius: '20px',
-                  overflow: 'hidden',
-                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
-                  border: `3px solid ${section.color}`,
-                  background: 'rgba(0, 0, 0, 0.1)',
-                }}>
-                  <Canvas
-                    camera={{ position: [0, 0, 5], fov: 75 }}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      background: 'rgba(0, 0, 0, 0.1)',
-                    }}
-                  >
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[10, 10, 5]} intensity={1} />
-                    <pointLight position={[-10, -10, -5]} intensity={0.5} />
-                    
-                    <Suspense fallback={
-                      <mesh>
-                        <boxGeometry args={[1, 1, 1]} />
-                        <meshStandardMaterial color={section.color} />
-                      </mesh>
-                    }>
-                      <Component />
-                    </Suspense>
-                    
-                    <OrbitControls 
-                      enablePan={true}
-                      enableZoom={true}
-                      enableRotate={true}
-                      autoRotate={true}
-                      autoRotateSpeed={0.5}
-                    />
-                  </Canvas>
-                </div>
-
-                {/* Section Number */}
-                <div style={{
-                  position: 'absolute',
-                  top: '2rem',
-                  right: '2rem',
-                  background: section.color,
-                  color: 'white',
-                  width: '50px',
-                  height: '50px',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '1.5rem',
-                  fontWeight: 'bold',
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
-                }}>
-                  {index + 1}
-                </div>
-              </div>
-            );
-          })}
+          
+          {/* 3D Canvas */}
+          <div style={{
+            width: '100%',
+            maxWidth: '1000px',
+            height: '60vh',
+            position: 'relative',
+            borderRadius: '24px',
+            overflow: 'hidden',
+            boxShadow: '0 25px 50px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)',
+            border: '2px solid #dee2e6',
+            background: '#6b7280',
+          }}>
+            <Canvas
+              camera={{ position: currentSection.cameraPosition, fov: 60 }}
+              style={{
+                width: '100%',
+                height: '100%',
+                background: 'transparent',
+              }}
+            >
+              <PerspectiveCamera makeDefault position={currentSection.cameraPosition} />
+              <ambientLight intensity={0.4} />
+              <directionalLight position={[10, 10, 5]} intensity={1.2} />
+              <pointLight position={[-10, -10, -5]} intensity={0.8} />
+              <spotLight position={[0, 10, 0]} intensity={0.5} angle={0.3} penumbra={1} />
+              
+              <Suspense fallback={
+                <mesh>
+                  <boxGeometry args={[1, 1, 1]} />
+                  <meshStandardMaterial color="#6c757d" />
+                </mesh>
+              }>
+                <Component />
+              </Suspense>
+              
+              <Environment preset="studio" />
+              
+              <OrbitControls 
+                enablePan={true}
+                enableZoom={true}
+                enableRotate={true}
+                autoRotate={false}
+                minDistance={0.5}
+                maxDistance={20}
+                dampingFactor={0.05}
+              />
+            </Canvas>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 } 
