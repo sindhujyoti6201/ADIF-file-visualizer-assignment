@@ -242,13 +242,20 @@ export default function PatientDashboard() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
-              <Toaster
-          position="top-center"
-          toastOptions={{
+                    <Toaster
+        position="top-center"
+        containerStyle={{
+          top: 80,
+          left: 20,
+          bottom: 20,
+          right: 20,
+        }}
+        toastOptions={{
           duration: 4000,
           style: {
             background: '#363636',
             color: '#fff',
+            marginTop: '1rem',
           },
         }}
       />
