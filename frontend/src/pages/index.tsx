@@ -220,7 +220,7 @@ export default function Dashboard() {
         style={{
           background: '#f1f5f9',
           minHeight: '100vh',
-          padding: '4rem 2rem',
+          padding: '3rem 1.5rem',
           width: '100%',
           margin: 0,
           maxWidth: '100vw',
@@ -228,15 +228,15 @@ export default function Dashboard() {
         }}
       >
         <div style={{
-          maxWidth: '1400px',
+          maxWidth: '1200px',
           margin: '0 auto',
           padding: '0 1rem',
         }}>
           {/* Summary Cards */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1.5rem',
             marginBottom: '4rem',
           }}>
             {[
@@ -249,9 +249,9 @@ export default function Dashboard() {
                 key={card.title}
                 style={{
                   background: '#fff',
-                  padding: '2rem',
-                  borderRadius: '16px',
-                  boxShadow: '0 8px 25px rgba(0, 0, 0, 0.08)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
                   border: '1px solid #e2e8f0',
                   textAlign: 'center',
                   transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -271,23 +271,23 @@ export default function Dashboard() {
                 }}
               >
                 <div style={{ 
-                  fontSize: '3rem', 
-                  marginBottom: '1rem',
+                  fontSize: '2.5rem', 
+                  marginBottom: '0.75rem',
                   background: card.bgColor,
-                  width: '80px',
-                  height: '80px',
+                  width: '60px',
+                  height: '60px',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  margin: '0 auto 1rem',
+                  margin: '0 auto 0.75rem',
                 }}>
                   {card.icon}
                 </div>
-                <h3 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '0.5rem' }}>
+                <h3 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '0.5rem' }}>
                   {card.value}
                 </h3>
-                <p style={{ color: '#64748b', fontSize: '1.1rem', fontWeight: '500' }}>{card.title}</p>
+                <p style={{ color: '#64748b', fontSize: '1rem', fontWeight: '500' }}>{card.title}</p>
               </div>
             ))}
           </div>
@@ -295,19 +295,19 @@ export default function Dashboard() {
           {/* Quick Actions */}
           <div style={{
             background: '#fff',
-            padding: '2.5rem',
-            borderRadius: '20px',
+            padding: '2rem',
+            borderRadius: '16px',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
             border: '1px solid #e2e8f0',
-            marginBottom: '4rem',
+            marginBottom: '3rem',
           }}>
-            <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '2rem', textAlign: 'center' }}>
+            <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '1.5rem', textAlign: 'center' }}>
               Quick Actions
             </h2>
             <div style={{ 
               display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '1.5rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: '1rem',
             }}>
               {[
                 { name: 'View Doctors', action: handleViewDoctors, icon: '👨‍⚕️', description: 'Browse and manage doctor profiles' },
@@ -320,15 +320,15 @@ export default function Dashboard() {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    gap: '1rem',
-                    padding: '2rem',
+                    gap: '0.75rem',
+                    padding: '1.5rem',
                     background: '#f8fafc',
                     border: '2px solid #e2e8f0',
-                    borderRadius: '16px',
+                    borderRadius: '12px',
                     color: '#1e293b',
                     cursor: 'pointer',
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                    fontSize: '1rem',
+                    fontSize: '0.9rem',
                     textAlign: 'center',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
                     position: 'relative',
@@ -347,12 +347,12 @@ export default function Dashboard() {
                     e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
                   }}
                 >
-                  <span style={{ fontSize: '2.5rem' }}>{action.icon}</span>
+                  <span style={{ fontSize: '2rem' }}>{action.icon}</span>
                   <div>
-                    <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
                       {action.name}
                     </h3>
-                    <p style={{ fontSize: '0.9rem', color: '#64748b', lineHeight: '1.4' }}>
+                    <p style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: '1.4' }}>
                       {action.description}
                     </p>
                   </div>
@@ -364,18 +364,18 @@ export default function Dashboard() {
           {/* Recent Activity & Notifications */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '1.5rem',
           }}>
             {/* Recent Activity */}
             <div style={{
               background: '#fff',
-              padding: '2.5rem',
-              borderRadius: '20px',
+              padding: '2rem',
+              borderRadius: '16px',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
               border: '1px solid #e2e8f0',
             }}>
-              <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '1.5rem' }}>
+              <h2 style={{ fontSize: '1.6rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '1.5rem' }}>
                 Recent Activity
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -385,10 +385,10 @@ export default function Dashboard() {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '1rem',
-                      padding: '1.5rem',
+                      gap: '0.75rem',
+                      padding: '1.25rem',
                       background: '#f8fafc',
-                      borderRadius: '12px',
+                      borderRadius: '10px',
                       border: '1px solid #e2e8f0',
                       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                       cursor: 'pointer',
@@ -407,12 +407,12 @@ export default function Dashboard() {
                       e.currentTarget.style.borderColor = '#e2e8f0';
                     }}
                   >
-                    <span style={{ fontSize: '1.5rem' }}>{activity.icon}</span>
+                    <span style={{ fontSize: '1.25rem' }}>{activity.icon}</span>
                     <div style={{ flex: 1 }}>
-                      <p style={{ color: '#1e293b', fontSize: '1rem', marginBottom: '0.25rem', fontWeight: '500' }}>
+                      <p style={{ color: '#1e293b', fontSize: '0.9rem', marginBottom: '0.25rem', fontWeight: '500' }}>
                         {activity.message}
                       </p>
-                      <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
+                      <p style={{ color: '#64748b', fontSize: '0.8rem' }}>
                         {activity.time}
                       </p>
                     </div>
