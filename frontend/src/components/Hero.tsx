@@ -106,11 +106,12 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
         zIndex: 1,
         width: '100%',
         maxWidth: '1400px',
-        padding: '0 4rem',
+        padding: '0 2rem',
+        margin: '0 auto',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '4rem',
+        gap: '2rem',
       }}>
         {/* Left Side - Title and Description */}
         <div style={{
@@ -118,9 +119,10 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
           color: '#fff',
           textAlign: 'left',
           maxWidth: '50%',
+          minWidth: '300px',
         }}>
           <h1 style={{
-            fontSize: '3.5rem',
+            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
             fontWeight: 'bold',
             marginBottom: '1rem',
             textShadow: '0 2px 16px rgba(0,0,0,0.5)',
@@ -131,7 +133,7 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
             <style>{`@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }`}</style>
           </h1>
           <p style={{
-            fontSize: '1.3rem',
+            fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
             color: '#e2e8f0',
             marginBottom: '2rem',
             lineHeight: '1.6',

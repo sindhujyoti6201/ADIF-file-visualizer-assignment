@@ -124,7 +124,13 @@ export default function Dashboard() {
   };
 
   return (
-    <div>
+    <div style={{
+      width: '100vw',
+      maxWidth: '100vw',
+      overflowX: 'hidden',
+      margin: 0,
+      padding: 0,
+    }}>
       <Toaster 
         position="top-center"
         containerStyle={{
@@ -217,17 +223,19 @@ export default function Dashboard() {
           padding: '4rem 2rem',
           width: '100%',
           margin: 0,
+          maxWidth: '100vw',
+          overflowX: 'hidden',
         }}
       >
         <div style={{
-          width: '100%',
-          padding: '0 2rem',
-          margin: 0,
+          maxWidth: '1400px',
+          margin: '0 auto',
+          padding: '0 1rem',
         }}>
           {/* Summary Cards */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
             gap: '2rem',
             marginBottom: '4rem',
           }}>
@@ -298,7 +306,7 @@ export default function Dashboard() {
             </h2>
             <div style={{ 
               display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
               gap: '1.5rem',
             }}>
               {[
@@ -356,7 +364,7 @@ export default function Dashboard() {
           {/* Recent Activity & Notifications */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
             gap: '2rem',
           }}>
             {/* Recent Activity */}
