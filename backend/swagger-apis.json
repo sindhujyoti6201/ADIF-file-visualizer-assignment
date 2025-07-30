@@ -1,0 +1,331 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "ADIF Backend API",
+      "description": "Healthcare management system API for patient and doctor data",
+      "version": "1.0.0",
+      "contact": {
+        "name": "ADIF Team"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8000",
+        "description": "Development server"
+      }
+    ],
+    "paths": {
+      "/health": {
+        "get": {
+          "summary": "Health check endpoint",
+          "description": "Health check endpoint for monitoring service status",
+          "tags": ["Monitoring"],
+          "responses": {
+            "200": {
+              "description": "Service is healthy",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "example": "healthy"
+                      },
+                      "service": {
+                        "type": "string",
+                        "example": "ADIF Backend API"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/patients": {
+        "get": {
+          "summary": "Fetch patients information",
+          "description": "Fetch patients information from the data folder",
+          "tags": ["Patients"],
+          "responses": {
+            "200": {
+              "description": "Patient data retrieved successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "summary": {
+                        "type": "object",
+                        "properties": {
+                          "totalPatients": {
+                            "type": "integer"
+                          },
+                          "averageAge": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "patients": {
+                        "type": "array",
+                        "items": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/doctors": {
+        "get": {
+          "summary": "Fetch all doctors information",
+          "description": "Fetch all doctors information",
+          "tags": ["Doctors"],
+          "responses": {
+            "200": {
+              "description": "Doctors data retrieved successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "doctors": {
+                        "type": "array",
+                        "items": {
+                          "type": "object"
+                        }
+                      },
+                      "summary": {
+                        "type": "object",
+                        "properties": {
+                          "totalDoctors": {
+                            "type": "integer"
+                          },
+                          "averageRating": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/doctors/analytics": {
+        "get": {
+          "summary": "Get doctors analytics",
+          "description": "Return pre-calculated analytics for doctors charts",
+          "tags": [ "Analytics"],
+          "responses": {
+            "200": {
+              "description": "Analytics data retrieved successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "specialization_distribution": {
+                        "type": "object"
+                      },
+                      "department_distribution": {
+                        "type": "object"
+                      },
+                      "rating_distribution": {
+                        "type": "object"
+                      },
+                      "experience_vs_success": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/doctors/summary": {
+        "get": {
+          "summary": "Get doctors summary statistics",
+          "description": "Return summary statistics for doctors",
+          "tags": ["Analytics"],
+          "responses": {
+            "200": {
+              "description": "Summary statistics retrieved successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "calculated_stats": {
+                        "type": "object",
+                        "properties": {
+                          "average_experience": {
+                            "type": "number"
+                          },
+                          "average_rating": {
+                            "type": "number"
+                          },
+                          "average_success_rate": {
+                            "type": "number"
+                          },
+                          "departments": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "specializations": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/patient-info": {
+        "post": {
+          "summary": "Process patient file",
+          "description": "Process uploaded file and return patient information",
+          "tags": ["Patients"],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "file": {
+                      "type": "string",
+                      "format": "binary",
+                      "description": "Patient report file"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "File processed successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "processed_file": {
+                        "type": "string"
+                      },
+                      "processing_time": {
+                        "type": "integer"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "patient_info": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/book-appointment": {
+        "post": {
+          "summary": "Book doctor appointment",
+          "description": "Book a doctor's appointment and save to file",
+          "tags": ["Appointments"],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "patient_info": {
+                      "type": "object"
+                    },
+                    "doctor": {
+                      "type": "object"
+                    },
+                    "date": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Appointment booked successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string"
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "appointment_id": {
+                        "type": "string"
+                      },
+                      "appointment": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "Monitoring",
+        "description": "Health check endpoints"
+      },
+      {
+        "name": "Patients",
+        "description": "Patient data management"
+      },
+      {
+        "name": "Doctors",
+        "description": "Doctor data management"
+      },
+      {
+        "name": "Analytics",
+        "description": "Data analytics and insights"
+      },
+      {
+        "name": "Appointments",
+        "description": "Appointment booking and management"
+      }
+    ]
+  } 
