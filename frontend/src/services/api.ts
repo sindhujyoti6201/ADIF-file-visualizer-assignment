@@ -101,7 +101,7 @@ export interface PatientInfo {
   };
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://0u1zc3y2jb.execute-api.us-east-1.amazonaws.com/prod';
 
 
 
