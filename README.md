@@ -1,227 +1,167 @@
 # ADIF Healthcare Dashboard
 
-A comprehensive healthcare analytics and patient management system with **3D visualization capabilities** and real-time data processing.
+**Website Hosted At:** https://main.d2qt7sshytqqz1.amplifyapp.com/
 
-## ✨ Features
+A Complete Health Care Portal for Doctors and Patients to manage Doctors, view their availability, capabilities, patients information, stats on doctors and patients with filters to search doctors and patients, get an initial diagnosis on the doctor's report, Book a doctor's Appointment.
 
-- **📁 File Upload**: Upload patient reports to get detailed disease insights and analytics
-- **🏥 Doctors Dashboard**: Comprehensive doctor management with analytics and filtering
-- **👥 Patients Dashboard**: Patient records and data visualization
-- **🎯 3D Human Body Visualization**: Interactive 3D models of brain, heart, lungs, spine, and digestive system
-- **📊 Interactive Analytics**: Age distribution, diagnosis breakdown, vital signs trends
-- **🔔 Toast Notifications**: Real-time user feedback during processing
-- **📱 Responsive Design**: Modern UI with smooth animations
-- **⚡ Real-time Processing**: Live data processing with progress indicators
-- **🎨 Modern UI**: Beautiful gradient backgrounds and smooth transitions
+## What is this Project About
 
-## 🚀 Quick Start
+This project is a healthcare dashboard that provides:
+- Patient data management and analytics
+- Doctor profiles and appointment booking
+- 3D human body visualization for educational purposes
+- File upload system for patient reports
+- Real-time data processing with interactive dashboards
+
+## Deployment Architecture
+
+![Architecture Diagram](architecture-diagram.png)
+
+### AWS Resources Used in Deployment
+
+1. **Client/User**: End-users accessing the application through web browsers
+2. **DNS Resolution**: AWS Route 53 for domain name resolution
+3. **Frontend Files**: Static files hosted on AWS Amplify (CDN, S3, CI/CD)
+4. **AWS Amplify**: Frontend hosting with automatic deployments and CDN distribution
+5. **Amazon API Gateway**: RESTful API management and routing
+6. **Application Load Balancer**: Traffic distribution and load balancing
+7. **Virtual Private Cloud (VPC)**: Isolated network environment (172.31.0.0/16)
+8. **Public Subnet**: Network subnet accessible from internet
+9. **Amazon EC2**: Backend server hosting (184.73.83.38)
+10. **Docker**: Containerized backend application deployment
+
+### Architecture Flow
+Client → DNS Resolution → AWS Amplify (Frontend) → API Gateway → Load Balancer → EC2 (Dockerized Backend)
+
+## The Flow in the Website
+
+### Main Dashboard
+Users can upload doctor's reports to get suggestions on which diseases the person is suffering from, what conditions or allergies they might have, and which doctors to contact for these conditions.
+
+### Doctors Section
+Users can view doctors' information from each department, see stats of staff in each department, search doctors and find their availability times.
+
+### Patients Section
+Search functionality for finding patients, insights on patients in each department, and ability to click on a patient to view their reports.
+
+### Book Appointment
+Users can book appointments with any doctors provided they are available.
+
+### 3D Visualization
+Interactive 3D visualization of human body parts for educational purposes.
+
+### Profile Section
+In the navbar, users can access profile information where the currently logged-in user can view their information and modify it.
+
+## Frontend Dashboard API Calls
+
+### Main Dashboard
+- `GET /health` - Health check for backend connectivity
+- `GET /doctors` - Fetch doctors data for analytics
+- `GET /patients` - Fetch patients data for analytics
+
+### Doctors Dashboard
+- `GET /doctors` - Fetch all doctors with filtering capabilities
+- `GET /doctors/analytics` - Get pre-calculated analytics for charts
+- `GET /doctors/summary` - Get summary statistics for doctors performance
+
+### Patients Dashboard
+- `GET /patients` - Fetch all patients with filtering and health metrics
+
+### Patient Info Dashboard
+- `POST /patient-info` - Process uploaded patient files and extract health data
+
+### Appointment Booking
+- `POST /book-appointment` - Book appointments with doctors
+
+## Tech Stacks Used
+
+### Frontend
+- Next.js (React framework)
+- TypeScript
+- Three.js (3D graphics)
+- React Three Fiber
+- D3.js (charts and visualizations)
+- React Hot Toast (notifications)
+
+### Backend
+- FastAPI (Python)
+- Docker (containerization)
+- JSON data storage
+
+## Project Structure
+
+The project is divided into two main parts:
+- **Frontend**: Next.js application with React components and 3D visualization
+- **Backend**: FastAPI Python service with Docker containerization
+
+## Clone the Repository
+
+```bash
+git clone <repository-url>
+cd ADIF-file-visualizer-assignment
+```
+
+## How to Run the Project
 
 ### Prerequisites
-- Docker and Docker Compose (for backend)
-- Node.js 18+ and npm (for frontend)
-- Git
+- Docker and Docker Compose
+- Node.js 18+ and npm
 
-### Running the Application
+### Backend Setup
+See [Backend README](backend/README.md) for detailed setup instructions.
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd ADIF-file-visualizer-assignment
-   ```
+```bash
+docker-compose up --build
+```
 
-2. **Start the backend (Docker)**
-   ```bash
-   docker-compose up --build
-   ```
+### Frontend Setup
 
-3. **Start the frontend (Local)**
+1. **Install dependencies and start**
    ```bash
    cd frontend
    npm install
    npm run dev
    ```
 
-4. **Access the application**
+2. **Access the application**
    - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8000
+   - Backend API: http://localhost:8080
 
-## 🏥 Dashboard Features
+## Testing
 
-### Main Dashboard
-- **Upload Patient Reports**: Drag and drop or click to upload medical files
-- **Real-time Processing**: Live progress indicators during data analysis
-- **Healthcare Analytics**: Comprehensive patient data insights
-- **Quick Actions**: Direct access to doctors and patients dashboards
+### Backend API Testing
+Test the backend endpoints using curl or Postman:
 
-### Doctors Dashboard
-- **Doctor Profiles**: Detailed information about healthcare professionals
-- **Analytics**: Performance metrics and patient statistics
-- **Filtering**: Search and filter doctors by specialty, location, etc.
-- **Appointment Booking**: Direct integration for scheduling
-
-### Patients Dashboard
-- **Patient Records**: Comprehensive patient data management
-- **Health Analytics**: Vital signs, diagnosis, and treatment history
-- **Insights**: Data-driven insights and trends
-- **Visualization**: Interactive charts and graphs
-
-### 3D Visualization
-- **Interactive Models**: Brain, Heart, Lungs, Spine, Digestive System
-- **3D Controls**: Zoom, rotate, and pan with mouse/touch
-- **Educational Content**: Detailed descriptions of each body part
-- **Responsive Design**: Works on desktop and mobile devices
-
-## 🔔 Toast Notification System
-
-Enhanced user experience with real-time feedback:
-
-- **File Selection**: Confirmation when file is selected
-- **Upload Progress**: Loading indicators during file upload
-- **Processing Status**: Real-time updates during data processing
-- **Success Messages**: Confirmation when data is processed successfully
-- **Error Handling**: Clear error messages for failed operations
-- **Navigation**: Notifications when switching between dashboards
-
-## 📊 Analytics Features
-
-### Key Metrics
-- Total Doctors Count
-- Total Patients Count
-- Appointments Today
-- Files Uploaded
-
-### 2D Visualizations
-- **Age Distribution**: Bar chart showing patient age groups
-- **Diagnosis Distribution**: Breakdown of medical diagnoses
-- **Vital Signs Trends**: Heart rate trends over time
-- **Gender Distribution**: Pie chart of patient gender
-- **Length of Stay Analysis**: Patient stay duration patterns
-
-## 🛠️ Technology Stack
-
-- **Frontend**: Next.js, React, TypeScript
-- **3D Graphics**: Three.js, React Three Fiber
-- **Charts**: D3.js
-- **Styling**: Inline styles with modern design
-- **Notifications**: React Hot Toast
-- **Backend**: FastAPI (Python)
-- **Containerization**: Docker (Backend only)
-
-## 📁 Project Structure
-
-```
-ADIF-file-visualizer-assignment/
-├── backend/                 # FastAPI backend service (Dockerized)
-│   ├── data/               # Healthcare data files
-│   │   ├── doctors-data.json
-│   │   ├── patients-data.json
-│   │   └── patient-info.json
-│   ├── main.py             # FastAPI application
-│   ├── Dockerfile          # Backend container configuration
-│   └── setup.md            # Detailed setup guide
-├── frontend/               # Next.js frontend application (Local)
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Hero.tsx
-│   │   │   ├── Navbar.tsx
-│   │   │   ├── DoctorsDashboard.tsx
-│   │   │   ├── PatientsDashboard.tsx
-│   │   │   ├── DoctorsTable.tsx
-│   │   │   ├── PatientsTable.tsx
-│   │   │   └── DoctorProfileModal.tsx
-│   │   ├── pages/
-│   │   │   ├── index.tsx           # Main dashboard
-│   │   │   ├── doctors.tsx         # Doctors dashboard
-│   │   │   ├── patients.tsx        # Patients dashboard
-│   │   │   ├── visualization.tsx   # 3D visualization
-│   │   │   └── patient-info-dashboard.tsx
-│   │   └── services/
-│   │       └── api.ts
-│   ├── public/
-│   │   └── models/
-│   │       └── human-body/         # 3D model files
-│   └── package.json
-├── docker-compose.yml      # Backend service orchestration
-└── README.md              # This file
-```
-
-## 🎨 UI/UX Improvements
-
-### Modern Design
-- **Gradient Backgrounds**: Beautiful color transitions
-- **Smooth Animations**: 60fps rendering for fluid experience
-- **Interactive Elements**: Hover effects and transitions
-- **Responsive Layout**: Adapts to different screen sizes
-
-### 3D Visualization
-- **Interactive Controls**: Mouse and touch support for exploration
-- **Model Selection**: Easy switching between body parts
-- **Educational Content**: Detailed descriptions and information
-- **Performance Optimized**: Efficient rendering with proper cleanup
-
-### Toast Notifications
-- **Success Toasts**: Green notifications for successful operations
-- **Error Toasts**: Red notifications for errors with clear messages
-- **Loading Toasts**: Persistent loading indicators during processing
-- **Info Toasts**: Blue notifications for informational messages
-
-## 🚀 Deployment
-
-### Local Development
 ```bash
-# Start backend
-docker-compose up --build
+# Health check
+curl http://localhost:8080/health
 
-# Start frontend (in another terminal)
-cd frontend
-npm install
-npm run dev
+# Get doctors data
+curl http://localhost:8080/doctors
+
+# Get patients data
+curl http://localhost:8080/patients
+
+# Get doctors analytics
+curl http://localhost:8080/doctors/analytics
+
+# Get doctors summary
+curl http://localhost:8080/doctors/summary
+
+# Upload patient file (replace with actual file path)
+curl -X POST -F "file=@patient_report.pdf" http://localhost:8080/patient-info
+
+# Book appointment (replace with actual JSON data)
+curl -X POST -H "Content-Type: application/json" \
+  -d '{"patient_id": "123", "doctor_id": "456", "date": "2024-01-15", "time": "10:00"}' \
+  http://localhost:8080/book-appointment
 ```
 
-### Production Deployment
-```bash
-# Build and push Docker images (Backend only)
-docker build -t sidutta/adif-file-visualizer-assignment-server:v1 ./backend
-docker push sidutta/adif-file-visualizer-assignment-server:v1
-
-# Deploy backend with docker-compose
-docker-compose up -d
-
-# Deploy frontend (build and serve static files)
-cd frontend
-npm run build
-npm start
-```
-
-## 📈 API Endpoints
-
-- `GET /health` - Health check endpoint
-- `POST /upload` - File upload endpoint
-- `GET /doctors` - Get doctors data
-- `GET /patients` - Get patients data
-- `POST /patient-info` - Process patient information
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-**🎉 Latest Features Added:**
-
-- ✅ **3D Human Body Visualization** with interactive models
-- ✅ **Doctors Dashboard** with comprehensive analytics
-- ✅ **Patients Dashboard** with health data visualization
-- ✅ **Modern UI Design** with gradients and animations
-- ✅ **Enhanced Navigation** with improved user experience
-- ✅ **Real-time Processing** with progress indicators
-- ✅ **Toast Notification System** with React Hot Toast
-- ✅ **Responsive Design** for all screen sizes
+### Frontend Testing
+1. Open browser and navigate to http://localhost:3000
+2. Test file upload functionality
+3. Verify doctors and patients data display
+4. Test 3D visualization features
+5. Check appointment booking flow
+6. Verify responsive design on different screen sizes
