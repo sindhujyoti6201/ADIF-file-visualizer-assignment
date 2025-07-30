@@ -11,6 +11,7 @@ const Navbar: React.FC = () => {
     { name: 'Doctors', href: '/doctors' },
     { name: 'Patients', href: '/patients' },
     { name: 'Book Appointment', href: '/book-doctors-appointment' },
+    { name: 'Visualization', href: '/visualization' },
   ];
 
   const isActive = (href: string) => {

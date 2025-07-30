@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Test</title>
+</head>
+<body>
+    <h1>Testing Model Files</h1>
+    <div id="results"></div>
+    
+    <script>
+        const models = [
+            '/models/human-body/brain.glb',
+            '/models/human-body/heart.glb',
+            '/models/human-body/lungs.glb',
+            '/models/human-body/spine.glb',
+            '/models/human-body/eye.glb',
+            '/models/human-body/digestivesystem.glb'
+        ];
+        
+        const resultsDiv = document.getElementById('results');
+        
+        models.forEach(model => {
+            fetch(model)
+                .then(response => {
+                    if (response.ok) {
+                        resultsDiv.innerHTML += `<p style="color: green;">✅ ${model} - OK (${response.headers.get('content-length')} bytes)</p>`;
+                    } else {
+                        resultsDiv.innerHTML += `<p style="color: red;">❌ ${model} - Error: ${response.status}</p>`;
+                    }
+                })
+                .catch(error => {
+                    resultsDiv.innerHTML += `<p style="color: red;">❌ ${model} - Error: ${error.message}</p>`;
+                });
+        });
+    </script>
+</body>
+</html> 
