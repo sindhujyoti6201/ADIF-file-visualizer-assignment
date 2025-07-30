@@ -6,6 +6,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import PatientsFilters from './PatientsFilters';
 import PatientsTable from './PatientsTable';
 import PatientsInsightsDashboard from './PatientsInsightsDashboard';
+import PatientProfileModal from './PatientProfileModal';
 
 interface Patient {
   id: string;
@@ -406,13 +407,27 @@ const PatientsDashboard: React.FC = () => {
           )}
         </div>
       </div>
-              <Toaster
-          position="top-center"
-          toastOptions={{
+
+      {/* Patient Profile Modal */}
+      <PatientProfileModal
+        patient={selectedPatient}
+        onClose={() => setSelectedPatient(null)}
+      />
+
+      <Toaster
+        position="top-center"
+        containerStyle={{
+          top: 80,
+          left: 20,
+          bottom: 20,
+          right: 20,
+        }}
+        toastOptions={{
           duration: 4000,
           style: {
             background: '#363636',
             color: '#fff',
+            marginTop: '1rem',
           },
         }}
       />

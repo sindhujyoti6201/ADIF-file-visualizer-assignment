@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { uploadAndProcessFile, Feature, getDoctors, DoctorsResponse } from '../services/api';
+import { uploadAndProcessFile, getDoctors } from '../services/api';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import { Toaster, toast } from 'react-hot-toast';
 
 export default function Dashboard() {
   const [loading, setLoading] = useState(false);
-  const [features, setFeatures] = useState<Feature[] | null>(null);
+  const [features, setFeatures] = useState<any[] | null>(null);
   const [filename, setFilename] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [isHover, setIsHover] = useState(false);
+
   const router = useRouter();
   const [dashboardStats, setDashboardStats] = useState({
     totalDoctors: 0,
@@ -153,11 +153,18 @@ export default function Dashboard() {
       }}>
         <Toaster 
           position="top-center"
+          containerStyle={{
+            top: 80,
+            left: 20,
+            bottom: 20,
+            right: 20,
+          }}
           toastOptions={{
             duration: 4000,
             style: {
               background: '#363636',
               color: '#fff',
+              marginTop: '1rem',
             },
             success: {
               duration: 3000,

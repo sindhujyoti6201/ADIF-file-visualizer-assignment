@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { uploadAndProcessFile, Feature, bookAppointment } from '../services/api';
+import { bookAppointment } from '../services/api';
 import Navbar from '../components/Navbar';
 import { Toaster, toast } from 'react-hot-toast';
 
@@ -144,13 +144,20 @@ export default function BookDoctorsAppointment() {
 
   return (
     <div style={{ minHeight: '100vh', width: '100vw', position: 'relative', overflow: 'hidden' }}>
-              <Toaster
-          position="top-center"
-          toastOptions={{
+                    <Toaster
+        position="top-center"
+        containerStyle={{
+          top: 80,
+          left: 20,
+          bottom: 20,
+          right: 20,
+        }}
+        toastOptions={{
           duration: 4000,
           style: {
             background: '#363636',
             color: '#fff',
+            marginTop: '1rem',
           },
           success: {
             duration: 4000,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Feature, getDoctors, DoctorsResponse } from '../services/api';
+
 import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
 

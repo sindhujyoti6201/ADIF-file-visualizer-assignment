@@ -115,7 +115,7 @@ export default function ProfilePage() {
 
   const handleCancelEdit = () => {
     setIsEditing(false);
-    toast.info('Changes cancelled', {
+    toast('Changes cancelled', {
       duration: 2000,
     });
   };
@@ -168,13 +168,20 @@ export default function ProfilePage() {
 
   return (
     <div style={{ minHeight: '100vh', width: '100vw', position: 'relative', overflow: 'hidden' }}>
-              <Toaster
-          position="top-center"
-          toastOptions={{
+                    <Toaster
+        position="top-center"
+        containerStyle={{
+          top: 80,
+          left: 20,
+          bottom: 20,
+          right: 20,
+        }}
+        toastOptions={{
           duration: 4000,
           style: {
             background: '#363636',
             color: '#fff',
+            marginTop: '1rem',
           },
           success: {
             duration: 3000,
