@@ -123,404 +123,377 @@ export default function Dashboard() {
     router.push('/patients');
   };
 
-
-
   return (
-    <>
-      <style jsx global>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-        body {
-          margin: 0;
-          padding: 0;
-          overflow-x: hidden;
-        }
-        html {
-          margin: 0;
-          padding: 0;
-        }
-      `}</style>
-      <div style={{ 
-        minHeight: '100vh', 
-        width: '100%', 
-        position: 'relative',
-        margin: 0,
-        padding: 0,
-        overflow: 'hidden'
-      }}>
-        <Toaster 
-          position="top-center"
-          containerStyle={{
-            top: 80,
-            left: 20,
-            bottom: 20,
-            right: 20,
-          }}
-          toastOptions={{
+    <div>
+      <Toaster 
+        position="top-center"
+        containerStyle={{
+          top: 80,
+          left: 20,
+          bottom: 20,
+          right: 20,
+        }}
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+            marginTop: '1rem',
+          },
+          success: {
+            duration: 3000,
+            iconTheme: {
+              primary: '#10b981',
+              secondary: '#fff',
+            },
+          },
+          error: {
             duration: 4000,
-            style: {
-              background: '#363636',
-              color: '#fff',
-              marginTop: '1rem',
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#fff',
             },
-            success: {
-              duration: 3000,
-              iconTheme: {
-                primary: '#10b981',
-                secondary: '#fff',
-              },
-            },
-            error: {
-              duration: 4000,
-              iconTheme: {
-                primary: '#ef4444',
-                secondary: '#fff',
-              },
-            },
-          }}
-        />
-        <Navbar />
-        
-        {/* Hero Component */}
-        <Hero 
-          dashboardStats={dashboardStats}
-          onUpload={handleUpload}
-          loading={loading}
-          filename={filename}
-          error={error}
-        />
+          },
+        }}
+      />
+      <Navbar />
+      
+      {/* Hero Component */}
+      <Hero 
+        dashboardStats={dashboardStats}
+        onUpload={handleUpload}
+        loading={loading}
+        filename={filename}
+        error={error}
+      />
 
-        {/* Loading Overlay */}
-        {loading && (
-          <div style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
-            background: 'rgba(0,0,0,0.8)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1000,
-          }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h1 style={{ color: '#fff', fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Processing your file...</h1>
-              <p style={{ color: '#fff', marginBottom: '2rem' }}>Calling healthcare API and preparing your dashboard.</p>
-              <div style={{ display: 'flex', gap: '12px', marginTop: '1rem' }}>
-                {[0, 1, 2].map(i => (
-                  <div
-                    key={i}
-                    style={{
-                      width: 16,
-                      height: 16,
-                      borderRadius: '50%',
-                      background: '#2563eb',
-                      animation: `bounce 0.6s ${i * 0.2}s infinite alternate`,
-                    }}
-                  />
-                ))}
-              </div>
-              <style>{`
-                @keyframes bounce {
-                  to { transform: translateY(-16px); opacity: 0.5; }
-                }
-              `}</style>
+      {/* Loading Overlay */}
+      {loading && (
+        <div style={{
+          position: 'relative',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'rgba(0,0,0,0.8)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+        }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h1 style={{ color: '#fff', fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Processing your file...</h1>
+            <p style={{ color: '#fff', marginBottom: '2rem' }}>Calling healthcare API and preparing your dashboard.</p>
+            <div style={{ display: 'flex', gap: '12px', marginTop: '1rem' }}>
+              {[0, 1, 2].map(i => (
+                <div
+                  key={i}
+                  style={{
+                    width: 16,
+                    height: 16,
+                    borderRadius: '50%',
+                    background: '#2563eb',
+                    animation: `bounce 0.6s ${i * 0.2}s infinite alternate`,
+                  }}
+                />
+              ))}
             </div>
+            <style>{`
+              @keyframes bounce {
+                to { transform: translateY(-16px); opacity: 0.5; }
+              }
+            `}</style>
           </div>
-        )}
+        </div>
+      )}
 
-        {/* Main Content Section (No Background Video) */}
-        <div 
-          data-section="main-content"
-          style={{
-            background: '#f1f5f9',
-            minHeight: '100vh',
-            padding: '4rem 2rem',
-            width: '100%',
-            margin: 0,
-          }}
-        >
+      {/* Main Content Section */}
+      <div 
+        data-section="main-content"
+        style={{
+          background: '#f1f5f9',
+          minHeight: '100vh',
+          padding: '4rem 2rem',
+          width: '100%',
+          margin: 0,
+        }}
+      >
+        <div style={{
+          width: '100%',
+          padding: '0 2rem',
+          margin: 0,
+        }}>
+          {/* Summary Cards */}
           <div style={{
-            width: '100%',
-            padding: '0 2rem',
-            margin: 0,
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '2rem',
+            marginBottom: '4rem',
           }}>
-            {/* Summary Cards */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '2rem',
-              marginBottom: '4rem',
+            {[
+              { title: 'Total Doctors', value: dashboardStats.totalDoctors, icon: '👨‍⚕️', color: '#3b82f6', bgColor: '#dbeafe' },
+              { title: 'Total Patients', value: dashboardStats.totalPatients, icon: '👥', color: '#10b981', bgColor: '#d1fae5' },
+              { title: 'Appointments Today', value: dashboardStats.appointmentsToday, icon: '📅', color: '#f59e0b', bgColor: '#fef3c7' },
+              { title: 'Files Uploaded', value: dashboardStats.filesUploaded, icon: '📁', color: '#8b5cf6', bgColor: '#ede9fe' },
+            ].map((card, idx) => (
+              <div
+                key={card.title}
+                style={{
+                  background: '#fff',
+                  padding: '2rem',
+                  borderRadius: '16px',
+                  boxShadow: '0 8px 25px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid #e2e8f0',
+                  textAlign: 'center',
+                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-12px) scale(1.02)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1)';
+                  e.currentTarget.style.borderColor = '#cbd5e1';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.08)';
+                  e.currentTarget.style.borderColor = '#e2e8f0';
+                }}
+              >
+                <div style={{ 
+                  fontSize: '3rem', 
+                  marginBottom: '1rem',
+                  background: card.bgColor,
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1rem',
+                }}>
+                  {card.icon}
+                </div>
+                <h3 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '0.5rem' }}>
+                  {card.value}
+                </h3>
+                <p style={{ color: '#64748b', fontSize: '1.1rem', fontWeight: '500' }}>{card.title}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Quick Actions */}
+          <div style={{
+            background: '#fff',
+            padding: '2.5rem',
+            borderRadius: '20px',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+            border: '1px solid #e2e8f0',
+            marginBottom: '4rem',
+          }}>
+            <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '2rem', textAlign: 'center' }}>
+              Quick Actions
+            </h2>
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '1.5rem',
             }}>
               {[
-                { title: 'Total Doctors', value: dashboardStats.totalDoctors, icon: '👨‍⚕️', color: '#3b82f6', bgColor: '#dbeafe' },
-                { title: 'Total Patients', value: dashboardStats.totalPatients, icon: '👥', color: '#10b981', bgColor: '#d1fae5' },
-                { title: 'Appointments Today', value: dashboardStats.appointmentsToday, icon: '📅', color: '#f59e0b', bgColor: '#fef3c7' },
-                { title: 'Files Uploaded', value: dashboardStats.filesUploaded, icon: '📁', color: '#8b5cf6', bgColor: '#ede9fe' },
-              ].map((card, idx) => (
-                <div
-                  key={card.title}
+                { name: 'View Doctors', action: handleViewDoctors, icon: '👨‍⚕️', description: 'Browse and manage doctor profiles' },
+                { name: 'View Patients', action: handleViewPatients, icon: '👥', description: 'Access patient records and data' },
+              ].map((action) => (
+                <button
+                  key={action.name}
+                  onClick={action.action}
                   style={{
-                    background: '#fff',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '1rem',
                     padding: '2rem',
+                    background: '#f8fafc',
+                    border: '2px solid #e2e8f0',
                     borderRadius: '16px',
-                    boxShadow: '0 8px 25px rgba(0, 0, 0, 0.08)',
-                    border: '1px solid #e2e8f0',
-                    textAlign: 'center',
-                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    color: '#1e293b',
                     cursor: 'pointer',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    fontSize: '1rem',
+                    textAlign: 'center',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
                     position: 'relative',
                     overflow: 'hidden',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-12px) scale(1.02)';
-                    e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1)';
-                    e.currentTarget.style.borderColor = '#cbd5e1';
+                    e.currentTarget.style.background = '#f1f5f9';
+                    e.currentTarget.style.borderColor = '#3b82f6';
+                    e.currentTarget.style.transform = 'translateY(-8px) scale(1.03)';
+                    e.currentTarget.style.boxShadow = '0 16px 32px rgba(59, 130, 246, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.08)';
+                    e.currentTarget.style.background = '#f8fafc';
                     e.currentTarget.style.borderColor = '#e2e8f0';
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
                   }}
                 >
-                  <div style={{ 
-                    fontSize: '3rem', 
-                    marginBottom: '1rem',
-                    background: card.bgColor,
-                    width: '80px',
-                    height: '80px',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 1rem',
-                  }}>
-                    {card.icon}
+                  <span style={{ fontSize: '2.5rem' }}>{action.icon}</span>
+                  <div>
+                    <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                      {action.name}
+                    </h3>
+                    <p style={{ fontSize: '0.9rem', color: '#64748b', lineHeight: '1.4' }}>
+                      {action.description}
+                    </p>
                   </div>
-                  <h3 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '0.5rem' }}>
-                    {card.value}
-                  </h3>
-                  <p style={{ color: '#64748b', fontSize: '1.1rem', fontWeight: '500' }}>{card.title}</p>
-                </div>
+                </button>
               ))}
             </div>
+          </div>
 
-            {/* Quick Actions */}
+          {/* Recent Activity & Notifications */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))',
+            gap: '2rem',
+          }}>
+            {/* Recent Activity */}
             <div style={{
               background: '#fff',
               padding: '2.5rem',
               borderRadius: '20px',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
               border: '1px solid #e2e8f0',
-              marginBottom: '4rem',
             }}>
-              <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '2rem', textAlign: 'center' }}>
-                Quick Actions
+              <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '1.5rem' }}>
+                Recent Activity
               </h2>
-              <div style={{ 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                gap: '1.5rem',
-              }}>
-                {[
-                  { name: 'View Doctors', action: handleViewDoctors, icon: '👨‍⚕️', description: 'Browse and manage doctor profiles' },
-                  { name: 'View Patients', action: handleViewPatients, icon: '👥', description: 'Access patient records and data' },
-                ].map((action) => (
-                  <button
-                    key={action.name}
-                    onClick={action.action}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {recentActivity.map((activity) => (
+                  <div
+                    key={activity.id}
                     style={{
                       display: 'flex',
-                      flexDirection: 'column',
                       alignItems: 'center',
                       gap: '1rem',
-                      padding: '2rem',
+                      padding: '1.5rem',
                       background: '#f8fafc',
-                      border: '2px solid #e2e8f0',
-                      borderRadius: '16px',
-                      color: '#1e293b',
+                      borderRadius: '12px',
+                      border: '1px solid #e2e8f0',
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                       cursor: 'pointer',
-                      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                      fontSize: '1rem',
-                      textAlign: 'center',
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
-                      position: 'relative',
-                      overflow: 'hidden',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
                     }}
                     onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.1)';
                       e.currentTarget.style.background = '#f1f5f9';
-                      e.currentTarget.style.borderColor = '#3b82f6';
-                      e.currentTarget.style.transform = 'translateY(-8px) scale(1.03)';
-                      e.currentTarget.style.boxShadow = '0 16px 32px rgba(59, 130, 246, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1)';
+                      e.currentTarget.style.borderColor = '#cbd5e1';
                     }}
                     onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
                       e.currentTarget.style.background = '#f8fafc';
                       e.currentTarget.style.borderColor = '#e2e8f0';
-                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
                     }}
                   >
-                    <span style={{ fontSize: '2.5rem' }}>{action.icon}</span>
-                    <div>
-                      <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-                        {action.name}
-                      </h3>
-                      <p style={{ fontSize: '0.9rem', color: '#64748b', lineHeight: '1.4' }}>
-                        {action.description}
+                    <span style={{ fontSize: '1.5rem' }}>{activity.icon}</span>
+                    <div style={{ flex: 1 }}>
+                      <p style={{ color: '#1e293b', fontSize: '1rem', marginBottom: '0.25rem', fontWeight: '500' }}>
+                        {activity.message}
+                      </p>
+                      <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
+                        {activity.time}
                       </p>
                     </div>
-                  </button>
+                  </div>
                 ))}
               </div>
             </div>
 
-            {/* Recent Activity & Notifications */}
+            {/* Notifications */}
             <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))',
-              gap: '2rem',
+              background: '#fff',
+              padding: '2.5rem',
+              borderRadius: '20px',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+              border: '1px solid #e2e8f0',
             }}>
-              {/* Recent Activity */}
-              <div style={{
-                background: '#fff',
-                padding: '2.5rem',
-                borderRadius: '20px',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-                border: '1px solid #e2e8f0',
-              }}>
-                <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '1.5rem' }}>
-                  Recent Activity
-                </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  {recentActivity.map((activity) => (
-                    <div
-                      key={activity.id}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '1rem',
-                        padding: '1.5rem',
-                        background: '#f8fafc',
-                        borderRadius: '12px',
-                        border: '1px solid #e2e8f0',
-                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                        cursor: 'pointer',
-                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-3px)';
-                        e.currentTarget.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.1)';
-                        e.currentTarget.style.background = '#f1f5f9';
-                        e.currentTarget.style.borderColor = '#cbd5e1';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
-                        e.currentTarget.style.background = '#f8fafc';
-                        e.currentTarget.style.borderColor = '#e2e8f0';
-                      }}
-                    >
-                      <span style={{ fontSize: '1.5rem' }}>{activity.icon}</span>
-                      <div style={{ flex: 1 }}>
-                        <p style={{ color: '#1e293b', fontSize: '1rem', marginBottom: '0.25rem', fontWeight: '500' }}>
-                          {activity.message}
-                        </p>
-                        <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                          {activity.time}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Notifications */}
-              <div style={{
-                background: '#fff',
-                padding: '2.5rem',
-                borderRadius: '20px',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-                border: '1px solid #e2e8f0',
-              }}>
-                <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '1.5rem' }}>
-                  Notifications
-                </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  {notifications.map((notification) => (
-                    <div
-                      key={notification.id}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '1rem',
-                        padding: '1.5rem',
-                        background: notification.type === 'warning' 
-                          ? '#fef3c7' 
-                          : notification.type === 'success'
-                          ? '#d1fae5'
-                          : '#dbeafe',
-                        borderRadius: '12px',
-                        border: `1px solid ${
-                          notification.type === 'warning' 
-                            ? '#fde68a' 
-                            : notification.type === 'success'
-                            ? '#a7f3d0'
-                            : '#bfdbfe'
-                        }`,
-                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                        cursor: 'pointer',
-                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-3px)';
-                        e.currentTarget.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.1)';
-                        e.currentTarget.style.borderColor = notification.type === 'warning' 
-                          ? '#f59e0b' 
-                          : notification.type === 'success'
-                          ? '#10b981'
-                          : '#3b82f6';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
-                        e.currentTarget.style.borderColor = notification.type === 'warning' 
+              <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#1e293b', marginBottom: '1.5rem' }}>
+                Notifications
+              </h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {notifications.map((notification) => (
+                  <div
+                    key={notification.id}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '1rem',
+                      padding: '1.5rem',
+                      background: notification.type === 'warning' 
+                        ? '#fef3c7' 
+                        : notification.type === 'success'
+                        ? '#d1fae5'
+                        : '#dbeafe',
+                      borderRadius: '12px',
+                      border: `1px solid ${
+                        notification.type === 'warning' 
                           ? '#fde68a' 
                           : notification.type === 'success'
                           ? '#a7f3d0'
-                          : '#bfdbfe';
-                      }}
-                    >
-                      <span style={{ 
-                        fontSize: '1.5rem',
-                        color: notification.type === 'warning' 
-                          ? '#f59e0b' 
-                          : notification.type === 'success'
-                          ? '#10b981'
-                          : '#3b82f6'
-                      }}>
-                        {notification.type === 'warning' ? '⚠️' : notification.type === 'success' ? '✅' : 'ℹ️'}
-                      </span>
-                      <div style={{ flex: 1 }}>
-                        <p style={{ color: '#1e293b', fontSize: '1rem', marginBottom: '0.25rem', fontWeight: '500' }}>
-                          {notification.message}
-                        </p>
-                        <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                          {notification.time}
-                        </p>
-                      </div>
+                          : '#bfdbfe'
+                      }`,
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                      cursor: 'pointer',
+                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.1)';
+                      e.currentTarget.style.borderColor = notification.type === 'warning' 
+                        ? '#f59e0b' 
+                        : notification.type === 'success'
+                        ? '#10b981'
+                        : '#3b82f6';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
+                      e.currentTarget.style.borderColor = notification.type === 'warning' 
+                        ? '#fde68a' 
+                        : notification.type === 'success'
+                        ? '#a7f3d0'
+                        : '#bfdbfe';
+                    }}
+                  >
+                    <span style={{ 
+                      fontSize: '1.5rem',
+                      color: notification.type === 'warning' 
+                        ? '#f59e0b' 
+                        : notification.type === 'success'
+                        ? '#10b981'
+                        : '#3b82f6'
+                    }}>
+                      {notification.type === 'warning' ? '⚠️' : notification.type === 'success' ? '✅' : 'ℹ️'}
+                    </span>
+                    <div style={{ flex: 1 }}>
+                      <p style={{ color: '#1e293b', fontSize: '1rem', marginBottom: '0.25rem', fontWeight: '500' }}>
+                        {notification.message}
+                      </p>
+                      <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
+                        {notification.time}
+                      </p>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 } 

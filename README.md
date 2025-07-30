@@ -1,16 +1,18 @@
-# ADIF File Visualizer
+# ADIF Healthcare Dashboard
 
-A modern web application for visualizing ADIF (Amateur Data Interchange Format) files with advanced healthcare data visualization capabilities and **real-time user feedback**.
+A comprehensive healthcare analytics and patient management system with **3D visualization capabilities** and real-time data processing.
 
 ## ✨ Features
 
-- **📁 File Upload**: Upload any file to trigger healthcare data simulation
-- **📊 Interactive 2D Charts**: Age distribution, diagnosis breakdown, vital signs trends
-
+- **📁 File Upload**: Upload patient reports to get detailed disease insights and analytics
+- **🏥 Doctors Dashboard**: Comprehensive doctor management with analytics and filtering
+- **👥 Patients Dashboard**: Patient records and data visualization
+- **🎯 3D Human Body Visualization**: Interactive 3D models of brain, heart, lungs, spine, and digestive system
+- **📊 Interactive Analytics**: Age distribution, diagnosis breakdown, vital signs trends
 - **🔔 Toast Notifications**: Real-time user feedback during processing
 - **📱 Responsive Design**: Modern UI with smooth animations
-- **🏥 Healthcare Analytics**: Comprehensive patient data analysis
 - **⚡ Real-time Processing**: Live data processing with progress indicators
+- **🎨 Modern UI**: Beautiful gradient backgrounds and smooth transitions
 
 ## 🚀 Quick Start
 
@@ -41,9 +43,33 @@ A modern web application for visualizing ADIF (Amateur Data Interchange Format) 
 
 4. **Access the application**
    - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8080
+   - Backend API: http://localhost:8000
 
+## 🏥 Dashboard Features
 
+### Main Dashboard
+- **Upload Patient Reports**: Drag and drop or click to upload medical files
+- **Real-time Processing**: Live progress indicators during data analysis
+- **Healthcare Analytics**: Comprehensive patient data insights
+- **Quick Actions**: Direct access to doctors and patients dashboards
+
+### Doctors Dashboard
+- **Doctor Profiles**: Detailed information about healthcare professionals
+- **Analytics**: Performance metrics and patient statistics
+- **Filtering**: Search and filter doctors by specialty, location, etc.
+- **Appointment Booking**: Direct integration for scheduling
+
+### Patients Dashboard
+- **Patient Records**: Comprehensive patient data management
+- **Health Analytics**: Vital signs, diagnosis, and treatment history
+- **Insights**: Data-driven insights and trends
+- **Visualization**: Interactive charts and graphs
+
+### 3D Visualization
+- **Interactive Models**: Brain, Heart, Lungs, Spine, Digestive System
+- **3D Controls**: Zoom, rotate, and pan with mouse/touch
+- **Educational Content**: Detailed descriptions of each body part
+- **Responsive Design**: Works on desktop and mobile devices
 
 ## 🔔 Toast Notification System
 
@@ -54,31 +80,29 @@ Enhanced user experience with real-time feedback:
 - **Processing Status**: Real-time updates during data processing
 - **Success Messages**: Confirmation when data is processed successfully
 - **Error Handling**: Clear error messages for failed operations
-- **Data Loading**: Notifications when healthcare data is loaded
+- **Navigation**: Notifications when switching between dashboards
 
-## 📊 Dashboard Features
+## 📊 Analytics Features
 
 ### Key Metrics
+- Total Doctors Count
 - Total Patients Count
-- Average Age
-- Readmission Rate
-- Average Length of Stay
+- Appointments Today
+- Files Uploaded
 
 ### 2D Visualizations
 - **Age Distribution**: Bar chart showing patient age groups
 - **Diagnosis Distribution**: Breakdown of medical diagnoses
 - **Vital Signs Trends**: Heart rate trends over time
 - **Gender Distribution**: Pie chart of patient gender
-- **Age vs Length of Stay**: Scatter plot with readmission indicators
-
-
+- **Length of Stay Analysis**: Patient stay duration patterns
 
 ## 🛠️ Technology Stack
 
 - **Frontend**: Next.js, React, TypeScript
-
+- **3D Graphics**: Three.js, React Three Fiber
 - **Charts**: D3.js
-- **Styling**: Tailwind CSS
+- **Styling**: Inline styles with modern design
 - **Notifications**: React Hot Toast
 - **Backend**: FastAPI (Python)
 - **Containerization**: Docker (Backend only)
@@ -89,52 +113,57 @@ Enhanced user experience with real-time feedback:
 ADIF-file-visualizer-assignment/
 ├── backend/                 # FastAPI backend service (Dockerized)
 │   ├── data/               # Healthcare data files
+│   │   ├── doctors-data.json
+│   │   ├── patients-data.json
+│   │   └── patient-info.json
 │   ├── main.py             # FastAPI application
 │   ├── Dockerfile          # Backend container configuration
 │   └── setup.md            # Detailed setup guide
 ├── frontend/               # Next.js frontend application (Local)
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── HealthcareDashboard.tsx
-
+│   │   │   ├── Hero.tsx
 │   │   │   ├── Navbar.tsx
-│   │   │   └── Footer.tsx
+│   │   │   ├── DoctorsDashboard.tsx
+│   │   │   ├── PatientsDashboard.tsx
+│   │   │   ├── DoctorsTable.tsx
+│   │   │   ├── PatientsTable.tsx
+│   │   │   └── DoctorProfileModal.tsx
 │   │   ├── pages/
-│   │   │   ├── index.tsx   # Updated with toast notifications
-│   │   │   └── healthcare.tsx
+│   │   │   ├── index.tsx           # Main dashboard
+│   │   │   ├── doctors.tsx         # Doctors dashboard
+│   │   │   ├── patients.tsx        # Patients dashboard
+│   │   │   ├── visualization.tsx   # 3D visualization
+│   │   │   └── patient-info-dashboard.tsx
 │   │   └── services/
 │   │       └── api.ts
-│   └── package.json        # Frontend dependencies
+│   ├── public/
+│   │   └── models/
+│   │       └── human-body/         # 3D model files
+│   └── package.json
 ├── docker-compose.yml      # Backend service orchestration
 └── README.md              # This file
 ```
 
-## 🔧 Development
-
-### Backend Development
-For detailed setup instructions, development workflow, and troubleshooting, see:
-- [Backend Setup Guide](backend/setup.md) - Comprehensive setup and deployment guide
-
-### Frontend Development
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
 ## 🎨 UI/UX Improvements
+
+### Modern Design
+- **Gradient Backgrounds**: Beautiful color transitions
+- **Smooth Animations**: 60fps rendering for fluid experience
+- **Interactive Elements**: Hover effects and transitions
+- **Responsive Layout**: Adapts to different screen sizes
+
+### 3D Visualization
+- **Interactive Controls**: Mouse and touch support for exploration
+- **Model Selection**: Easy switching between body parts
+- **Educational Content**: Detailed descriptions and information
+- **Performance Optimized**: Efficient rendering with proper cleanup
 
 ### Toast Notifications
 - **Success Toasts**: Green notifications for successful operations
 - **Error Toasts**: Red notifications for errors with clear messages
 - **Loading Toasts**: Persistent loading indicators during processing
 - **Info Toasts**: Blue notifications for informational messages
-
-### 3D Visualization
-- **Smooth Animations**: 60fps rendering for fluid experience
-- **Interactive Controls**: Mouse and touch support for exploration
-- **Responsive Design**: Adapts to different screen sizes
-- **Performance Optimized**: Efficient rendering with proper cleanup
 
 ## 🚀 Deployment
 
@@ -168,6 +197,9 @@ npm start
 
 - `GET /health` - Health check endpoint
 - `POST /upload` - File upload endpoint
+- `GET /doctors` - Get doctors data
+- `GET /patients` - Get patients data
+- `POST /patient-info` - Process patient information
 
 ## 🤝 Contributing
 
@@ -183,10 +215,13 @@ This project is licensed under the MIT License.
 
 ---
 
-**🎉 New Features Added:**
+**🎉 Latest Features Added:**
 
+- ✅ **3D Human Body Visualization** with interactive models
+- ✅ **Doctors Dashboard** with comprehensive analytics
+- ✅ **Patients Dashboard** with health data visualization
+- ✅ **Modern UI Design** with gradients and animations
+- ✅ **Enhanced Navigation** with improved user experience
+- ✅ **Real-time Processing** with progress indicators
 - ✅ **Toast Notification System** with React Hot Toast
-- ✅ **Enhanced User Experience** with real-time feedback
-- ✅ **Improved Error Handling** with clear user messages
-- ✅ **Performance Optimizations** for smooth 3D rendering
-- ✅ **Simplified Deployment** with frontend running locally
+- ✅ **Responsive Design** for all screen sizes
