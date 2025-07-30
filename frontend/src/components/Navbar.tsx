@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
     { name: 'Dashboard', href: '/' },
     { name: 'Doctors', href: '/doctors' },
     { name: 'Patients', href: '/patients' },
-    { name: 'Book Appointment', href: '/upload' },
+    { name: 'Book Appointment', href: '/book-doctors-appointment' },
   ];
 
   const isActive = (href: string) => {

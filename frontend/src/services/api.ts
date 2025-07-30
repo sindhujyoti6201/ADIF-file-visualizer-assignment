@@ -39,14 +39,6 @@ export interface Doctor {
 
 export interface DoctorsResponse {
   doctors: Doctor[];
-  pagination?: {
-    current_page: number;
-    total_pages: number;
-    total_records: number;
-    has_next: boolean;
-    has_prev: boolean;
-    limit: number;
-  };
   summary: {
     totalDoctors: number;
     averageExperience: number;
@@ -111,45 +103,12 @@ export interface PatientInfo {
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
 
-export async function uploadFile(file: File): Promise<UploadResponse> {
-  const formData = new FormData();
-  formData.append('file', file);
-  console.log("ERROR INSIDE UPLOAD FILE");
-  const response = await fetch(`${API_URL}/upload`, {
-    method: 'POST',
-    body: formData,
-  });
 
-  if (!response.ok) {
-    throw new Error('Failed to upload file');
-  }
-    
-  console.log("----------------------------");
 
-  const data = await response.json();
-  console.log('Backend response:', data);
-  return data;
-}
-
-export async function getDoctors(
-  search?: string,
-  department?: string,
-  specialization?: string,
-  page?: number,
-  limit?: number
-): Promise<DoctorsResponse> {
+export async function getDoctors(): Promise<DoctorsResponse> {
   console.log("Fetching doctors data...");
   
-  const params = new URLSearchParams();
-  if (search) params.append('search', search);
-  if (department) params.append('department', department);
-  if (specialization) params.append('specialization', specialization);
-  if (page) params.append('page', page.toString());
-  if (limit) params.append('limit', limit.toString());
-  
-  const url = `${API_URL}/doctors${params.toString() ? `?${params.toString()}` : ''}`;
-  
-  const response = await fetch(url, {
+  const response = await fetch(`${API_URL}/doctors`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -161,7 +120,7 @@ export async function getDoctors(
   }
 
   const data = await response.json();
-  console.log('Backend response:', data);
+  console.log('Doctors response:', data);
   return data;
 }
 
@@ -216,6 +175,60 @@ export async function getPatientInfo(): Promise<PatientInfo> {
 
   const data = await response.json();
   console.log('Patient info response:', data);
+  return data;
+}
+
+export async function uploadAndProcessFile(file: File): Promise<PatientInfo> {
+  const formData = new FormData();
+  formData.append('file', file);
+  
+  console.log("Uploading and processing file for patient info...");
+  const response = await fetch(`${API_URL}/patient-info`, {
+    method: 'POST',
+    body: formData,
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to upload and process file');
+  }
+
+  const data = await response.json();
+  console.log('Processed patient info response:', data);
+  return data;
+}
+
+export async function bookAppointment(appointmentData: {
+  patientName: string;
+  patientPhone: string;
+  selectedDoctor: string;
+  appointmentDate: string;
+  appointmentTime: string;
+  notes: string;
+  documentName: string;
+  documentSize: number;
+  bookingDate: string;
+}): Promise<{
+  status: string;
+  message: string;
+  appointment_id: string;
+  appointment: any;
+}> {
+  console.log("Booking appointment...");
+  
+  const response = await fetch(`${API_URL}/book-appointment`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(appointmentData),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to book appointment');
+  }
+
+  const data = await response.json();
+  console.log('Appointment booking response:', data);
   return data;
 }
 

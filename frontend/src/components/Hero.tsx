@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { uploadFile, Feature, getDoctors, DoctorsResponse } from '../services/api';
+import {Feature, getDoctors, DoctorsResponse } from '../services/api';
 import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
 
@@ -230,7 +230,7 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              📁 Choose Patient Report
+            Choose Patient Report for analysis
               <input
                 id="file-upload"
                 type="file"

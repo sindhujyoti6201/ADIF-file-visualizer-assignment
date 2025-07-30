@@ -168,9 +168,9 @@ export default function ProfilePage() {
 
   return (
     <div style={{ minHeight: '100vh', width: '100vw', position: 'relative', overflow: 'hidden' }}>
-      <Toaster 
-        position="top-right"
-        toastOptions={{
+              <Toaster
+          position="top-center"
+          toastOptions={{
           duration: 4000,
           style: {
             background: '#363636',
