@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { bookAppointment } from '../services/api';
 import Navbar from '../components/Navbar';
 import { Toaster, toast } from 'react-hot-toast';
@@ -15,7 +15,7 @@ export default function BookDoctorsAppointment() {
   const [loading, setLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
 
-  const router = useRouter();
+  // const router = useRouter();
 
   const doctors = [
     { id: 'DOC001', name: 'Dr. Sarah Johnson', specialization: 'Cardiology' },
@@ -25,13 +25,13 @@ export default function BookDoctorsAppointment() {
     { id: 'DOC005', name: 'Dr. Lisa Thompson', specialization: 'Dermatology' },
   ];
 
-  const fileTypes = [
-    'Prescription',
-    'Diagnosis Report',
-    'Lab Results',
-    'Medical Certificate',
-    'Other Medical Document'
-  ];
+  // const fileTypes = [
+  //   'Prescription',
+  //   'Diagnosis Report',
+  //   'Lab Results',
+  //   'Medical Certificate',
+  //   'Other Medical Document'
+  // ];
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -96,12 +96,12 @@ export default function BookDoctorsAppointment() {
       };
 
       // Call the book appointment API
-      const response = await bookAppointment(appointmentData);
+      await bookAppointment(appointmentData);
 
       setUploadProgress(100);
       clearInterval(progressInterval);
 
-      toast.success('Doctor\'s Appointment booked successfully!', {
+      toast.success('Doctor&apos;s Appointment booked successfully!', {
         duration: 4000,
       });
 
@@ -219,7 +219,7 @@ export default function BookDoctorsAppointment() {
           textAlign: 'center',
           textShadow: '0 2px 16px rgba(0,0,0,0.25)',
         }}>
-          Book Doctor's Appointment
+          Book Doctor&apos;s Appointment
         </h1>
 
         <div style={{

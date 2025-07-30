@@ -87,9 +87,9 @@ export interface PatientInfo {
     weight: string;
     allergies: string[];
     currentMedications: string[];
-    disorders: any[];
-    recommendedDoctors: any[];
-    recentTests: any[];
+    disorders: unknown[];
+    recommendedDoctors: unknown[];
+    recentTests: unknown[];
     riskFactors: string[];
   };
   analysis: {
@@ -211,7 +211,7 @@ export async function bookAppointment(appointmentData: {
   status: string;
   message: string;
   appointment_id: string;
-  appointment: any;
+      appointment: Record<string, unknown>;
 }> {
   console.log("Booking appointment...");
   

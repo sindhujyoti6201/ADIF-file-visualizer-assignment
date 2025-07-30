@@ -7,7 +7,7 @@ import { Toaster, toast } from 'react-hot-toast';
 
 export default function Dashboard() {
   const [loading, setLoading] = useState(false);
-  const [features, setFeatures] = useState<any[] | null>(null);
+  // const [features, setFeatures] = useState<unknown[] | null>(null);
   const [filename, setFilename] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -24,11 +24,11 @@ export default function Dashboard() {
     { id: 3, type: 'patient', message: 'New patient registered', time: '1 hour ago', icon: '👥' },
     { id: 4, type: 'appointment', message: 'Appointment scheduled for tomorrow', time: '2 hours ago', icon: '📅' },
   ]);
-  const [notifications, setNotifications] = useState([
-    { id: 1, type: 'info', message: 'System maintenance scheduled for tonight', time: '1 hour ago' },
-    { id: 2, type: 'warning', message: '3 files pending review', time: '2 hours ago' },
-    { id: 3, type: 'success', message: 'Backup completed successfully', time: '3 hours ago' },
-  ]);
+  // const [notifications, setNotifications] = useState([
+  //   { id: 1, type: 'info', message: 'System maintenance scheduled for tonight', time: '1 hour ago' },
+  //   { id: 2, type: 'warning', message: '3 files pending review', time: '2 hours ago' },
+  //   { id: 3, type: 'success', message: 'Backup completed successfully', time: '3 hours ago' },
+  // ]);
 
   useEffect(() => {
     loadDashboardData();
@@ -50,7 +50,7 @@ export default function Dashboard() {
 
   const handleUpload = async (file: File) => {
     setLoading(true);
-    setFeatures(null);
+    // setFeatures(null);
     setFilename(null);
     setError(null);
     
@@ -236,7 +236,7 @@ export default function Dashboard() {
               { title: 'Total Patients', value: dashboardStats.totalPatients, icon: '👥', color: '#10b981', bgColor: '#d1fae5' },
               { title: 'Appointments Today', value: dashboardStats.appointmentsToday, icon: '📅', color: '#f59e0b', bgColor: '#fef3c7' },
               { title: 'Files Uploaded', value: dashboardStats.filesUploaded, icon: '📁', color: '#8b5cf6', bgColor: '#ede9fe' },
-            ].map((card, idx) => (
+            ].map((card) => (
               <div
                 key={card.title}
                 style={{
@@ -414,7 +414,7 @@ export default function Dashboard() {
             </div>
 
             {/* Notifications */}
-            <div style={{
+            {/* <div style={{
               background: '#fff',
               padding: '2.5rem',
               borderRadius: '20px',
@@ -490,7 +490,7 @@ export default function Dashboard() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

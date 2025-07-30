@@ -73,7 +73,7 @@ export default function PatientDashboard() {
               age: 34,
               gender: "Female",
               bloodType: "O+",
-              height: "5'6\"",
+              height: "5&apos;6&quot;",
               weight: "145 lbs",
               allergies: ["Penicillin", "Shellfish", "Dust"],
               currentMedications: ["Metformin", "Vitamin D", "Omega-3"],
@@ -272,7 +272,7 @@ export default function PatientDashboard() {
             Welcome back, {patientData.name}! 👋
           </h1>
           <p style={{ fontSize: '1.2rem', opacity: 0.9 }}>
-            Here's your personalized health analysis and recommendations
+            Here&apos;s your personalized health analysis and recommendations
           </p>
         </div>
       </div>

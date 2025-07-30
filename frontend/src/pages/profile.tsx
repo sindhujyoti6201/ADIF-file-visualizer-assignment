@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Navbar from '../components/Navbar';
 import { Toaster, toast } from 'react-hot-toast';
 
@@ -36,7 +36,7 @@ export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState<'overview' | 'activity' | 'settings'>('overview');
 
   // Mock user profile data
-  const mockProfile: UserProfile = {
+  const mockProfile: UserProfile = useMemo(() => ({
     id: 'USR001',
     name: 'Dr. Sarah Johnson',
     email: 'sarah.johnson@hospital.com',
@@ -93,7 +93,7 @@ export default function ProfilePage() {
       filesUploaded: 45,
       lastLogin: '2024-01-20 08:00 AM'
     }
-  };
+  }), []);
 
   useEffect(() => {
     // Simulate loading profile data
@@ -104,7 +104,7 @@ export default function ProfilePage() {
         duration: 3000,
       });
     }, 1000);
-  }, []);
+  }, [mockProfile]);
 
   const handleSaveProfile = () => {
     setIsEditing(false);
@@ -358,7 +358,7 @@ export default function ProfilePage() {
               ].map((tab) => (
                 <button
                   key={tab.key}
-                  onClick={() => setActiveTab(tab.key as any)}
+                  onClick={() => setActiveTab(tab.key as 'overview' | 'activity' | 'settings')}
                   style={{
                     display: 'flex',
                     alignItems: 'center',

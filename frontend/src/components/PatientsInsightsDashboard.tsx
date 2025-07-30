@@ -59,12 +59,12 @@ interface PatientsInsightsDashboardProps {
 }
 
 const PatientsInsightsDashboard: React.FC<PatientsInsightsDashboardProps> = ({ 
-  patientsData, 
-  onViewModeChange, 
-  currentViewMode = 'insights' 
+  patientsData
+  // onViewModeChange, 
+  // currentViewMode = 'insights' 
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const barChartRef = useRef<SVGSVGElement>(null);
+  // const barChartRef = useRef<SVGSVGElement>(null);
   const scatterPlotRef = useRef<SVGSVGElement>(null);
   const pieChartRef = useRef<SVGSVGElement>(null);
 

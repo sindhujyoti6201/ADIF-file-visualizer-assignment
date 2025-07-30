@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
 
 const TYPING_TEXT = 'ADIF Healthcare Dashboard';
@@ -22,7 +22,7 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
   const [typedTitle, setTypedTitle] = useState('');
   const [titleIndex, setTitleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const router = useRouter();
+  // const router = useRouter();
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -198,7 +198,7 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
             textAlign: 'center',
             lineHeight: '1.5',
           }}>
-            Upload your patient's medical report to get detailed disease analysis and insights
+            Upload your patient&apos;s medical report to get detailed disease analysis and insights
           </p>
           
           <div style={{ marginBottom: '1.5rem' }}>

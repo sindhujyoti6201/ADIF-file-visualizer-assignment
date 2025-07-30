@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { getDoctors, getDoctorsAnalytics, getDoctorsSummary, Doctor, DoctorsResponse, DoctorsAnalytics, DoctorsSummary } from '../services/api';
+import { getDoctors, getDoctorsAnalytics, getDoctorsSummary, Doctor, DoctorsAnalytics, DoctorsSummary } from '../services/api';
 import { Toaster, toast } from 'react-hot-toast';
 import DoctorsFilters from './DoctorsFilters';
 import DoctorsTable from './DoctorsTable';
@@ -10,7 +10,7 @@ import DoctorProfileModal from './DoctorProfileModal';
 
 const DoctorsDashboard: React.FC = () => {
   const [doctors, setDoctors] = useState<Doctor[]>([]);
-  const [summary, setSummary] = useState<DoctorsResponse['summary'] | null>(null);
+  // const [summary, setSummary] = useState<DoctorsResponse['summary'] | null>(null);
   const [analytics, setAnalytics] = useState<DoctorsAnalytics | null>(null);
   const [analyticsSummary, setAnalyticsSummary] = useState<DoctorsSummary | null>(null);
   const [loading, setLoading] = useState(true);
@@ -36,7 +36,7 @@ const DoctorsDashboard: React.FC = () => {
           getDoctorsSummary()
         ]);
         setDoctors(doctorsData.doctors);
-        setSummary(doctorsData.summary);
+        // setSummary(doctorsData.summary);
         setAnalytics(analyticsData);
         setAnalyticsSummary(summaryData);
         toast.success(`Loaded ${doctorsData.doctors.length} doctors`, {

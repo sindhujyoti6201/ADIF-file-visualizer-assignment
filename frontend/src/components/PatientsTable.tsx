@@ -71,7 +71,7 @@ const PatientsTable: React.FC<PatientsTableProps> = ({
   onShowPaginated,
   startIndex,
   endIndex,
-  patientsPerPage,
+  // patientsPerPage,
   totalPatients,
 }) => {
   const getStatusColor = (status: string) => {
