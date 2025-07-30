@@ -78,24 +78,28 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
       alignItems: 'center',
       justifyContent: 'center',
       overflow: 'hidden',
+      margin: 0,
+      padding: 0,
     }}>
       {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          zIndex: 0,
-          filter: 'brightness(0.6) blur(1px)'
-        }}
-      >
+              <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0,
+            filter: 'brightness(0.6) blur(1px)',
+            margin: 0,
+            padding: 0,
+          }}
+        >
         <source src="https://catalyzer-fe-public-assets.s3.us-east-1.amazonaws.com/mixkit-close-up-of-an-iv-drip-46366-hd-ready.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -106,11 +110,11 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
         zIndex: 1,
         width: '100%',
         maxWidth: '1400px',
-        padding: '0 2rem',
-        margin: '0 auto',
+        padding: '0',
+        margin: '0',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         gap: '2rem',
       }}>
         {/* Left Side - Title and Description */}
@@ -120,6 +124,8 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
           textAlign: 'left',
           maxWidth: '50%',
           minWidth: '300px',
+          marginLeft: '0',
+          paddingLeft: '1rem',
         }}>
           <h1 style={{
             fontSize: 'clamp(2rem, 5vw, 3.5rem)',

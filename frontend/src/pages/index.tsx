@@ -130,6 +130,10 @@ export default function Dashboard() {
       overflowX: 'hidden',
       margin: 0,
       padding: 0,
+      boxSizing: 'border-box',
+      position: 'relative',
+      left: 0,
+      transform: 'translateX(0)',
     }}>
       <Toaster 
         position="top-center"
@@ -162,6 +166,18 @@ export default function Dashboard() {
           },
         }}
       />
+      <style jsx global>{`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        body, html {
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+        }
+      `}</style>
       <Navbar />
       
       {/* Hero Component */}
@@ -220,7 +236,7 @@ export default function Dashboard() {
         style={{
           background: '#f1f5f9',
           minHeight: '100vh',
-          padding: '3rem 1.5rem',
+          padding: '3rem 0',
           width: '100%',
           margin: 0,
           maxWidth: '100vw',
@@ -230,7 +246,7 @@ export default function Dashboard() {
         <div style={{
           maxWidth: '1200px',
           margin: '0 auto',
-          padding: '0 1rem',
+          padding: '0',
         }}>
           {/* Summary Cards */}
           <div style={{
