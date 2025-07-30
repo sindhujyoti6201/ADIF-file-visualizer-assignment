@@ -241,7 +241,7 @@ export default function PatientDashboard() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+    <div style={{ minHeight: '100vh', background: '#f8fafc', paddingTop: '80px' }}>
       <style jsx global>{`
         * {
           margin: 0;
