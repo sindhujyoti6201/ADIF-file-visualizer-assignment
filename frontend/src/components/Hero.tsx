@@ -104,6 +104,47 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
         Your browser does not support the video tag.
       </video>
       
+      {/* Processing Overlay */}
+      {loading && (
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'rgba(0,0,0,0.8)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+        }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h1 style={{ color: '#fff', fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Processing your file...</h1>
+            <p style={{ color: '#fff', marginBottom: '2rem' }}>Calling healthcare API and preparing your dashboard.</p>
+            <div style={{ display: 'flex', gap: '12px', marginTop: '1rem' }}>
+              {[0, 1, 2].map(i => (
+                <div
+                  key={i}
+                  style={{
+                    width: 16,
+                    height: 16,
+                    borderRadius: '50%',
+                    background: '#2563eb',
+                    animation: `bounce 0.6s ${i * 0.2}s infinite alternate`,
+                  }}
+                />
+              ))}
+            </div>
+            <style>{`
+              @keyframes bounce {
+                to { transform: translateY(-16px); opacity: 0.5; }
+              }
+            `}</style>
+          </div>
+        </div>
+      )}
+      
       {/* Content Overlay */}
       <div style={{
         position: 'relative',
@@ -214,7 +255,7 @@ export default function Hero({ dashboardStats, onUpload, loading, filename, erro
               htmlFor="file-upload"
               style={{
                 display: 'block',
-                width: '90%',
+                width: '100%',
                 padding: '1rem 1.5rem',
                 fontSize: '1rem',
                 fontWeight: '600',

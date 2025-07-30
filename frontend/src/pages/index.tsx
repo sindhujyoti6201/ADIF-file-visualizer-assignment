@@ -189,46 +189,7 @@ export default function Dashboard() {
         error={error}
       />
 
-      {/* Loading Overlay */}
-      {loading && (
-        <div style={{
-          position: 'relative',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          background: 'rgba(0,0,0,0.8)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1000,
-        }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h1 style={{ color: '#fff', fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Processing your file...</h1>
-            <p style={{ color: '#fff', marginBottom: '2rem' }}>Calling healthcare API and preparing your dashboard.</p>
-            <div style={{ display: 'flex', gap: '12px', marginTop: '1rem' }}>
-              {[0, 1, 2].map(i => (
-                <div
-                  key={i}
-                  style={{
-                    width: 16,
-                    height: 16,
-                    borderRadius: '50%',
-                    background: '#2563eb',
-                    animation: `bounce 0.6s ${i * 0.2}s infinite alternate`,
-                  }}
-                />
-              ))}
-            </div>
-            <style>{`
-              @keyframes bounce {
-                to { transform: translateY(-16px); opacity: 0.5; }
-              }
-            `}</style>
-          </div>
-        </div>
-      )}
+
 
       {/* Main Content Section */}
       <div 
