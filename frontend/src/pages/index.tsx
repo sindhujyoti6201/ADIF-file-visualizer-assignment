@@ -152,7 +152,7 @@ export default function Dashboard() {
         overflow: 'hidden'
       }}>
         <Toaster 
-          position="top-right"
+          position="top-center"
           toastOptions={{
             duration: 4000,
             style: {
