@@ -120,7 +120,6 @@ export default function Visualization() {
           gap: '1rem',
           flexWrap: 'wrap',
           background: '#3b82f6',
-          borderBottom: '1px solid #dee2e6',
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
         }}>
           {sections.map((section) => (
@@ -131,7 +130,7 @@ export default function Visualization() {
                 padding: '1rem 2rem',
                 background: activeModel === section.name ? '#1e40af' : '#ffffff',
                 color: activeModel === section.name ? '#ffffff' : '#3b82f6',
-                border: `2px solid ${activeModel === section.name ? '#1e40af' : '#3b82f6'}`,
+                border: 'none',
                 borderRadius: '12px',
                 fontSize: '1rem',
                 fontWeight: '600',
@@ -142,14 +141,12 @@ export default function Visualization() {
               onMouseEnter={(e) => {
                 if (activeModel !== section.name) {
                   e.currentTarget.style.background = '#dbeafe';
-                  e.currentTarget.style.borderColor = '#3b82f6';
                   e.currentTarget.style.transform = 'translateY(-2px)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (activeModel !== section.name) {
                   e.currentTarget.style.background = '#ffffff';
-                  e.currentTarget.style.borderColor = '#3b82f6';
                   e.currentTarget.style.transform = 'translateY(0)';
                 }
               }}
